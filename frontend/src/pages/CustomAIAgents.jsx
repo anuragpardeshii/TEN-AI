@@ -4,7 +4,6 @@ import FeaturesSection from '../components/FeaturesSection';
 import ImageMockup from '@/components/ImageMockup';
 import ExperienceSection from '@/components/ExperienceSection';
 import LastHero from '@/components/LastHero';
-import StartupProcess from '@/components/StartupProcess';
 
 
 const CustomAIAgents = () => {

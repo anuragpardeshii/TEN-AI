@@ -104,7 +104,7 @@ const Header = () => {
                         <div className="w-px bg-gray-300 self-stretch mx-1" />
                         <div className="flex flex-col">
                           <MenubarItem className="group">
-                            <div className="flex items-start gap-2">
+                            <Link to='/whyten' className="flex items-start gap-2">
                               <Handshake size={18} className="mt-1" />
                               <span className="flex flex-col text-left text-[16px] w-38">
                                 <span className="group-hover:text-blue-500 font-medium">
@@ -114,7 +114,7 @@ const Header = () => {
                                   Build reliable and enterprise ready Ai with TENAI
                                 </p>
                               </span>
-                            </div>
+                            </Link>
                           </MenubarItem>
                         </div>
                       </div>
