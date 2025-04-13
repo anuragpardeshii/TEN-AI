@@ -139,24 +139,25 @@ const DataIngestionSection = () => {
           transition={{ duration: 0.6 }}
           className="max-w-7xl mx-auto"
         >
-          <div className="bg-gray-200 rounded-xl p-8 md:p-12 grid md:grid-cols-2 gap-10 items-center shadow-md">
-            {/* Image */}
-            <AnimatePresence mode="wait">
-              <motion.div
-                key={activetab + '-img'}
-                initial={{ opacity: 0, x: -30 }}
-                animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0, x: 30 }}
-                transition={{ duration: 0.3 }}
-                className="bg-white rounded-lg shadow p-6 flex items-center justify-center h-96"
-              >
-                <img
-                  src={content[activetab].image}
-                  alt={`${content[activetab].title} Diagram`}
-                  className="max-h-full object-contain"
-                />
-              </motion.div>
-            </AnimatePresence>
+          <div className="bg-gray-100 rounded-xl p-8 md:p-12 grid md:grid-cols-2 gap-10 items-center shadow-md">
+           
+                                   {/* ✅ Fixed Image Section */}
+                                   <AnimatePresence mode="wait">
+                                       <motion.div
+                                           key={activetab + '-img'}
+                                           initial={{ opacity: 0, x: -30 }}
+                                           animate={{ opacity: 1, x: 0 }}
+                                           exit={{ opacity: 0, x: 30 }}
+                                           transition={{ duration: 0.3 }}
+                                           className="flex items-center justify-center h-96 bg-transparent p-0"
+                                       >
+                                           <img
+                                               src={content[activetab].image}
+                                               alt={`${content[activetab].title} Diagram`}
+                                               className="max-h-full object-contain bg-transparent border-none shadow-none"
+                                           />
+                                       </motion.div>
+                                   </AnimatePresence>
 
             {/* Tab Content */}
             <AnimatePresence mode="wait">
