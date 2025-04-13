@@ -6,6 +6,7 @@ import CustomAIAgents from "./pages/CustomAIAgents";
 import AiServices from "./pages/AiServices";
 import WhyTEN from "./pages/WhyTEN";
 import Contact from "./components/Contact";
+import Retail from "./pages/Retail";
 function App() {
 	return (
 		<BrowserRouter>
@@ -17,6 +18,7 @@ function App() {
 						<Route path ="/aiservices" element ={<AiServices/>}/>
 						<Route path ="/whyten" element ={<WhyTEN/>}/>
 						<Route path ="/contact-us" element ={<Contact/>}/>
+						<Route path = "/retail" element ={<Retail/>}/>
 					</Route>
 				</Routes>
 			</ThemeProvider>

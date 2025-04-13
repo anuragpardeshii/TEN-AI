@@ -122,7 +122,7 @@ const Header = () => {
 
                     {menuKey === "Industries" && (
                       <div className="flex gap-6 p-2">
-                        <div className="flex items-start gap-2 group">
+                        <Link to ='/retail' className="flex items-start gap-2 group">
                           <Tag size={18} className="mt-1" />
                           <span className="flex flex-col text-left text-[16px] w-38">
                             <span className="group-hover:text-blue-500 font-medium">
@@ -132,7 +132,7 @@ const Header = () => {
                               AI Agents for sales, operations, and customer delight
                             </p>
                           </span>
-                        </div>
+                        </Link>
 
                         <div className="w-px bg-gray-300 self-stretch mx-1" />
 
