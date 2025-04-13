@@ -1,21 +1,32 @@
-"use client";
-import React from "react";
-import { Boxes } from "./ui/background-boxes";
-import { cn } from "@/lib/utils";
-import { Button } from "./ui/button";
-import { MoveRight } from "lucide-react";
+import { Badge } from "./ui/badge"
+import { Separator } from "./ui/separator"
 
-export function Contact() {
+function Contact() {
   return (
-    <div className="h-[70vh] relative w-full overflow-hidden bg-blue-600 flex flex-col items-center justify-center">
-      <div className="absolute inset-0 w-full h-full bg-white z-20 [mask-image:radial-gradient(transparent,transparent)] pointer-events-none" />
-      <Boxes />
-      <h1 className={"text-center text-3xl md:text-5xl font-bold text-white relative z-20"}>
-        Start Your Journey with TenAI Today
-      </h1>
-      <Button className="z-40 cursor-pointer p-5 mt-6 text-sm text-black hover:text-white bg-white hover:bg-black rounded-full transition-all duration-300 ease-in-out">
-        Contact us <MoveRight />
-      </Button>
+    <div className="pt-20 min-h-screen">
+        <div className="flex min-h-[40vh] flex-col sm:flex-row sm:items-end sm:justify-between px-[2%] py-3">
+            <div className="flex flex-col gap-4 md:max-w-[60%]">
+              <Badge title={"Contact Us"}/>
+              <h1 className="text-6xl font-bold leading-20">Start your AI transformation today!</h1>
+            </div>
+            <div className="md:max-w-[30%]">
+                <p className="text-[1rem] opacity-70">Build a reliable, scalable, and secure solution that transforms interactions into opportunities for growth.</p>
+            </div>
+        </div>
+
+        <hr className="my-8"/>
+
+        <div className="flex flex-col md:flex-row gap-3">
+            <div className="md:max-w-[60%]">
+                
+            </div>
+            <Separator orientation="vertical" className={"hidden md:block"}/>
+            <div className="md:max-w-[40%]">
+
+            </div>
+        </div>
     </div>
-  );
+  )
 }
+
+export default Contact
