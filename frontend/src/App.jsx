@@ -5,6 +5,7 @@ import { ThemeProvider } from "./context/ThemeContext";
 import CustomAIAgents from "./pages/CustomAIAgents";
 import AiServices from "./pages/AiServices";
 import WhyTEN from "./pages/WhyTEN";
+import Contact from "./components/Contact";
 function App() {
 	return (
 		<BrowserRouter>
@@ -15,8 +16,7 @@ function App() {
 						<Route path ="/custom-ai-agents" element ={<CustomAIAgents/>}/>
 						<Route path ="/aiservices" element ={<AiServices/>}/>
 						<Route path ="/whyten" element ={<WhyTEN/>}/>
-
-
+						<Route path ="/contact-us" element ={<Contact/>}/>
 					</Route>
 				</Routes>
 			</ThemeProvider>

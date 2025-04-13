@@ -192,9 +192,9 @@ const Header = () => {
           >
             {theme === "dark" ? <Sun /> : <Moon />}
           </button>
-          <div className="hidden sm:flex gap-1 items-center bg-blue-500 hover:bg-black transition-all cursor-pointer text-white rounded-full px-4 py-2 text-sm font-semibold">
+          <Link to={"/contact-us"} className="hidden sm:flex gap-1 items-center bg-blue-500 hover:bg-black transition-all cursor-pointer text-white rounded-full px-4 py-2 text-sm font-semibold">
             <span>Let's Talk</span> <MoveRight size={16} />
-          </div>
+          </Link>
         </div>
 
         {/* Mobile Menu */}
