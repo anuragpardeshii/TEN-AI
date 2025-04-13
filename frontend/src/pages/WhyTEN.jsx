@@ -1,5 +1,5 @@
 import DataIngestionSection from '@/components/DataIngestionSection';
-import Whytenai from '../components/whytenai'
+import Whytenai from '../components/Whytenai'
 import React from 'react'
 import SystemIntegration from '@/components/SystemIntegration';
 import DataOnboardingSection from '@/components/DataOnboardingSection';

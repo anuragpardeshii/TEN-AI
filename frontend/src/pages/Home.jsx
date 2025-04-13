@@ -1,4 +1,4 @@
-import { Contact } from "@/components/Contact";
+import Connect from "@/components/Connect";
 import Demo from "@/components/Demo";
 import Experts from "@/components/Experts";
 import Hero from "@/components/Hero";
@@ -20,7 +20,7 @@ function Home() {
       <Impact />
       <Experts />
       <Insights />
-      <Contact />
+      <Connect />
     </div>
   );
 }

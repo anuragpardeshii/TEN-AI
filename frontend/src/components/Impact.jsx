@@ -1,5 +1,6 @@
 import React from 'react'
 import { motion } from 'framer-motion';
+import { Badge } from './ui/badge';
 
 const Impact = () => {
     const fadeIn = (delay = 0) => ({
@@ -11,13 +12,7 @@ const Impact = () => {
   <div className='bg-blue-950 w-full overflow-hidden'>
       <div className='lg:flex flex-col lg:flex-row justify-evenly text-amber-50'>
        <div className='p-12 lg:mt-48'>
-        <div className='flex p-2 gap-2 w-28 rounded-full border'>
-           <img className='bg-amber-400 w-7 rounded-full' 
-        
-           src="https://cdn.prod.website-files.com/66796a37e9aadbf3722c4340/668f703d2aa0bf69a597c3d9_Label%20Arrow.svg"
-            alt="impactLogo" />
-            <h1>Impact</h1>
-        </div>
+        <Badge title={"Impact"}/>
         <h1 className='font-bold text-3xl sm:text-5xl mt-5'>AI Powered Enterprise</h1>
         <p className='w-72 mt-6 text-gray-400'>Organizations leveraging Nurix Agents and Agent Assist experience significant performance enhancement</p>
        </div>
