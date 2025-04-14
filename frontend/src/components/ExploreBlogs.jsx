@@ -1,30 +1,25 @@
-import React from "react";
-import { useNavigate } from "react-router-dom";
+import React, { useEffect } from "react";
 import { insights } from "./InsightsData";
+import { useNavigate } from "react-router-dom";
 
-const Insights = ({ isHomePage }) => {
+const ExploreBlogs = () => {
   const navigate = useNavigate();
-  const displayedInsights = isHomePage ? insights.slice(0, 3) : insights;
 
-  const exploreMore = () => {
-    navigate("/explore-blogs");
+  const goBack = () => {
+    navigate("/");
   };
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  });
+
   return (
-    <div className="px-78 py-12 bg-white font-sans">
-      <div className="flex justify-between items-center mb-10">
-        <h2 className="text-4xl font-bold text-black">Latest Insights</h2>
-        {isHomePage && (
-          <button
-            className="bg-blue-600 text-white text-lg px-6 py-2 rounded-full hover:bg-black transition"
-            onClick={exploreMore}
-          >
-            Explore All →
-          </button>
-        )}
-      </div>
+    <div className="px-20 py-20 bg-white font-sans min-h-screen">
+      <h2 className="text-4xl font-bold text-black mb-10 text-center">
+        Explore All Blogs
+      </h2>
 
       <div className="flex flex-wrap justify-center gap-16">
-        {displayedInsights.map((item, index) => (
+        {insights.map((item, index) => (
           <div
             key={index}
             className="bg-white rounded-xl shadow-lg hover:shadow-xl transform hover:-translate-y-2 transition-all w-full max-w-sm cursor-pointer"
@@ -49,8 +44,16 @@ const Insights = ({ isHomePage }) => {
           </div>
         ))}
       </div>
+      <div className="flex justify-end mb-6 mt-9">
+        <button
+          className="bg-blue-600 text-white text-lg px-6 py-2 rounded-full hover:bg-black transition"
+          onClick={goBack}
+        >
+          <span className="text-xl">←</span> Go Back
+        </button>
+      </div>
     </div>
   );
 };
 
-export default Insights;
+export default ExploreBlogs;

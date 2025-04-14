@@ -19,7 +19,7 @@ function Home() {
       <Reviews />
       <Impact />
       <Experts />
-      <Insights />
+      <Insights isHomePage={true} />
       <Connect />
     </div>
   );

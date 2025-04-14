@@ -7,6 +7,8 @@ import AiServices from "./pages/AiServices";
 import WhyTEN from "./pages/WhyTEN";
 import Contact from "./components/Contact";
 import Retail from "./pages/Retail";
+import ExploreBlogs from "./components/ExploreBlogs";
+
 function App() {
 	return (
 		<BrowserRouter>
@@ -19,7 +21,9 @@ function App() {
 						<Route path ="/whyten" element ={<WhyTEN/>}/>
 						<Route path ="/contact-us" element ={<Contact/>}/>
 						<Route path = "/retail" element ={<Retail/>}/>
+						<Route path="/explore-blogs" element={<ExploreBlogs/>}/>
 					</Route>
+					
 				</Routes>
 			</ThemeProvider>
 		</BrowserRouter>
