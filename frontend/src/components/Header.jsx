@@ -184,9 +184,11 @@ const Header = () => {
                           <Newspaper size={18} className="mt-1" />
 
                           <span className="flex flex-col text-left text-[16px] w-38">
-                            <span className="group-hover:text-blue-500 font-medium">
-                              Latest Insights
-                            </span>
+                            <Link to="explore-blogs">
+                              <span className="group-hover:text-blue-500 font-medium">
+                                Latest Insights
+                              </span>
+                            </Link>
                           </span>
                         </div>
                       </div>
