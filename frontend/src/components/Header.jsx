@@ -41,15 +41,16 @@ const Header = () => {
   return (
     <motion.header
       initial={{ y: -50, opacity: 0 }}
-      animate={{ y: 0, opacity: 1 }}
-      transition={{ duration: 0.5 }}
+      animate={{ y: 8, opacity: 1 , scaleX: isScrolled ? 0.8 : 1,originX: 0.5,}}
+      transition={{ duration: 0.3 }}
       className={`fixed max-w-screen w-full z-50 transition-all duration-300 ${
         isScrolled
-          ? "bg-black/80 dark:bg-gray-800 text-gray-300 backdrop-blur-lg shadow-lg"
+          ? "bg-black/80 dark:bg-gray-800 rounded-2xl text-gray-300 backdrop-blur-lg shadow-lg"
           : "bg-white dark:bg-black border-b-2"
       }`}
     >
       <div className="flex justify-between items-center px-8 py-2">
+        <Link to="/">
         <motion.h1
           className="text-2xl font-bold"
           initial={{ opacity: 0 }}
@@ -59,6 +60,8 @@ const Header = () => {
           <span className="dark:text-white">TEN</span>
           <span className="text-blue-500">AI</span>
         </motion.h1>
+        </Link>
+
 
         <nav className="hidden md:flex">
           <Menubar className="gap-5">
