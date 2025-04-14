@@ -7,7 +7,10 @@ function Contact() {
 		register,
 		handleSubmit,
 		formState: { errors },
+		watch
 	} = useForm();
+
+	const isTermsChecked = watch("terms", false); // The watch function from react-hook-form allows you to monitor the value of the checkbox and conditionally enable or disable the submit button.
 
 	const onSubmit = () => {
 		alert("Form is submitted");
@@ -86,7 +89,7 @@ function Contact() {
 									placeholder="Enter your company name"
 									className="border-gray-400 w-full focus:border-blue-600 text-sm border-b outline-none px-2 py-4"
 								/>
-								{errors.company && <p className="text-red-500 text-sm">{errors.comapny.message}</p>}
+								{errors.company && <p className="text-red-500 text-sm">{errors.company.message}</p>}
 							</label>
 						</div>
 						{/* Source */}
@@ -130,7 +133,7 @@ function Contact() {
 							{errors.terms && <p className="text-red-500 text-sm">{errors.terms.message}</p> }
 						</label>
 
-						<button className="mx-auto mt-3 px-4 py-2 text-sm bg-blue-700 w-fit rounded-full">Submit</button>
+						<button className={`text-white mx-auto mt-3 px-4 py-2 text-sm bg-blue-700 w-fit rounded-full ${!isTermsChecked ? "opacity-70" : "cursor-pointer"}`}disabled={!isTermsChecked}>Submit</button>
 					</form>
 				</div>
 
