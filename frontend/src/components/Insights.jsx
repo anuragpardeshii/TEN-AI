@@ -1,6 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import { insights } from "./InsightsData";
+import { insights } from "../lib/InsightsData";
 
 const Insights = ({ isHomePage }) => {
   const navigate = useNavigate();

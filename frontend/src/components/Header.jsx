@@ -45,7 +45,7 @@ const Header = () => {
       transition={{ duration: 0.3 }}
       className={`fixed max-w-screen w-full z-50 transition-all duration-300 ${
         isScrolled
-          ? "bg-black/80 dark:bg-gray-800 rounded-2xl text-gray-300 backdrop-blur-lg shadow-lg"
+          ? "bg-black/60 dark:bg-gray-800 rounded-2xl text-gray-300 backdrop-blur-lg shadow-lg"
           : "bg-white dark:bg-black border-b-2"
       }`}
     >

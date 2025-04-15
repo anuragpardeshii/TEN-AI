@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { insights } from "./InsightsData";
+import { insights } from "../lib/InsightsData";
 import { useNavigate } from "react-router-dom";
 
 const ExploreBlogs = () => {

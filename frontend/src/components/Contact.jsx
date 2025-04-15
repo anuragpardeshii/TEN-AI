@@ -17,11 +17,11 @@ function Contact() {
 	};
 
 	return (
-		<div className="pt-20 min-h-screen bg-gray-50">
+		<div className="pt-20 min-h-screen bg-gray-50 dark:bg-gray-900">
 			<div className="flex min-h-[40vh] flex-col sm:flex-row sm:items-end sm:justify-between px-[4%] py-3">
 				<div className="flex flex-col gap-4 md:max-w-[60%]">
 					<Badge title={"Contact Us"} />
-					<h1 className=" text-5xl text-wrap sm:text-6xl font-bold leading-20">
+					<h1 className="text-5xl text-wrap sm:text-6xl font-bold leading-20">
 						Start your AI transformation today!
 					</h1>
 				</div>
