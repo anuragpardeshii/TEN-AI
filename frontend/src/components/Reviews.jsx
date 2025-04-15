@@ -3,22 +3,22 @@ import { Badge } from "@/components/ui/badge";
 
 const reviews = [
   {
-    text: "Cult.fit leveraged TenAI for their Customer Support.",
+    text: "FLKeys News leveraged TenAI for their Customer Support.",
     image:
       "https://cdn.prod.website-files.com/66796a37e9aadbf3722c4340/67596fb93b86b2fda211fe15_cult.fit.avif",
-    // brandLogo: "/cultfit_dark.svg",
+    brandLogo: "/investor_logo1.svg",
   },
   {
-    text: "Groww leveraged TenAI for their share market Support team.",
+    text: "Founders Fund leveraged TenAI for their share market Support team.",
     image:
       "https://cdn.prod.website-files.com/66796a37e9aadbf3722c4340/67596fb9ceeb860a66541d7f_super.money.avif",
-    // brandLogo: "/grow_dark.svg",
+    brandLogo: "/investor_logo2.svg",
   },
   {
-    text: "Super Money Group leveraged TenAI for their employee training.",
+    text: "Freight Center leveraged TenAI for their employee training.",
     image:
       "https://cdn.prod.website-files.com/66796a37e9aadbf3722c4340/67d934420aa676b219f94cbf_FIIC.avif",
-    // brandLogo: "/supermoney_dark.svg",
+    brandLogo: "/investor_logo3.svg",
   },
 ];
 
@@ -27,7 +27,10 @@ const Reviews = () => {
     <section className="min-h-screen w-full bg-white dark:bg-black flex flex-col items-center justify-center py-16">
       <div className="container mx-auto px-4">
         <div className="flex justify-center mb-4">
-          <Badge title={"Reviews"}/>
+          <Badge
+            lassName="bg-white dark:bg-slate-800 border border-slate-500 dark:border-slate-300 font-[Manrope] text-slate-700 dark:text-slate-300 text-xs rounded-4xl px-2 py-1 flex items-center gap-2"
+            title={"Reviews"}
+          />
         </div>
 
         <h1 className="text-4xl md:text-5xl font-[Manrope] font-semibold text-center mb-4 dark:text-gray-200 leading-snug">
@@ -49,13 +52,13 @@ const Reviews = () => {
                   alt="Review"
                   className="w-full h-60 object-cover"
                 />
-                {/* <div className="absolute inset-0 flex items-center justify-center">
+                <div className="absolute inset-0 flex items-center justify-center">
                   <img
                     src={review.brandLogo}
                     alt="Brand Logo"
-                    className="h-30 w-30 object-contain"
+                    className="h-60 w-60 object-contain invert"
                   />
-                </div> */}
+                </div>
               </div>
               <div className="p-4 text-left">
                 <p className="text-slate-800 dark:text-slate-300 font-semibold text-base font-[Manrope]">
