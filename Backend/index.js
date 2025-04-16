@@ -1,19 +1,30 @@
 import express from "express";
 import dotenv from "dotenv";
-dotenv.config({ path : "./.env" });
+import { connectDB } from "./src/utils/dbConnect.js";
+import bodyParser from "body-parser";
+import insightsRouter from "./src/features/Insights/insights.routes.js";
+import cors from "cors";
 
+dotenv.config();
 
-const app = express();
+const server = express();
 
+server.use(cors());
+server.use(bodyParser.json());
+server.use(express.json());
+server.use(express.urlencoded({ extended: true }));
 
-const port = process.env.PORT || 3000;
+// server.use("/uploads", express.static(path.join("uploads")));
 
+server.use("/api/insights", insightsRouter);
 
+server.get("/", (req, res) => {
+  res.send("Welcome to the TEN-AI Backend");
+});
 
+const PORT = process.env.PORT || 5000;
 
-
-
-
-app.listen(port, () => {
-    console.log(`Server running on PORT : ${port}`);
-})
+server.listen(PORT, () => {
+  console.log(`Server is Listening at Port Number : ${PORT}`);
+  connectDB();
+});

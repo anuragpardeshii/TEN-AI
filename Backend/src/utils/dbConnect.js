@@ -1,12 +1,21 @@
 import mongoose from "mongoose";
-import dotenv from "dotenv";
 
+import dotenv from "dotenv";
 dotenv.config();
 
-const connectDB = async () => {
-    await mongoose.connect(process.env.MONGODB_URI)
-    .then((db) => console.log("DB successfully connected : ", db.connection.host))
-    .catch((err) => console.log("DB connection failed : ", err));
-}
+const baseUrl = process.env.MONGODB_URL || "0.0.0.0:27017";
 
-export default connectDB;
+export const connectDB = async () => {
+  try {
+    await mongoose
+      .connect(baseUrl, {
+        dbName: "TenAi"
+      })
+      .then(() => console.log("Mongodb connected using mongoose"))
+      .catch((error) =>
+        console.error(`Error while connecting to the db ${error.message}`)
+      );
+  } catch (error) {
+    console.log(`Error while connecting to db ${error.message}`);
+  }
+};
