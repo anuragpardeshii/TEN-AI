@@ -1,6 +1,7 @@
 import Connect from "@/components/Connect";
 import Demo from "@/components/Demo";
 import Experts from "@/components/Experts";
+import Expertise from '@/components/Expertise';
 import Hero from "@/components/Hero";
 import Offerings from "@/components/Offerings";
 import Reviews from "@/components/Reviews";
@@ -17,6 +18,7 @@ function Home() {
       <VideoCarousel />
       <Offerings />
       <Reviews />
+      <Expertise />
       <Impact />
       <Experts />
       <Insights isHomePage={true} />
