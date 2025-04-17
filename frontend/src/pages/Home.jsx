@@ -19,8 +19,8 @@ function Home() {
       <Offerings />
       <Reviews />
       <Expertise />
-      <Impact />
       <Experts />
+      <Impact />
       <Insights isHomePage={true} />
       <Connect />
     </div>
