@@ -42,10 +42,10 @@ export default function Expertise() {
   return (
     <div
       ref={containerRef}
-      className="bg-[#01194c] w-full pt-10 pb-10 px-4 relative overflow-hidden"
+      className="bg-[#01194c] w-full pt-10 pb-10 px-4 relative overflow-hidden  font-[Manrope]"
     > 
 
-      <div className="text-center mb-6">
+      <div className="text-center mb-6 font-[Manrope]">
         <h2 className="text-4xl font-bold text-white">Our Expertise</h2>
         <p className="text-gray-300 text-md mt-4 max-w-xl mx-auto">
           We customize and create the most relevant tech architecture for your
