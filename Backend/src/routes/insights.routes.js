@@ -1,10 +1,10 @@
 import express from "express";
-import {
-  addInsight,
-  deleteInsight,
-  fetchInsights,
-  updateInsight
-} from "./insights.controller.js";
+import { 
+  addInsight, 
+  deleteInsight, 
+  fetchInsights, 
+  updateInsight 
+} from "../controllers/insights.controller.js";
 
 const insightsRouter = express.Router();
 

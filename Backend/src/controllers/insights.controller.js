@@ -3,7 +3,7 @@ import {
   deleteInsightById,
   getAllInsights,
   updateInsightById
-} from "./insights.repo.js";
+} from "../features/Insights/insights.repo.js";
 
 export const addInsight = async (req, res) => {
   try {
