@@ -4,7 +4,7 @@ import bodyParser from "body-parser";
 import cors from "cors";
 import { connectDB } from "./src/utils/dbConnect.js";
 import insightsRouter from "./src/routes/insights.routes.js";
-
+import Contactrouter from "./src/routes/contact.routes.js";
 
 const server = express();
 server.use(cors());
@@ -15,6 +15,7 @@ server.use(express.urlencoded({ extended: true }));
 // server.use("/uploads", express.static(path.join("uploads")));
 
 server.use("/api/insights", insightsRouter);
+server.use("/api/contact", Contactrouter);
 
 server.get("/", (req, res) => {
   res.send("Welcome to the TEN-AI Backend");
