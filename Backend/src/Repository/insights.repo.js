@@ -1,4 +1,4 @@
-import { Insight } from "./insights.schema.js";
+import { Insight } from "../Model/insights.schema.js";
 
 export const createInsight = async (data) => {
   return await Insight.create(data);
