@@ -1,34 +1,36 @@
-import React, { useEffect, useState } from 'react';
-import { Separator } from './ui/separator';
-import { Landmark, Mic, Store, TreePalm, Umbrella } from 'lucide-react';
+import { AudioLines, Landmark, Mic, Store, TreePalm, Umbrella } from 'lucide-react';
+import { motion } from "motion/react";
+import React, { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
-import {Swiper, SwiperSlide} from "swiper/react";
-import {Autoplay} from "swiper/modules";
 import "swiper/css";
 import "swiper/css/autoplay";
 import { useTheme } from '../context/ThemeContext';
-import {motion} from "motion/react";
+import { Separator } from './ui/separator';
 
 const demoData = [
   {
     type : "Travel",
     icon : <TreePalm />,
-    data : "Simplify flight rescheduling in just a few steps. Your PNR is ABC123 and last name is Johnson"
+    data : "Simplify flight rescheduling in just a few steps. Your PNR is ABC123 and last name is Johnson",
+    track : "/audio/travel.mp3"
   },
   {
     type : "Insurance",
     icon : <Umbrella />,
-    data : "Talk to our agent who will access customer needs and suggest the best-suited policy for yur insurance needs."
+    data : "Talk to our agent who will access customer needs and suggest the best-suited policy for yur insurance needs.",
+    track : "/audio/insurance.mp3"
   },
   {
     type : "Retail",
     icon : <Store />,
-    data : "Check order details and make changes with ease. Ask about a bluetooth speaker (ID: #202) and security camera (ID: #456)"
+    data : "Check order details and make changes with ease. Ask about a bluetooth speaker (ID: #202) and security camera (ID: #456)",
+    track : "/audio/retail.mp3"
   },
   {
     type : "Collections",
     icon : <Landmark />,
-    data : "This collection agent helps you manage payment-related matters, such as overdue payments, payment plan options, etc. Hint: Last digits of social security are 3456."
+    data : "This collection agent helps you manage payment-related matters, such as overdue payments, payment plan options, etc. Hint: Last digits of social security are 3456.",
+    track : "/audio/collection.mp3"
   },
 ];
 
@@ -36,23 +38,12 @@ const demoData = [
 function Demo() {
   const [demoType, setDemoType] = useState(null);
   const [isVisible, setIsVisible] = useState(false);
-
-  let [brands, setBrands] = useState([
-    '/cultfit.svg', 
-    "/grow.svg", 
-    "/supermoney.svg"
-  ]);
+  const [trackError, setTrackError] = useState(false);
+  const [isPlaying, setIsPlaying] = useState(false);
+  
+  const audioRef = useRef(null);
 
   const {theme} = useTheme();
-
-  useEffect(() => {
-    if(theme === "dark"){
-      setBrands(['/cultfit_dark.svg', "/grow_dark.svg", "/supermoney_dark.svg"]);
-    }
-    else{
-      setBrands(['/cultfit.svg', "/grow.svg", "/supermoney.svg"]);
-    }
-  }, [theme])
 
   // Scroll event listener to track when to show the Demo Component
   useEffect(() => {
@@ -71,7 +62,36 @@ function Demo() {
   },[])
 
   const typeHandler = (type) => {
+    setTrackError(false);
     setDemoType(type);
+  }
+
+  const handleMicClick = (type) => {
+    if(type === "#" || type === null){
+        setTrackError(true);
+        return;
+    }
+    const selectedDemo = demoData.find((demo) => demo.type === type);
+
+    if(audioRef.current){
+      if(isPlaying){
+        // Stop the audio it its already playing
+        audioRef.current.pause();
+        audioRef.current.currentTime = 0;
+      }
+      else{
+        // Play the selected audio
+        audioRef.current.src = selectedDemo.track;
+        audioRef.current.play();
+        setIsPlaying(true);
+      }
+    }
+
+    // Stop the animation when audio stops
+    audioRef.current.onended = () => {
+      setIsPlaying(false);
+    }
+    
   }
 
   return (
@@ -92,6 +112,8 @@ function Demo() {
 
           <div className='m-3 bg-gray-200 flex flex-col flex-1 rounded-lg px-12'>
             <div className='flex flex-col items-center gap-3 w-full py-4 flex-1 lg:justify-center lg:items-center lg:flex-row'>
+                
+                {/* Types */}
                 <div className='w-full lg:max-w-1/3 flex flex-col gap-4'>
                   <h1 className='text-xl text-gray-400 pl-6 font-bold'>SELECT USE CASE</h1>
                   <div className='flex flex-col gap-3'>
@@ -122,59 +144,29 @@ function Demo() {
                     </select>
                   </div>
                 </div>
-
-                <div className='lg:max-w-1/3 text-center w-full flex flex-col items-center gap-4'>
-                    <button className='w-[90px] h-[90px] text-white border-0 p-8 bg-blue-600 rounded-full outline-white outline-[10px] -outline-offset-[12px]'><Mic /></button>
-                    <p className='text-sm text-black font-semibold'>Tap the mic and experience out AI agents</p>
-                </div>
                 
+                {/* MIC */}
+                <div className='lg:max-w-1/3 text-center w-full flex flex-col items-center gap-4'>
+                    <button 
+                      onClick={() => handleMicClick(demoType)} 
+                      className={`w-[90px] h-[90px] text-white border-0 p-8 bg-blue-600 rounded-full outline-white outline-[10px] -outline-offset-[12px] cursor-pointer ${isPlaying ? "animate-pulse" : ""}`}
+                    >
+                     {isPlaying ? <AudioLines /> :  <Mic />}
+                    </button>
+                    <p className='text-sm text-black font-semibold'>Tap the mic and experience out AI agents</p>
+                    {trackError && <p className='text-red-600 font-semibold text-sm'>Select an option first</p>}
+                </div>
+               
+                {/* Cards */}
                 <div className='lg:w-1/3 w-full flex justify-center'>
                     {!demoType && <DemoTypeCard type={"Voice"} data={"Human-like voice agents assist, provide insights, and complete enterprise tasks efficiently through seamless interaction"}/>}
                     {demoType && <DemoTypeCard type={demoType} data={demoData.find((demo) => demo.type === demoType).data} />}
                 </div>
             </div>
-
-            <div className='flex flex-col pl-4 gap-3 items-center mb-4'>
-                  <div className='border border-gray-500 p-2 rounded-full text-gray-500 font-bold'>0:00</div>
-                  <div className='text-xs text-gray-700 font-semibold'>Trial ends in 1 minute! <Link to="#" className='text-blue-600'>Signup now</Link> to experience our AI Agent.</div>
-            </div>
           </div>
       </div>
 
-      {/* <div className="flex flex-col w-full items-center mt-3 gap-2 text-black">
-
-          <p className="text-sm font-semibold text-gray-600">Trusted by Leading Brands</p>
-        
-          <div className="w-[22rem] relative overflow-hidden">
-              {theme === "light" && <div className="fade-overlay left-fade"></div>}
-              <Swiper
-                spaceBetween={25} // Space between slides
-                slidesPerView={2} // Number of slides visible at a time
-                loop={true} // Enable infinite loop
-                autoplay={{
-                  delay: 0, // Delay between slides (in milliseconds)
-                  disableOnInteraction: false, // Keep autoplay running even after user interaction
-                }}
-                speed={3000}
-
-                className='mySwiper'
-                modules={[Autoplay]} // Add the Autoplay module
-              >
-                {brands.map((brand, index) => (
-                    <SwiperSlide key={index}>
-                      <div className="brand-logo">
-                        <img 
-                          src={brand} 
-                          alt={`Brand ${index + 1}`}
-                          className="logo-image"
-                        />
-                      </div>
-                    </SwiperSlide>
-                ))}
-              </Swiper>
-              {theme === "light" &&  <div className="fade-overlay right-fade"></div>}
-          </div>
-      </div> */}
+      <audio ref={audioRef} />
     </motion.div>
   )
 }

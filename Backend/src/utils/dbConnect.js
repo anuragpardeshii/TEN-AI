@@ -1,9 +1,6 @@
 import mongoose from "mongoose";
 
-import dotenv from "dotenv";
-dotenv.config();
-
-const baseUrl = process.env.MONGODB_URL || "0.0.0.0:27017";
+const baseUrl = process.env.MONGODB_URI;
 
 export const connectDB = async () => {
   try {
@@ -11,7 +8,7 @@ export const connectDB = async () => {
       .connect(baseUrl, {
         dbName: "TenAi"
       })
-      .then(() => console.log("Mongodb connected using mongoose"))
+      .then((db) => console.log("Mongodb connected : ", db.connection.host))
       .catch((error) =>
         console.error(`Error while connecting to the db ${error.message}`)
       );
