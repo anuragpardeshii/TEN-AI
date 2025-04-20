@@ -1,9 +1,11 @@
+import Connect from "@/components/Connect";
+import Impact from "@/components/Impact";
 import { Link } from "react-router-dom";
 
 export default function Team() {
     return (
         <>
-            <div className='pt-15 pb-15'>
+            <div className='pt-15'>
                 <section className='pt-20 pb-5 max-[480px]:pt-10 max-[480px]:pb-10 pl-10 pr-10 max-[480px]:pl-6 max-[480px]:pr-6'>
                     <div className='pb-15 max-[480px]:pb-5'>
                         <div className="bg-white w-fit pr-2 pl-0.5 py-0.5 gap-2 dark:bg-slate-800 border border-slate-300 dark:border-slate-300 font-[Manrope] text-slate-700 dark:text-slate-300 text-xs flex align-center rounded-4xl">
@@ -35,38 +37,39 @@ export default function Team() {
                 <section className='pl-10 pr-10 pt-24 pb-24 max-[480px]:pl-6 max-[480px]:pr-6'>
                     <div className="">
                         <div className='grid grid-cols-5 max-[991px]:flex max-[991px]:flex-col'>
-                            <div className="col-span-2 bg-cover h-[35rem] w-full rounded-md bg-[url(./premji_b.jfif)] p-5 bg-center flex flex-col justify-end items-start max-[991px]:w-full">
-                                <div className="bg-white rounded-md p-5 ">
-                                    <div className="text-black">Premji B</div>
-                                    <div className="text-black">Senior AI Product Leader</div>
+                            <div className="col-span-2 bg-cover h-[40rem] w-full rounded-md bg-[url(./premji_b.jfif)] p-5 bg-center flex flex-col justify-end items-start max-[991px]:w-full">
+                                <div className="bg-white rounded-md p-4 leading-6">
+                                    <div className="text-[#000000bf] font-medium">Premji B</div>
+                                    <div className="text-[#0009]">Senior AI Product Leader</div>
                                 </div>
                             </div>
-                            <div className="col-span-3 self-center max-[991px]:self-start max-[991px]:pl-0 max-[991px]:pt-10 pl-10 w-[85%]">
+                            <div className="col-span-3 self-center max-[991px]:self-start max-[991px]:pl-0 max-[991px]:pt-10 pl-25 w-[85%] max-[991px]:w-[100%] ">
                                 <h2 className="text-4xl font-medium pb-4">Our Leadership</h2>
-                                <div className="text-sm text-[#0009] w-[65%] dark:text-accent-foreground pt-5">Premji B, a seasoned leader with 26 years in agile product management, excels in driving innovation, team development, and strategic growth.</div>
-                                <div className="text-sm text-[#0009] w-[65%] dark:text-accent-foreground pt-5">With 27+ years of experience in Product Management consulting and as a strategist, The Transcendental Professional is a trusted expert in guiding organizational transformation. Through exciting workshops on team building, agile development, and more, he helps businesses thrive. </div>
-                                <div className="text-sm text-[#0009] w-[65%] dark:text-accent-foreground pt-5">A graduate of the Hindustan College of Engineering, Kelambakkam, Tamil Nadu, Premji B is celebrated for his expertise in product innovation, customer experience, and scaling businesses globally. Under his leadership, TEN is shaping the future of customer engagement, blending AI efficiency with the human touch to create exceptional customer experiences.</div>
+                                <div className="text-sm text-[#0009] w-[65%] dark:text-accent-foreground pt-5 max-[991px]:w-[100%]">Premji B, a seasoned leader with 26 years in agile product management, excels in driving innovation, team development, and strategic growth.</div>
+                                <div className="text-sm text-[#0009] w-[65%] dark:text-accent-foreground pt-5 max-[991px]:w-[100%]">With 27+ years of experience in Product Management consulting and as a strategist, The Transcendental Professional is a trusted expert in guiding organizational transformation. Through exciting workshops on team building, agile development, and more, he helps businesses thrive. </div>
+                                <div className="text-sm text-[#0009] w-[65%] dark:text-accent-foreground pt-5 max-[991px]:w-[100%]">A graduate of the Hindustan College of Engineering, Kelambakkam, Tamil Nadu, Premji B is celebrated for his expertise in product innovation, customer experience, and scaling businesses globally. Under his leadership, TEN is shaping the future of customer engagement, blending AI efficiency with the human touch to create exceptional customer experiences.</div>
                             </div>
                         </div>
 
                     </div>
                 </section>
-                <section></section>
+                <section>{<Impact></Impact>}</section>
                 <section className='pl-10 pr-10 pt-24 pb-24 max-[480px]:pl-6 max-[480px]:pr-6'>
                     <div>
-                        <div>
-                            <div>
-                                <div>
-                                    {/* <div></div> */}
-                                    <h1>Build the Future
-                                    Of Enterprise AI</h1>
-                                    <Link>View open roles</Link>
+                        <div className="grid grid-cols-5 max-[991px]:flex max-[991px]:flex-col">
+                            <div className="col-span-3">
+                                <div className="">
+                                    <h1 className="font-bold min-[480px]:self-end max-[480px]:pb-5 md:w-[25rem] text-5xl max-[480px]:text-4xl">Build the Future Of Enterprise AI</h1>
+                                    <Link to='career' className="inline-flex items-center justify-center gap-2 whitespace-nowrap font-medium transition-all disabled:pointer-events-none disabled:opacity-50 shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive shadow-xs h-9 has-[>svg]:px-3 z-50 cursor-pointer p-5 mt-6 text-sm text-white dark:hover:text-black bg-[#245ae2] hover:bg-black dark:hover:bg-white rounded-full">
+                                        View open roles →
+                                    </Link>
                                 </div>
                             </div>
-                            <div>We continually adapt our work practices to help our staff maintain a healthy work-life balance, which we believe benefits everyone.</div>
+                            <div className="col-span-2 text-sm text-[#0009] w-[75%] max-md:w-full max-[991px]:w-[55%] justify-self-end dark:text-accent-foreground pt-5">We continually adapt our work practices to help our staff maintain a healthy work-life balance, which we believe benefits everyone.</div>
                         </div>
                     </div>
                 </section>
+                <section>{<Connect></Connect>}</section>
             </div>
         </>
     )

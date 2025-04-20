@@ -8,7 +8,11 @@ import WhyTEN from "./pages/WhyTEN";
 import Contact from "./components/Contact";
 import Retail from "./pages/Retail";
 import ExploreBlogs from "./components/ExploreBlogs";
+<<<<<<< HEAD
 import Team from "./pages/Team";
+=======
+import Insurance from "./pages/Insurance";
+>>>>>>> eb2557d7e90fa9ec251f8a444e83389c263863ef
 
 function App() {
 	return (
@@ -24,6 +28,8 @@ function App() {
 						<Route path ="/team" element ={<Team />}/>
 						<Route path = "/retail" element ={<Retail/>}/>
 						<Route path="/explore-blogs" element={<ExploreBlogs/>}/>
+						<Route path="/insurance" element={<Insurance/>}/>
+
 					</Route>
 					
 				</Routes>
