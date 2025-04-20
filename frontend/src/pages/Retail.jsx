@@ -10,7 +10,6 @@ const Retail = () => {
 <RetailHeroSection/>
 <RetailFooter/>
 <RetailAgentDemo/>
-
 <RetailLatest/>
   </div>
    

@@ -154,7 +154,7 @@ const Header = () => {
 
                         <div className="w-px bg-gray-300 self-stretch mx-1" />
 
-                        <div className="flex items-start gap-2 group">
+                        <Link to ='/insurance' className="flex items-start gap-2 group">
                           <ShieldCheck size={18} className="mt-1" />
                           <span className="flex flex-col text-left text-[16px] w-38">
                             <span className="group-hover:text-blue-500 font-medium">
@@ -164,7 +164,7 @@ const Header = () => {
                               Boost sales, streamline claims with AI
                             </p>
                           </span>
-                        </div>
+                        </Link>
                       </div>
                     )}
 

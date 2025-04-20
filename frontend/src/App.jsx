@@ -8,6 +8,7 @@ import WhyTEN from "./pages/WhyTEN";
 import Contact from "./components/Contact";
 import Retail from "./pages/Retail";
 import ExploreBlogs from "./components/ExploreBlogs";
+import Insurance from "./pages/Insurance";
 
 function App() {
 	return (
@@ -22,6 +23,8 @@ function App() {
 						<Route path ="/contact-us" element ={<Contact/>}/>
 						<Route path = "/retail" element ={<Retail/>}/>
 						<Route path="/explore-blogs" element={<ExploreBlogs/>}/>
+						<Route path="/insurance" element={<Insurance/>}/>
+
 					</Route>
 					
 				</Routes>
