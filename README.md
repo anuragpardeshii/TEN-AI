@@ -17,6 +17,7 @@ A sleek, responsive landing page showcasing the capabilities of an AI-powered en
 
 - **Framer Motion Animations**  
   Smooth entry and hover animations powered by Framer Motion, enhancing visual appeal and boosting user engagement with subtle yet effective motion effects.
+  
 ## 📦 Tech Stack
 
 - **React.js** – Frontend framework for building dynamic and responsive user interfaces  
@@ -67,8 +68,8 @@ A sleek, responsive landing page showcasing the capabilities of an AI-powered en
    ```bash
     npm run dev
    ```
-
-
+## Fork the Collection
+[<img src="https://run.pstmn.io/button.svg" alt="Run In Postman" style="width: 128px; height: 32px;">](https://app.getpostman.com/run-collection/36661483-ddb5e087-47be-4a3a-afaf-31881d412bd4?action=collection%2Ffork&source=rip_markdown&collection-url=entityId%3D36661483-ddb5e087-47be-4a3a-afaf-31881d412bd4%26entityType%3Dcollection%26workspaceId%3D44bd8f18-da09-4cbc-a72a-6cd65648c8ea)
 
 ## 📡 API Reference
 
