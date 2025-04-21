@@ -24,7 +24,7 @@ A sleek, responsive landing page showcasing the capabilities of an AI-powered en
 - **Framer Motion** – Powerful library for declarative animations and interactive motion effects  
 - **JavaScript (ES6+)** – Modern JavaScript features for cleaner, more efficient code
 - **Node.js + Express** – Backend server setup for handling email sending and API integration  
-- **Nodemailer** – (Optional) Library to send emails via SMTP 
+- **Nodemailer** – Library to send emails via SMTP 
 ## ⚙️Setup for Frontend 
 
  #### Clone the repo and navigate to frontend folder
