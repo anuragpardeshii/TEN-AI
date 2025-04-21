@@ -17,7 +17,7 @@ export const generateResponse = async (req, res) => {
         { role: "system", content: systemPrompt },
         { role: "user", content: prompt },
       ],
-      model: "llama-3.3-70b-specdec",
+      model: "llama3-70b-8192",
       temperature: 1,
       max_tokens: 8192,
       top_p: 1,
