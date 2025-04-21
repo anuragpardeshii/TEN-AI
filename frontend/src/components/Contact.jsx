@@ -3,9 +3,11 @@ import { Badge } from "./ui/badge";
 import { Separator } from "./ui/separator";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { useEffect, useState } from "react";
+import Spinner from "./Spinner";
+import { useNavigate } from "react-router-dom";
 
 function Contact() {
-  
   const {
     register,
     handleSubmit,
@@ -15,9 +17,11 @@ function Contact() {
 
   const isTermsChecked = watch("terms", false); // The watch function from react-hook-form allows you to monitor the value of the checkbox and conditionally enable or disable the submit button.
 
-  
+  const [loading, setLoading] = useState(false);
+  const navigate = useNavigate();
 
   const onSubmit = async (data) => {
+    setLoading(true);
     try {
       const res = await fetch("http://localhost:5000/api/contact/mail", {
         method: "POST",
@@ -29,20 +33,22 @@ function Contact() {
 
       const responseData = await res.json();
       if (res.ok) {
-        toast.success(
-          "Your message was sent successfully! Please check your email."
-        );
+        toast.success("Your message was sent successfully!");
       } else {
         toast.error("Failed to send message: " + responseData.message);
       }
     } catch (error) {
       toast.error("Something went wrong. Try again later.");
       console.error(error);
+    } finally {
+      setLoading(false);
+      navigate("/", { replace: true });
+      window.scroll(0, 0);
     }
   };
 
   return (
-    <div className="pt-20 min-h-screen bg-gray-50 dark:bg-gray-900">
+    <div className="pt-10 min-h-screen bg-gray-50 dark:bg-gray-900">
       <div className="flex min-h-[40vh] flex-col sm:flex-row sm:items-end sm:justify-between px-[4%] py-3">
         <div className="flex flex-col gap-4 md:max-w-[60%]">
           <Badge title={"Contact Us"} />
@@ -183,9 +189,9 @@ function Contact() {
               className={`text-white mx-auto mt-3 px-4 py-2 text-sm bg-blue-700 w-fit rounded-full ${
                 !isTermsChecked ? "opacity-70" : "cursor-pointer"
               }`}
-              disabled={!isTermsChecked}
+              disabled={!isTermsChecked || loading}
             >
-              Submit
+              {loading ? <Spinner /> : "Submit"}
             </button>
           </form>
         </div>
