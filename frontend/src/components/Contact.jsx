@@ -1,8 +1,11 @@
 import { useForm } from "react-hook-form";
 import { Badge } from "./ui/badge";
 import { Separator } from "./ui/separator";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function Contact() {
+  
   const {
     register,
     handleSubmit,
@@ -11,6 +14,8 @@ function Contact() {
   } = useForm();
 
   const isTermsChecked = watch("terms", false); // The watch function from react-hook-form allows you to monitor the value of the checkbox and conditionally enable or disable the submit button.
+
+  
 
   const onSubmit = async (data) => {
     try {
@@ -24,12 +29,14 @@ function Contact() {
 
       const responseData = await res.json();
       if (res.ok) {
-        alert("Your message was sent successfully! Please check your email.");
+        toast.success(
+          "Your message was sent successfully! Please check your email."
+        );
       } else {
-        alert("Failed to send message: " + responseData.message);
+        toast.error("Failed to send message: " + responseData.message);
       }
     } catch (error) {
-      alert("Something went wrong. Try again later.");
+      toast.error("Something went wrong. Try again later.");
       console.error(error);
     }
   };

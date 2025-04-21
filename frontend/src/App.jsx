@@ -10,29 +10,41 @@ import Retail from "./pages/Retail";
 import ExploreBlogs from "./components/ExploreBlogs";
 import Team from "./pages/Team";
 import Insurance from "./pages/Insurance";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function App() {
-	return (
-		<BrowserRouter>
-			<ThemeProvider>
-				<Routes>
-					<Route element={<Layout />}>
-						<Route path="/" element={<Home />} />
-						<Route path ="/custom-ai-agents" element ={<CustomAIAgents/>}/>
-						<Route path ="/aiservices" element ={<AiServices/>}/>
-						<Route path ="/whyten" element ={<WhyTEN/>}/>
-						<Route path ="/contact-us" element ={<Contact/>}/>
-						<Route path ="/team" element ={<Team />}/>
-						<Route path = "/retail" element ={<Retail/>}/>
-						<Route path="/explore-blogs" element={<ExploreBlogs/>}/>
-						<Route path="/insurance" element={<Insurance/>}/>
-
-					</Route>
-					
-				</Routes>
-			</ThemeProvider>
-		</BrowserRouter>
-	);
+  return (
+    <BrowserRouter>
+      <ThemeProvider>
+        <Routes>
+          <Route element={<Layout />}>
+            <Route path="/" element={<Home />} />
+            <Route path="/custom-ai-agents" element={<CustomAIAgents />} />
+            <Route path="/aiservices" element={<AiServices />} />
+            <Route path="/whyten" element={<WhyTEN />} />
+            <Route path="/contact-us" element={<Contact />} />
+            <Route path="/team" element={<Team />} />
+            <Route path="/retail" element={<Retail />} />
+            <Route path="/explore-blogs" element={<ExploreBlogs />} />
+            <Route path="/insurance" element={<Insurance />} />
+          </Route>
+        </Routes>
+        <ToastContainer
+          position="top-right"
+          autoClose={3000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+          theme="light"
+        />
+      </ThemeProvider>
+    </BrowserRouter>
+  );
 }
 
 export default App;
