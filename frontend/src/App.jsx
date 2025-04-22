@@ -12,6 +12,7 @@ import Team from "./pages/Team";
 import Insurance from "./pages/Insurance";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import Categories from "./pages/Categories";
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
             <Route path="/retail" element={<Retail />} />
             <Route path="/explore-blogs" element={<ExploreBlogs />} />
             <Route path="/insurance" element={<Insurance />} />
+            <Route path="/categories" element={<Categories />} />
           </Route>
         </Routes>
         <ToastContainer

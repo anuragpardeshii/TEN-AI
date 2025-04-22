@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { Check } from 'lucide-react'
+import { Link } from 'react-router-dom';
 
 const ExperienceSection = () => {
 
@@ -62,7 +63,7 @@ const ExperienceSection = () => {
     return (
 
         <>
-            <section className="w-full bg-[#020c39] py-20 px-4">
+            <section id='demo_details' className="w-full bg-[#020c39] py-20 px-4">
                 <div className="max-w-3xl mx-auto">
                     {/* Top Header */}
                     <div className="text-white mb-10 text-center lg:text-left">
@@ -78,8 +79,8 @@ const ExperienceSection = () => {
                             <button
                                 onClick={() => setActiveOption("chatbot")}
                                 className={`px-4 py-1.5 rounded-full text-sm transition ${activeOption === "chatbot"
-                                        ? "bg-blue-300 text-[#2d6cff]"
-                                        : "bg-[#0f1a49] text-white hover:bg-[#1c2a68]"
+                                    ? "bg-blue-300 text-[#2d6cff]"
+                                    : "bg-[#0f1a49] text-white hover:bg-[#1c2a68]"
                                     }`}
                             >
                                 Try Chatbot
@@ -87,8 +88,8 @@ const ExperienceSection = () => {
                             <button
                                 onClick={() => setActiveOption("webcall")}
                                 className={`px-4 py-1.5 rounded-full text-sm transition ${activeOption === "webcall"
-                                        ? "bg-blue-300 text-[#2d6cff]"
-                                        : "bg-[#0f1a49] text-white hover:bg-[#1c2a68]"
+                                    ? "bg-blue-300 text-[#2d6cff]"
+                                    : "bg-[#0f1a49] text-white hover:bg-[#1c2a68]"
                                     }`}
                             >
                                 Try Webcall
@@ -122,9 +123,9 @@ const ExperienceSection = () => {
                                 />
                             </div>
 
-                            <button className="mt-2 bg-white text-[#2d6cff] font-medium px-4 py-1 rounded-full shadow inline-flex items-center gap-2 hover:bg-gray-100 text-sm transition">
+                            <Link to='/categories' className="inline-flex items-center justify-center gap-2 whitespace-nowrap font-medium transition-all disabled:pointer-events-none disabled:opacity-50 shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive shadow-xs h-9 has-[>svg]:px-3 z-50 cursor-pointer p-4 mt-6 text-[12px] text-black hover:text-white bg-white hover:bg-black rounded-full">
                                 Submit →
-                            </button>
+                            </Link>
                         </div>
 
                         {/* Right: Features List */}
@@ -146,54 +147,54 @@ const ExperienceSection = () => {
             </section>
 
             <section className="w-full bg-white py-20 px-4">
-  <div className="max-w-6xl mx-auto grid md:grid-cols-3 gap-8 items-start">
-    
-    {/* 80% block - top right spanning 2 cols */}
-    <div className="md:col-start-2 md:col-span-2  p-8 rounded-lg mb-8 md:mb-0">
-      <h3 className="text-5xl font-bold text-[#020c39]">80%</h3>
-      <p className="mt-3 text-xs text-gray-700">
-        <span className='block'>Reduction in turnaround time by resolving </span>
-       <span className='block'> customer queries end to end instantly and </span>
-       <span className='block'>enhancing customer satisfaction.</span> 
-      </p>
-    </div>
+                <div className="max-w-6xl mx-auto grid md:grid-cols-3 gap-8 items-start">
 
-    {/* Heading + Text */}
-    <div className="col-span-1">
-    <span className="inline-flex items-center gap-2 px-3 py-1 text-sm font-medium border border-gray-300 rounded-full">
-  <span className="w-5 h-5 flex items-center justify-center rounded-full bg-purple-700 text-white">
-    <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 20 20">
-      <path fillRule="evenodd" d="M6.293 4.293a1 1 0 011.414 0L13.414 10l-5.707 5.707a1 1 0 01-1.414-1.414L10.586 10 6.293 5.707a1 1 0 010-1.414z" clipRule="evenodd" />
-    </svg>
-  </span>
-  Impact
-</span>
+                    {/* 80% block - top right spanning 2 cols */}
+                    <div className="md:col-start-2 md:col-span-2  p-8 rounded-lg mb-8 md:mb-0">
+                        <h3 className="text-5xl font-bold text-[#020c39]">80%</h3>
+                        <p className="mt-3 text-xs text-gray-700">
+                            <span className='block'>Reduction in turnaround time by resolving </span>
+                            <span className='block'> customer queries end to end instantly and </span>
+                            <span className='block'>enhancing customer satisfaction.</span>
+                        </p>
+                    </div>
 
-      <h2 className="text-3xl md:text-4xl font-semibold text-[#020c39] leading-snug">
-        Transform <br className="hidden md:block" /> Customer Experience
-      </h2>
-      <p className="mt-4 text-gray-600 text-[12px] md:text-base max-w-md">
-        Our AI agents revolutionize the impact of your customer service and sales teams.
-      </p>
-    </div>
+                    {/* Heading + Text */}
+                    <div className="col-span-1">
+                        <span className="inline-flex items-center gap-2 px-3 py-1 text-sm font-medium border border-gray-300 rounded-full">
+                            <span className="w-5 h-5 flex items-center justify-center rounded-full bg-purple-700 text-white">
+                                <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fillRule="evenodd" d="M6.293 4.293a1 1 0 011.414 0L13.414 10l-5.707 5.707a1 1 0 01-1.414-1.414L10.586 10 6.293 5.707a1 1 0 010-1.414z" clipRule="evenodd" />
+                                </svg>
+                            </span>
+                            Impact
+                        </span>
 
-    {/* 4x Block */}
-    <div className=" p-6 rounded-lg ">
-      <h3 className="text-4xl font-bold text-[#020c39]">4x</h3>
-      <p className="mt-2 text-[12px] text-gray-700">
-        Increase in sales reach with AI agents that can automate workflows end to end.
-      </p>
-    </div>
+                        <h2 className="text-3xl md:text-4xl font-semibold text-[#020c39] leading-snug">
+                            Transform <br className="hidden md:block" /> Customer Experience
+                        </h2>
+                        <p className="mt-4 text-gray-600 text-[12px] md:text-base max-w-md">
+                            Our AI agents revolutionize the impact of your customer service and sales teams.
+                        </p>
+                    </div>
 
-    {/* 60% Block */}
-    <div className=" p-6 rounded-lg ">
-      <h3 className="text-4xl font-bold text-[#020c39]">60%</h3>
-      <p className="mt-2 text-xs text-gray-700">
-        Reduced cost per ticket while maintaining high-quality service.
-      </p>
-    </div>
-  </div>
-</section>
+                    {/* 4x Block */}
+                    <div className=" p-6 rounded-lg ">
+                        <h3 className="text-4xl font-bold text-[#020c39]">4x</h3>
+                        <p className="mt-2 text-[12px] text-gray-700">
+                            Increase in sales reach with AI agents that can automate workflows end to end.
+                        </p>
+                    </div>
+
+                    {/* 60% Block */}
+                    <div className=" p-6 rounded-lg ">
+                        <h3 className="text-4xl font-bold text-[#020c39]">60%</h3>
+                        <p className="mt-2 text-xs text-gray-700">
+                            Reduced cost per ticket while maintaining high-quality service.
+                        </p>
+                    </div>
+                </div>
+            </section>
 
         </>
     );
