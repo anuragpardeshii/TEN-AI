@@ -5,7 +5,7 @@ import cors from "cors";
 import { connectDB } from "./src/utils/dbConnect.js";
 import insightsRouter from "./src/routes/insights.routes.js";
 import Contactrouter from "./src/routes/contact.routes.js";
-import groqrouter from "./src/routes/groq.Route.js";
+import groqrouter from "./src/routes/groq.route.js";
 const server = express();
 
 server.use(cors());
