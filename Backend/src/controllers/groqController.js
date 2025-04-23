@@ -1,6 +1,6 @@
 import Groq from "groq-sdk";
 import dotenv from "dotenv";
-import { systemPrompt,updatePrompt } from "../Repository/sustemPrompt.js";
+import { systemPrompt, updatePrompt } from "../Repository/systemPrompt.js";
 import GroqResponse from "../Model/groqResponse.js";
 
 dotenv.config();
@@ -8,21 +8,20 @@ dotenv.config();
 const groq = new Groq({ apiKey: process.env.GROQ_API_KEY });
 
 export const generateResponse = async (req, res) => {
-
-    const { prompt } = req.body;
+  const { prompt } = req.body;
 
   try {
     const stream = await groq.chat.completions.create({
       messages: [
         { role: "system", content: systemPrompt },
-        { role: "user", content: prompt },
+        { role: "user", content: prompt }
       ],
       model: "llama3-70b-8192",
       temperature: 1,
       max_tokens: 8192,
       top_p: 1,
       stream: true,
-      stop: null,
+      stop: null
     });
 
     let accumulatedContent = "";
@@ -38,7 +37,9 @@ export const generateResponse = async (req, res) => {
   } catch (err) {
     console.error("Error:", err);
     const errorMessage = err.response?.data?.error?.message || err.message;
-    res.status(500).json({ error: `Failed to generate project: ${errorMessage}` });
+    res
+      .status(500)
+      .json({ error: `Failed to generate project: ${errorMessage}` });
   }
 };
 
@@ -52,14 +53,14 @@ export const updateResponse = async (req, res) => {
       messages: [
         { role: "system", content: updatePrompt },
         { role: "assistant", content: previousContent || "" },
-        { role: "user", content: prompt },
+        { role: "user", content: prompt }
       ],
       model: "llama-3.3-70b-specdec",
       temperature: 1,
       max_tokens: 8000,
       top_p: 1,
       stream: true,
-      stop: null,
+      stop: null
     });
 
     let accumulatedContent = "";
@@ -75,6 +76,8 @@ export const updateResponse = async (req, res) => {
   } catch (err) {
     console.error("Error:", err);
     const errorMessage = err.response?.data?.error?.message || err.message;
-    res.status(500).json({ error: `Failed to update project: ${errorMessage}` });
+    res
+      .status(500)
+      .json({ error: `Failed to update project: ${errorMessage}` });
   }
 };
