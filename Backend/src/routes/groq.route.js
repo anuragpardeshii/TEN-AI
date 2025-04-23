@@ -1,12 +1,12 @@
 import express from "express";
 import {
-  generateResponse,
-  updateResponse
+  travelResponse,
+  updateTravelResponse
 } from "../controllers/groqController.js";
 
 const groqrouter = express.Router();
 
-groqrouter.post("/generate", generateResponse);
-groqrouter.post("/update", updateResponse);
+groqrouter.post("/generate/travel", travelResponse);
+groqrouter.post("/update/travel", updateTravelResponse);
 
 export default groqrouter;
