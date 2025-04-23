@@ -1,7 +1,5 @@
 import Groq from "groq-sdk";
 import dotenv from "dotenv";
-// import { systemPrompt, updatePrompt } from "../Repository/systemPrompt.js";
-import GroqResponse from "../Model/groqResponse.js";
 
 dotenv.config();
 

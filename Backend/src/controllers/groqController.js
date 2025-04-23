@@ -1,5 +1,5 @@
-import { travelPrompt, updatePrompt } from "../Repository/systemPrompt.js";
 import GroqResponse from "../Model/groqResponse.js";
+import { travelPrompt } from "../Repository/systemPrompt.js";
 import { generateResponse, updateResponse } from "../utils/groqService.js";
 
 export const travelResponse = async (req, res) => {
