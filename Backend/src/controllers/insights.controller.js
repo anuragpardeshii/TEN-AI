@@ -4,23 +4,23 @@ import {
   getAllInsights,
   updateInsightById
 } from "../Repository/insights.repo.js";
+import ApplicationError from "../utils/ApplicationError.js";
 
-export const addInsight = async (req, res) => {
+export const addInsight = async (req, res, next) => {
   try {
     const { category, title, description, image } = req.body;
 
     if (!category || !title || !description || !image) {
-      return res.status(400).json({
-        success: false,
-        message: "All fields (category, title, description, image) are required"
-      });
+      return next(
+        new ApplicationError(
+          "All fields (category, title, description, image) are required",
+          400
+        )
+      );
     }
 
     if (typeof image !== "string" || !image.startsWith("http")) {
-      return res.status(400).json({
-        success: false,
-        message: "Image must be a valid URL"
-      });
+      return next(new ApplicationError("Image must be a valid URL", 400));
     }
 
     const insight = await createInsight({
@@ -28,16 +28,15 @@ export const addInsight = async (req, res) => {
       title,
       description,
       image
-      //   date: new Date()
     });
 
     res.status(201).json({ success: true, data: insight });
   } catch (error) {
-    res.status(500).json({ success: false, message: error.message });
+    next(error);
   }
 };
 
-export const fetchInsights = async (req, res) => {
+export const fetchInsights = async (req, res, next) => {
   try {
     const insights = await getAllInsights();
     res.status(200).json({
@@ -45,13 +44,11 @@ export const fetchInsights = async (req, res) => {
       data: insights
     });
   } catch (error) {
-    res.status(500).json({
-      success: false,
-      message: error.message
-    });
+    next(error);
   }
 };
-export const updateInsight = async (req, res) => {
+
+export const updateInsight = async (req, res, next) => {
   try {
     const { id } = req.params;
     const { category, title, description, image } = req.body;
@@ -71,10 +68,7 @@ export const updateInsight = async (req, res) => {
     const updatedInsight = await updateInsightById(id, updateData);
 
     if (!updatedInsight) {
-      return res.status(404).json({
-        success: false,
-        message: "Insight not found"
-      });
+      return next(new ApplicationError("Insight not found", 404));
     }
 
     res.status(200).json({
@@ -83,23 +77,20 @@ export const updateInsight = async (req, res) => {
       data: updatedInsight
     });
   } catch (error) {
-    res.status(500).json({
-      success: false,
-      message: error.message
-    });
+    next(error);
   }
 };
-export const deleteInsight = async (req, res) => {
+
+export const deleteInsight = async (req, res, next) => {
   try {
     const { id } = req.params;
 
     const deletedInsight = await deleteInsightById(id);
 
     if (!deletedInsight) {
-      return res.status(404).json({
-        success: false,
-        message: "Insight not found with the given ID"
-      });
+      return next(
+        new ApplicationError("Insight not found with the given ID", 404)
+      );
     }
 
     res.status(200).json({
@@ -108,6 +99,6 @@ export const deleteInsight = async (req, res) => {
       data: deletedInsight
     });
   } catch (error) {
-    res.status(500).json({ success: false, message: error.message });
+    next(error);
   }
 };

@@ -1,5 +1,8 @@
 import express from "express";
-import { generateResponse, updateResponse } from "../controllers/groqController.js";
+import {
+  generateResponse,
+  updateResponse
+} from "../controllers/groqController.js";
 
 const groqrouter = express.Router();
 
