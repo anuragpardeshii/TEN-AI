@@ -5,7 +5,7 @@ dotenv.config();
 
 const groq = new Groq({ apiKey: process.env.GROQ_API_KEY });
 
-export const generateResponse = async (userPrompt, systemPrompt, updatePrompt = "") => {
+export const generateResponse = async (userPrompt, systemPrompt) => {
 
   try {
     const stream = await groq.chat.completions.create({
