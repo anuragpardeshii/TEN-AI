@@ -8,12 +8,12 @@ import WhyTEN from "./pages/WhyTEN";
 import Contact from "./components/Contact";
 import Retail from "./pages/Retail";
 import ExploreBlogs from "./components/ExploreBlogs";
-import Team from "./pages/Team";
 import Insurance from "./pages/Insurance";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Categories from "./pages/Categories";
 import AgentCard from "./components/AgentCard";
+import Company from "./pages/Company";
 
 function App() {
   return (
@@ -26,7 +26,7 @@ function App() {
             <Route path="/aiservices" element={<AiServices />} />
             <Route path="/whyten" element={<WhyTEN />} />
             <Route path="/contact-us" element={<Contact />} />
-            <Route path="/team" element={<Team />} />
+            <Route path="/company" element={<Company />} />
             <Route path="/retail" element={<Retail />} />
             <Route path="/explore-blogs" element={<ExploreBlogs />} />
             <Route path="/insurance" element={<Insurance />} />

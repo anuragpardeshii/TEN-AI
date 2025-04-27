@@ -1,19 +1,24 @@
 import { CheckCircle } from 'lucide-react'
 import { motion } from 'framer-motion'
 import React from 'react'
+import Lottie from 'lottie-react'
+import AIAnimation4 from '../assets/animations/animation-AI_4.json'
+import AIAnimation1 from '../assets/animations/animation-AI_1.json'
+import AIAnimation2 from '../assets/animations/animation-AI_2.json'
+import AIAnimation3 from '../assets/animations/animation-AI_3.json'
+import Aos from 'aos'
+import 'aos/dist/aos.css'
+import { useEffect } from 'react'
 
-const fadeInUp = {
-  hidden: { opacity: 0, y: 40 },
-  show: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.6, ease: 'easeOut' },
-  },
-}
 
 const FeaturesSection = () => {
+
+  useEffect(() => {
+    Aos.init({ duration: 800, once: true })
+  },[])
+
   return (
-    <div className='w-full bg-gray-50 py-20'>
+    <div className='w-full py-20' data-aos="fade-up">
       <div className='max-w-7xl mx-auto px-4 text-center'>
         <h2 className='text-3xl md:text-4xl font-bold mb-4'>
           What can custom AI Agents do?
@@ -69,7 +74,7 @@ const FeaturesSection = () => {
             ].map((feature, index) => (
               <motion.div
                 key={index}
-                variants={fadeInUp}
+                data-aos="fade-right"
                 initial="hidden"
                 whileInView="show"
                 viewport={{ once: true, amount: 0.2 }}
@@ -96,12 +101,17 @@ const FeaturesSection = () => {
             ))}
           </div>
 
+          <div className='flex flex-col'>
+
+
+
           {/* Animation - Right column */}
-          <motion.div
+          {/* <motion.div
             animate={{ y: [0, -10, 0] }}
             transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut' }}
-            className="mt-10 lg:mt-0"
-          >
+            className="mt-10 lg:mt-0 pt-10"
+            data-aos="fade-left"
+            >
             <div className="relative bg-white w-[320px] md:w-[360px] rounded-2xl shadow-xl p-6">
               <div className="flex items-center space-x-2 mb-4">
                 <div className="w-3 h-3 bg-gray-300 rounded-full"></div>
@@ -122,8 +132,15 @@ const FeaturesSection = () => {
                 </div>
               </div>
             </div>
-          </motion.div>
+          </motion.div> */}
 
+
+          <Lottie animationData={AIAnimation4}  className='w-sm pt-10' data-aos="fade-left"/>
+          <Lottie animationData={AIAnimation1}  className='w-[22rem] pt-20' data-aos="fade-left"/>
+          <Lottie animationData={AIAnimation2}  className='w-sm pt-15' data-aos="fade-left"/>
+          <Lottie animationData={AIAnimation3}  className='w-sm pt-25' data-aos="fade-left"/>
+
+            </div>
         </div>
       </div>
     </div>

@@ -1,8 +1,16 @@
 import Connect from "@/components/Connect";
 import Impact from "@/components/Impact";
 import { Link } from "react-router-dom";
+import Aos from "aos";
+import 'aos/dist/aos.css'
+import { useEffect } from "react";
 
-export default function Team() {
+export default function Company() {
+
+    useEffect(() => {
+        Aos.init({ duration: 800, once: true })
+    }, [])
+
     return (
         <>
             <div className='pt-15'>
@@ -20,7 +28,7 @@ export default function Team() {
                             <h1 className='font-bold min-[480px]:self-end max-[480px]:pb-5 text-5xl max-[480px]:text-4xl'>Future of Enterprise AI</h1>
                             <div className="w-[35%] max-[480px]:w-full text-[#0009] dark:text-accent-foreground leading-6.5">We believe enterprise customer engagement is on the brink of a dramatic transformation.</div>
                         </div>
-                        <img src="./team_img.jpg" className='rounded-md' alt="team_img" />
+                        <img src="./team_img.jpg" className='rounded-md' alt="team_img" data-aos='fade-up' />
                     </div>
                 </section>
                 <section className='pl-10 pr-10 pb-24 max-[480px]:pl-6 max-[480px]:pr-6'>
@@ -37,7 +45,7 @@ export default function Team() {
                 <section className='pl-10 pr-10 pt-24 pb-24 max-[480px]:pl-6 max-[480px]:pr-6'>
                     <div className="">
                         <div className='grid grid-cols-5 max-[991px]:flex max-[991px]:flex-col'>
-                            <div className="col-span-2 bg-cover h-[40rem] w-full rounded-md bg-[url(./premji_b.jfif)] p-5 bg-center flex flex-col justify-end items-start max-[991px]:w-full">
+                            <div className="col-span-2 bg-cover h-[40rem] w-full rounded-md bg-[url(./premji_b.jfif)] p-5 bg-center flex flex-col justify-end items-start max-[991px]:w-full" data-aos='fade-up'>
                                 <div className="bg-white rounded-md p-4 leading-6">
                                     <div className="text-[#000000bf] font-medium">Premji B</div>
                                     <div className="text-[#0009]">Senior AI Product Leader</div>
@@ -53,7 +61,7 @@ export default function Team() {
 
                     </div>
                 </section>
-                <section>{<Impact></Impact>}</section>
+                <section>{<Impact />}</section>
                 <section className='pl-10 pr-10 pt-24 pb-24 max-[480px]:pl-6 max-[480px]:pr-6'>
                     <div>
                         <div className="grid grid-cols-5 max-[991px]:flex max-[991px]:flex-col">
@@ -69,7 +77,7 @@ export default function Team() {
                         </div>
                     </div>
                 </section>
-                <section>{<Connect></Connect>}</section>
+                <section>{<Connect />}</section>
             </div>
         </>
     )
