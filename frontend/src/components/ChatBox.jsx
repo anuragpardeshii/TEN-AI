@@ -30,8 +30,8 @@ export default function ChatBox() {
   };
 
   return (
-    <div className="flex flex-col h-[85vh] w-[70%] mx-auto p-4 border mb-5">
-      <div className="flex-1 overflow-y-auto p-4 rounded-md shadow-md">
+    <div className="flex flex-col pt-20 h-[85vh] w-[70%] mx-auto p-4 border mb-5">
+      <div className="flex-1 overflow-y-auto p-4 bg-cyan-950 rounded-md shadow-md">
         {messages.map((msg) => (
           <div
             key={msg.id}
