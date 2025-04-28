@@ -1,0 +1,69 @@
+import { useState } from "react";
+
+export default function ChatBox() {
+  const [messages, setMessages] = useState([
+    { id: 1, sender: "bot", text: "Hello! How can I help you today?" },
+  ]);
+  const [newMessage, setNewMessage] = useState("");
+
+  const handleSend = () => {
+    if (newMessage.trim() === "") return;
+
+    const userMessage = {
+      id: messages.length + 1,
+      sender: "user",
+      text: newMessage,
+    };
+
+    setMessages([...messages, userMessage]);
+    setNewMessage("");
+
+    // Mock bot reply
+    setTimeout(() => {
+      const botMessage = {
+        id: messages.length + 2,
+        sender: "bot",
+        text: "Thanks for your message!",
+      };
+      setMessages((prevMessages) => [...prevMessages, botMessage]);
+    }, 1000);
+  };
+
+  return (
+    <div className="flex flex-col h-[85vh] w-[70%] mx-auto p-4 border mb-5">
+      <div className="flex-1 overflow-y-auto p-4 rounded-md shadow-md">
+        {messages.map((msg) => (
+          <div
+            key={msg.id}
+            className={`mb-3 flex ${msg.sender === "user" ? "justify-end" : "justify-start"}`}
+          >
+            <div
+              className={`p-2 rounded-lg max-w-xs ${
+                msg.sender === "user" ? "bg-blue-500 text-white" : "bg-gray-300 text-black"
+              }`}
+            >
+              {msg.text}
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <div className="mt-4 flex">
+        <input
+          type="text"
+          value={newMessage}
+          onChange={(e) => setNewMessage(e.target.value)}
+          onKeyDown={(e) => e.key === "Enter" && handleSend()}
+          placeholder="Type a message..."
+          className="flex-1 p-2 border rounded-l-md focus:outline-none"
+        />
+        <button
+          onClick={handleSend}
+          className="bg-blue-500 p-2 rounded-r-md hover:bg-blue-600"
+        >
+          Send
+        </button>
+      </div>
+    </div>
+  );
+}

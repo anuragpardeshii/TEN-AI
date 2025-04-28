@@ -49,7 +49,7 @@ const Header = () => {
           : "bg-white dark:bg-black border-b-2"
       }`}
     >
-      <div className="flex justify-between items-center px-8 py-2">
+      <div className="flex justify-between items-center px-8">
         <Link to="/">
           <motion.h1
             className="text-2xl font-bold"

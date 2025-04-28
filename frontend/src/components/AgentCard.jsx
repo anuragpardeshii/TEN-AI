@@ -3,6 +3,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { PhoneCall, MessageSquare } from "lucide-react";
 import { Phone, MessageCircle, CheckCircle } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const AgentCard = () => {
   return (
@@ -47,12 +48,14 @@ const AgentCard = () => {
             <Button className=" w-30 flex items-center gap-2 hover:bg-blue-500 hover:text-white transition-colors duration-300">
               <PhoneCall size={16} /> Call
             </Button>
+            <Link to="/chat-box">
             <Button
               className=" w-30 flex items-center gap-2 hover:bg-blue-500 hover:text-white transition-colors duration-300"
               variant="secondary"
             >
               <MessageSquare size={16} /> Chat
             </Button>
+            </Link>
           </div>
         </CardContent>
       </Card>

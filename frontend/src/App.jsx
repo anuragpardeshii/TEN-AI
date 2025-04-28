@@ -14,7 +14,7 @@ import "react-toastify/dist/ReactToastify.css";
 import Categories from "./pages/Categories";
 import AgentCard from "./components/AgentCard";
 import Company from "./pages/Company";
-
+import ChatBox from "./components/ChatBox";
 function App() {
   return (
     <BrowserRouter>
@@ -32,6 +32,7 @@ function App() {
             <Route path="/insurance" element={<Insurance />} />
             <Route path="/categories" element={<Categories />} />
             <Route path="/agent-card" element={<AgentCard />} />
+            <Route path="/chat-box" element={<ChatBox />} />
           </Route>
         </Routes>
         <ToastContainer
