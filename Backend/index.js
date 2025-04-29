@@ -8,7 +8,6 @@ import Contactrouter from "./src/routes/contact.routes.js";
 import groqrouter from "./src/routes/groq.Route.js";
 import errorHandler from "./src/middleware/errorHandler.js";
 
-
 const server = express();
 
 server.use(cors());
