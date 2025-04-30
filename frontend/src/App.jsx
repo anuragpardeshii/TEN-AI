@@ -15,6 +15,7 @@ import Categories from "./pages/Categories";
 import AgentCard from "./components/AgentCard";
 import Company from "./pages/Company";
 import ChatBox from "./components/ChatBox";
+import Career from "./pages/Career";
 function App() {
   return (
     <BrowserRouter>
@@ -27,6 +28,7 @@ function App() {
             <Route path="/whyten" element={<WhyTEN />} />
             <Route path="/contact-us" element={<Contact />} />
             <Route path="/company" element={<Company />} />
+            <Route path="/career" element={<Career />} />
             <Route path="/retail" element={<Retail />} />
             <Route path="/explore-blogs" element={<ExploreBlogs />} />
             <Route path="/insurance" element={<Insurance />} />

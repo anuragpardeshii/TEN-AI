@@ -7,12 +7,12 @@ export default function Categories() {
   };
   return (
     <section>
-      <div className="bg-[url(static_bg.png)] bg-cover bg-no-repeat justify-items-center justify-center bg-position-[50%] ">
+      <div className="bg-[url(./src/assets/images/static_bg.png)] bg-cover bg-no-repeat justify-items-center justify-center bg-position-[50%] ">
         <div className="flex flex-col items-center relative w-full pt-20 pb-5 max-[480px]:pt-10 max-[480px]:pb-10 pl-10 pr-10 max-[480px]:pl-6 max-[480px]:pr-6">
           <div className="flex flex-col justify-center items-center w-full">
             <div className=" flex flex-row px-2.5 py-0.5 mt-12 w-fit border-solid border-1 border-[#0000001a] rounded-2xl cursor-pointer items-center">
               <div className="pr-0.5">
-                <img src="./convlogo.png" alt="convlogo" />
+                <img src="./src/assets/logos/convlogo.png" alt="convlogo" />
               </div>
               <div className="text-[12px] pb-0.5">Human-like conversations</div>
             </div>
