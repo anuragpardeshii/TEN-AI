@@ -24,7 +24,7 @@ function Home() {
       <Impact />
       <Insights isHomePage={true} />
       <Connect />
-      <AgentCard />
+      {/* <AgentCard /> */}
     </div>
   );
 }
