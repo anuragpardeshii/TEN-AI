@@ -9,6 +9,7 @@ const agentData = [
     category: "Insurance",
     title: "Insurance Agent",
     description: "Get help with policy details and file claims easily. Try our agents here.",
+    agentName: "Myra",
     tasks: ["View policy details", "File claims"],
     avatar: "https://cdn-icons-png.flaticon.com/512/4140/4140048.png",
   },
@@ -16,58 +17,43 @@ const agentData = [
     category: "Retail",
     title: "Retail Agent",
     description: "Check order details or make changes with ease. Experience our agent here.",
+    agentName: "Alex",
     tasks: ["Check order status", "Modify orders"],
-    avatar: "https://cdn-icons-png.flaticon.com/512/4140/4140048.png",
+    avatar: "https://cdn-icons-png.flaticon.com/512/4140/4140061.png",
   },
   {
     category: "Travel",
     title: "Travel Agent",
     description: "Simplify flight rescheduling in just a few steps. Experience our agent here.",
+    agentName: "Myra",
     tasks: ["Reschedule flight", "Answer basic FAQs"],
-    avatar: "https://cdn-icons-png.flaticon.com/512/4140/4140048.png",
+    avatar: "https://cdn-icons-png.flaticon.com/512/4140/4140047.png",
   },
   {
     category: "Hospitality",
     title: "Hospitality Agent",
     description: "Book rooms quickly and get answers to hotel FAQs. Try our agent here.",
+    agentName: "Emma",
     tasks: ["Book rooms", "Answer hotel FAQs"],
-    avatar: "https://cdn-icons-png.flaticon.com/512/4140/4140048.png",
+    avatar: "https://cdn-icons-png.flaticon.com/512/4140/4140051.png",
   },
   {
     category: "Banking",
     title: "Banking Agent",
     description: "Handle account inquiries and card services seamlessly. Try our agent here.",
+    agentName: "Liam",
     tasks: ["Account inquiries", "Card services"],
-    avatar: "https://cdn-icons-png.flaticon.com/512/4140/4140048.png",
+    avatar: "https://cdn-icons-png.flaticon.com/512/4140/4140037.png",
   },
   {
     category: "Real Estate",
     title: "Real Estate Agent",
     description: "Find properties, schedule viewings, and get mortgage assistance. Try our agent here.",
+    agentName: "Sophia",
     tasks: ["Find properties", "Schedule viewings"],
-    avatar: "https://cdn-icons-png.flaticon.com/512/4140/4140048.png",
+    avatar: "https://cdn-icons-png.flaticon.com/512/4140/4140060.png",
   },
-  {
-    category: "Staffing and Recruiting",
-    title: "Recruiting Agent",
-    description: "Simplify candidate screening and onboarding effortlessly. Try our agent here.",
-    tasks: ["Screen candidates", "Manage onboarding"],
-    avatar: "https://cdn-icons-png.flaticon.com/512/4140/4140048.png",
-  },
-  {
-    category: "Retail Multilingual",
-    title: "Retail Multilingual Agent",
-    description: "Check order details or make changes with ease. Experience our agents here.",
-    tasks: ["Check order status", "Modify orders"],
-    avatar: "https://cdn-icons-png.flaticon.com/512/4140/4140048.png",
-  },
-  {
-    category: "BFSI Multilingual",
-    title: "BFSI Multilingual Agent",
-    description: "Handle banking, financial services, and insurance queries for the Indian market.",
-    tasks: ["Banking queries", "Insurance support"],
-    avatar: "https://cdn-icons-png.flaticon.com/512/4140/4140048.png",
-  },
+  
 ];
 
 const AgentCard = () => {
@@ -77,16 +63,24 @@ const AgentCard = () => {
     ? agentData.filter((agent) => agent.category.toLowerCase() === category.toLowerCase())
     : agentData;
 
+  // Capitalize category for heading (e.g., "travel" -> "Travel")
+  const formatCategory = category
+    ? category
+        .split(" ")
+        .map((word) => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
+        .join(" ")
+    : "AI";
+
   return (
     <div className="flex flex-col items-center p-50">
       <div className="mb-4 bg-green-100 px-4 py-1 rounded-full text-sm text-green-700 font-medium">
         ✨ Human-like conversations
       </div>
       <h2 className="text-3xl font-bold text-center">
-        Experience Our {category} Agent
+        Experience Our {formatCategory} Agent
       </h2>
       <p className="text-gray-600 text-center mt-2 mb-6 max-w-md">
-        Experience our AI {category} agent for enterprise use cases. Feel free to try it out yourself.
+        Experience our AI {formatCategory} agent for enterprise use cases. Feel free to try it out yourself.
       </p>
 
       {filteredAgents.length > 0 ? (
@@ -105,7 +99,7 @@ const AgentCard = () => {
                   />
                 </div>
                 <h3 className="text-lg font-semibold text-black mt-2">
-                  Myra
+                  {agent.agentName}
                 </h3>
                 <p className="text-gray-600 mb-4">{agent.title}</p>
               </div>
