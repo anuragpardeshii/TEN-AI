@@ -57,13 +57,12 @@ const agentData = [
 ];
 
 const AgentCard = () => {
-  const { category } = useParams(); // Capture category from URL params
+  const { category } = useParams(); 
 
   const filteredAgents = category
     ? agentData.filter((agent) => agent.category.toLowerCase() === category.toLowerCase())
     : agentData;
 
-  // Capitalize category for heading (e.g., "travel" -> "Travel")
   const formatCategory = category
     ? category
         .split(" ")
