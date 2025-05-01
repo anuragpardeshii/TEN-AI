@@ -9,7 +9,6 @@ const agentData = [
     category: "Insurance",
     title: "Insurance Agent",
     description: "Get help with policy details and file claims easily. Try our agents here.",
-    agentName: "Myra",
     tasks: ["View policy details", "File claims"],
     avatar: "https://cdn-icons-png.flaticon.com/512/4140/4140048.png",
   },
@@ -17,7 +16,6 @@ const agentData = [
     category: "Retail",
     title: "Retail Agent",
     description: "Check order details or make changes with ease. Experience our agent here.",
-    agentName: "Alex",
     tasks: ["Check order status", "Modify orders"],
     avatar: "https://cdn-icons-png.flaticon.com/512/4140/4140048.png",
   },
@@ -25,7 +23,6 @@ const agentData = [
     category: "Travel",
     title: "Travel Agent",
     description: "Simplify flight rescheduling in just a few steps. Experience our agent here.",
-    agentName: "Myra",
     tasks: ["Reschedule flight", "Answer basic FAQs"],
     avatar: "https://cdn-icons-png.flaticon.com/512/4140/4140048.png",
   },
@@ -33,7 +30,6 @@ const agentData = [
     category: "Hospitality",
     title: "Hospitality Agent",
     description: "Book rooms quickly and get answers to hotel FAQs. Try our agent here.",
-    agentName: "Emma",
     tasks: ["Book rooms", "Answer hotel FAQs"],
     avatar: "https://cdn-icons-png.flaticon.com/512/4140/4140048.png",
   },
@@ -41,7 +37,6 @@ const agentData = [
     category: "Banking",
     title: "Banking Agent",
     description: "Handle account inquiries and card services seamlessly. Try our agent here.",
-    agentName: "Liam",
     tasks: ["Account inquiries", "Card services"],
     avatar: "https://cdn-icons-png.flaticon.com/512/4140/4140048.png",
   },
@@ -49,7 +44,6 @@ const agentData = [
     category: "Real Estate",
     title: "Real Estate Agent",
     description: "Find properties, schedule viewings, and get mortgage assistance. Try our agent here.",
-    agentName: "Sophia",
     tasks: ["Find properties", "Schedule viewings"],
     avatar: "https://cdn-icons-png.flaticon.com/512/4140/4140048.png",
   },
@@ -57,7 +51,6 @@ const agentData = [
     category: "Staffing and Recruiting",
     title: "Recruiting Agent",
     description: "Simplify candidate screening and onboarding effortlessly. Try our agent here.",
-    agentName: "Noah",
     tasks: ["Screen candidates", "Manage onboarding"],
     avatar: "https://cdn-icons-png.flaticon.com/512/4140/4140048.png",
   },
@@ -65,7 +58,6 @@ const agentData = [
     category: "Retail Multilingual",
     title: "Retail Multilingual Agent",
     description: "Check order details or make changes with ease. Experience our agents here.",
-    agentName: "Isabella",
     tasks: ["Check order status", "Modify orders"],
     avatar: "https://cdn-icons-png.flaticon.com/512/4140/4140048.png",
   },
@@ -73,7 +65,6 @@ const agentData = [
     category: "BFSI Multilingual",
     title: "BFSI Multilingual Agent",
     description: "Handle banking, financial services, and insurance queries for the Indian market.",
-    agentName: "Aarav",
     tasks: ["Banking queries", "Insurance support"],
     avatar: "https://cdn-icons-png.flaticon.com/512/4140/4140048.png",
   },
@@ -114,7 +105,7 @@ const AgentCard = () => {
                   />
                 </div>
                 <h3 className="text-lg font-semibold text-black mt-2">
-                  {agent.agentName}
+                  Myra
                 </h3>
                 <p className="text-gray-600 mb-4">{agent.title}</p>
               </div>
