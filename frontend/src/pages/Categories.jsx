@@ -24,7 +24,7 @@ const categories = [
     ),
     color: "text-red-900",
     hover: "hover:bg-red-50 hover:ring ring-red-400",
-    link:"/insurance-agent"
+    link:"/agent-card/insurance"
   },
   {
     title: "Retail",
@@ -49,7 +49,7 @@ const categories = [
         <path d="M22 7v3a2 2 0 0 1-2 2a2.7 2.7 0 0 1-1.59-.63.7.7 0 0 0-.82 0A2.7 2.7 0 0 1 16 12a2.7 2.7 0 0 1-1.59-.63.7.7 0 0 0-.82 0A2.7 2.7 0 0 1 12 12a2.7 2.7 0 0 1-1.59-.63.7.7 0 0 0-.82 0A2.7 2.7 0 0 1 8 12a2.7 2.7 0 0 1-1.59-.63.7.7 0 0 0-.82 0A2.7 2.7 0 0 1 4 12a2 2 0 0 1-2-2V7"></path>
       </svg>
     ),
-     link:"/retail-agent",
+     link:"/agent-card/retail",
     color: "text-amber-900",
     hover: "hover:bg-amber-50 hover:ring ring-amber-400",
   },
@@ -75,7 +75,7 @@ const categories = [
         <path d="M11 15.5c.5 2.5-.17 4.5-1 6.5h4c2-5.5-.5-12-1-14"></path>
       </svg>
     ),
-    link:"/travel-agent",
+    link:"/agent-card/travel",
     color: "text-emerald-900",
     hover: "hover:bg-emerald-50 hover:ring ring-emerald-400",
     onClick: true,
@@ -102,7 +102,7 @@ const categories = [
         <path d="M10 4h4"></path>
       </svg>
     ),
-    link:"/hospitality-agent",
+    link:"/agent-card/hospitally",
 
     color: "text-blue-900",
     hover: "hover:bg-blue-50 hover:ring ring-blue-400",
@@ -131,7 +131,7 @@ const categories = [
         <path d="M19 12v5"></path>
       </svg>
     ),
-    link:"/banking-agent",
+    link:"/agent-card/banking",
 
     color: "text-purple-900",
     hover: "hover:bg-purple-50 hover:ring ring-purple-400",
@@ -157,7 +157,7 @@ const categories = [
         <path d="M8 20v-6h8v6"></path>
       </svg>
     ),
-    link:"/real-estate-agent",
+    link:"/agent-card/realEstate",
 
     color: "text-yellow-900",
     hover: "hover:bg-yellow-50 hover:ring ring-yellow-400",
@@ -167,7 +167,7 @@ const categories = [
 
 export default function Categories() {
   const navigate = useNavigate();
-  
+
   return (
     <section>
       <div className="bg-[url(static_bg.png)] bg-cover bg-no-repeat justify-items-center justify-center bg-position-[50%] ">
