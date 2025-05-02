@@ -1,15 +1,35 @@
 import { useState } from "react";
 import axios from "axios";
+import { useParams } from "react-router-dom";
 
+const agentEndpoints = {
+  insurance: "http://localhost:5000/api/groqrouter/generate/travel",
+  travel: "http://localhost:5000/api/groqrouter/generate/travel",
+  retail: "http://localhost:5000/api/groqrouter/generate/retail"
+};
+const initialBotMessage = {
+  travel: "Hello! I'm your travel assistant. Where would you like to go?",
+  retail: "Hi there! Looking for some great retail deals?",
+  default: "Hello! How can I help you today?"
+};
 export default function ChatBox() {
+  const { category } = useParams();
+  console.log(category);
   const [messages, setMessages] = useState([
-    { id: 1, sender: "bot", text: "Hello! How can I help you today?" }
+    {
+      id: 1,
+      sender: "bot",
+      text:
+        initialBotMessage[category?.toLowerCase()] || initialBotMessage.default
+    }
   ]);
   const [newMessage, setNewMessage] = useState("");
   const [loading, setLoading] = useState(false);
 
   const handleSend = async () => {
     if (newMessage.trim() === "") return;
+
+    const endpoint = agentEndpoints[category?.toLowerCase()];
 
     const userMessage = {
       id: messages.length + 1,
@@ -22,12 +42,9 @@ export default function ChatBox() {
     setLoading(true);
 
     try {
-      const response = await axios.post(
-        "http://localhost:5000/api/groqrouter/generate/travel",
-        {
-          prompt: newMessage
-        }
-      );
+      const response = await axios.post(endpoint, {
+        prompt: newMessage
+      });
 
       const botMessage = {
         id: messages.length + 2,

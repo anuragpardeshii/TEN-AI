@@ -8,65 +8,74 @@ const agentData = [
   {
     category: "Insurance",
     title: "Insurance Agent",
-    description: "Get help with policy details and file claims easily. Try our agents here.",
+    description:
+      "Get help with policy details and file claims easily. Try our agents here.",
     agentName: "Myra",
     tasks: ["View policy details", "File claims"],
-    avatar: "https://cdn-icons-png.flaticon.com/512/4140/4140048.png",
+    avatar: "https://cdn-icons-png.flaticon.com/512/4140/4140048.png"
   },
   {
     category: "Retail",
     title: "Retail Agent",
-    description: "Check order details or make changes with ease. Experience our agent here.",
+    description:
+      "Check order details or make changes with ease. Experience our agent here.",
     agentName: "Alex",
     tasks: ["Check order status", "Modify orders"],
-    avatar: "https://cdn-icons-png.flaticon.com/512/4140/4140061.png",
+    avatar: "https://cdn-icons-png.flaticon.com/512/4140/4140061.png"
   },
   {
     category: "Travel",
     title: "Travel Agent",
-    description: "Simplify flight rescheduling in just a few steps. Experience our agent here.",
+    description:
+      "Simplify flight rescheduling in just a few steps. Experience our agent here.",
     agentName: "Myra",
     tasks: ["Reschedule flight", "Answer basic FAQs"],
-    avatar: "https://cdn-icons-png.flaticon.com/512/4140/4140047.png",
+    avatar: "https://cdn-icons-png.flaticon.com/512/4140/4140047.png"
   },
   {
     category: "Hospitality",
     title: "Hospitality Agent",
-    description: "Book rooms quickly and get answers to hotel FAQs. Try our agent here.",
+    description:
+      "Book rooms quickly and get answers to hotel FAQs. Try our agent here.",
     agentName: "Emma",
     tasks: ["Book rooms", "Answer hotel FAQs"],
-    avatar: "https://cdn-icons-png.flaticon.com/512/4140/4140051.png",
+    avatar: "https://cdn-icons-png.flaticon.com/512/4140/4140051.png"
   },
   {
     category: "Banking",
     title: "Banking Agent",
-    description: "Handle account inquiries and card services seamlessly. Try our agent here.",
+    description:
+      "Handle account inquiries and card services seamlessly. Try our agent here.",
     agentName: "Liam",
     tasks: ["Account inquiries", "Card services"],
-    avatar: "https://cdn-icons-png.flaticon.com/512/4140/4140037.png",
+    avatar: "https://cdn-icons-png.flaticon.com/512/4140/4140037.png"
   },
   {
     category: "Real Estate",
     title: "Real Estate Agent",
-    description: "Find properties, schedule viewings, and get mortgage assistance. Try our agent here.",
+    description:
+      "Find properties, schedule viewings, and get mortgage assistance. Try our agent here.",
     agentName: "Sophia",
     tasks: ["Find properties", "Schedule viewings"],
-    avatar: "https://cdn-icons-png.flaticon.com/512/4140/4140060.png",
-  },
-  
+    avatar: "https://cdn-icons-png.flaticon.com/512/4140/4140060.png"
+  }
 ];
 
 const AgentCard = () => {
-  const { category } = useParams(); 
+  const { category } = useParams();
 
   const filteredAgents = category
-    ? agentData.filter((agent) => agent.category.toLowerCase() === category.toLowerCase())
+    ? agentData.filter(
+        (agent) => agent.category.toLowerCase() === category.toLowerCase()
+      )
     : agentData;
 
   const formatCategory = category
     ? category
         .split(" ")
-        .map((word) => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
+        .map(
+          (word) => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()
+        )
         .join(" ")
     : "AI";
 
@@ -79,7 +88,8 @@ const AgentCard = () => {
         Experience Our {formatCategory} Agent
       </h2>
       <p className="text-gray-600 text-center mt-2 mb-6 max-w-md">
-        Experience our AI {formatCategory} agent for enterprise use cases. Feel free to try it out yourself.
+        Experience our AI {formatCategory} agent for enterprise use cases. Feel
+        free to try it out yourself.
       </p>
 
       {filteredAgents.length > 0 ? (
@@ -120,7 +130,7 @@ const AgentCard = () => {
                   <Button className="w-30 flex items-center gap-2 hover:bg-blue-500 hover:text-white transition-colors duration-300">
                     <PhoneCall size={16} /> Call
                   </Button>
-                  <Link to="/chat-box">
+                  <Link to={`/chat-box/${agent.category.toLowerCase()}`}>
                     <Button
                       className="w-30 flex items-center gap-2 hover:bg-blue-500 hover:text-white transition-colors duration-300"
                       variant="secondary"
@@ -129,6 +139,7 @@ const AgentCard = () => {
                     </Button>
                   </Link>
                 </div>
+                {/* <div>{agent.category.toLowerCase()}</div> */}
               </CardContent>
             </Card>
           ))}

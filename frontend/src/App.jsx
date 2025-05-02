@@ -35,7 +35,7 @@ function App() {
             <Route path="/insurance" element={<Insurance />} />
             <Route path="/categories" element={<Categories />} />
             <Route path="/agent-card/:category" element={<AgentCard />} />
-            <Route path="/chat-box" element={<ChatBox />} />
+            <Route path="/chat-box/:category" element={<ChatBox />} />
           </Route>
         </Routes>
         <ToastContainer
