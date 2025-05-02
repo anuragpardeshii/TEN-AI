@@ -15,6 +15,7 @@ import Categories from "./pages/Categories";
 import AgentCard from "./components/AgentCard";
 import Company from "./pages/Company";
 import ChatBox from "./components/ChatBox";
+
 function App() {
   return (
     <BrowserRouter>
