@@ -28,7 +28,7 @@ export default function Company() {
                             <h1 className='font-bold min-[480px]:self-end max-[480px]:pb-5 text-5xl max-[480px]:text-4xl'>Future of Enterprise AI</h1>
                             <div className="w-[35%] max-[480px]:w-full text-[#0009] dark:text-accent-foreground leading-6.5">We believe enterprise customer engagement is on the brink of a dramatic transformation.</div>
                         </div>
-                        <img src="./team_img.jpg" className='rounded-md' alt="team_img" data-aos='fade-up' />
+                        <img src="./src/assets/images/team_img.jpg" className='rounded-md' alt="team_img" data-aos='fade-up' />
                     </div>
                 </section>
                 <section className='pl-10 pr-10 pb-24 max-[480px]:pl-6 max-[480px]:pr-6'>
@@ -38,14 +38,14 @@ export default function Company() {
                             <div className="text-3xl pb-5">Imagine a world with super-intelligent agents that know everything about your customers, and are available 24/7 to solve any issue instantly at minimal cost.</div>
                             <div className="text-sm text-[#0009] w-[65%] dark:text-accent-foreground">Our AI agents anticipate customer needs, suggesting next purchases to boost revenue without annoying your customers. They analyze extensive data to generate sharp insights, shaping your business and product strategy. They resolve customer queries, paving the way for the ultimate customer experience where every interaction is highly personalized.</div>
                         </div>
-                        <img src="./x_img.svg" className="col-span-2 justify-self-end self-end w-[150px] absolute dark:invert" alt="x_img" />
+                        <img src="./src/assets/logos/TEN_logo.png" className="col-span-2 justify-self-end self-end opacity-25 w-[200px] absolute dark:invert" alt="TEN_logo" />
                     </div>
                 </section>
                 <div className='border-t-2 ml-10 mr-10 dark:border-white'></div>
                 <section className='pl-10 pr-10 pt-24 pb-24 max-[480px]:pl-6 max-[480px]:pr-6'>
                     <div className="">
                         <div className='grid grid-cols-5 max-[991px]:flex max-[991px]:flex-col'>
-                            <div className="col-span-2 bg-cover h-[40rem] w-full rounded-md bg-[url(./premji_b.jfif)] p-5 bg-center flex flex-col justify-end items-start max-[991px]:w-full" data-aos='fade-up'>
+                            <div className="col-span-2 bg-cover h-[40rem] w-full rounded-md bg-[url(./src/assets/images/premji_b.jfif)] p-5 bg-center flex flex-col justify-end items-start max-[991px]:w-full" data-aos='fade-up'>
                                 <div className="bg-white rounded-md p-4 leading-6">
                                     <div className="text-[#000000bf] font-medium">Premji B</div>
                                     <div className="text-[#0009]">Senior AI Product Leader</div>
@@ -68,7 +68,7 @@ export default function Company() {
                             <div className="col-span-3">
                                 <div className="">
                                     <h1 className="font-bold min-[480px]:self-end max-[480px]:pb-5 md:w-[25rem] text-5xl max-[480px]:text-4xl">Build the Future Of Enterprise AI</h1>
-                                    <Link to='career' className="inline-flex items-center justify-center gap-2 whitespace-nowrap font-medium transition-all disabled:pointer-events-none disabled:opacity-50 shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive shadow-xs h-9 has-[>svg]:px-3 z-50 cursor-pointer p-5 mt-6 text-sm text-white dark:hover:text-black bg-[#245ae2] hover:bg-black dark:hover:bg-white rounded-full">
+                                    <Link to='/career' className="inline-flex items-center justify-center gap-2 whitespace-nowrap font-medium transition-all disabled:pointer-events-none disabled:opacity-50 shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive shadow-xs h-9 has-[>svg]:px-3 z-50 cursor-pointer p-5 mt-6 text-sm text-white dark:hover:text-black bg-[#245ae2] hover:bg-black dark:hover:bg-white rounded-full">
                                         View open roles →
                                     </Link>
                                 </div>

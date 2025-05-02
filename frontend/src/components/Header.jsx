@@ -84,7 +84,7 @@ const Header = () => {
                               <Headset size={18} className="mt-1" />
                               <span className="flex flex-col text-left text-[16px] w-38">
                                 <span className="group-hover:text-blue-500 font-medium">
-                                  Custom Ai Agents
+                                  Custom AI Agents
                                 </span>
                                 <p className="text-[12px] text-gray-500">
                                   Automate end-to-end workflows with tailored
@@ -199,7 +199,7 @@ const Header = () => {
             ))}
 
             <MenubarMenu>
-              <MenubarTrigger>Company</MenubarTrigger>
+              <MenubarTrigger><Link to='company'>About Us</Link></MenubarTrigger>
             </MenubarMenu>
           </Menubar>
         </nav>

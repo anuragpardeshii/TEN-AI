@@ -15,6 +15,7 @@ import Categories from "./pages/Categories";
 import AgentCard from "./components/AgentCard";
 import Company from "./pages/Company";
 import ChatBox from "./components/ChatBox";
+import Career from "./pages/Career";
 
 function App() {
   return (
@@ -28,11 +29,12 @@ function App() {
             <Route path="/whyten" element={<WhyTEN />} />
             <Route path="/contact-us" element={<Contact />} />
             <Route path="/company" element={<Company />} />
+            <Route path="/career" element={<Career />} />
             <Route path="/retail" element={<Retail />} />
             <Route path="/explore-blogs" element={<ExploreBlogs />} />
             <Route path="/insurance" element={<Insurance />} />
             <Route path="/categories" element={<Categories />} />
-            <Route path="/agent-card" element={<AgentCard />} />
+            <Route path="/agent-card/:category" element={<AgentCard />} />
             <Route path="/chat-box" element={<ChatBox />} />
           </Route>
         </Routes>
