@@ -1,32 +1,56 @@
 import { useState } from "react";
+import axios from "axios";
 
 export default function ChatBox() {
   const [messages, setMessages] = useState([
-    { id: 1, sender: "bot", text: "Hello! How can I help you today?" },
+    { id: 1, sender: "bot", text: "Hello! How can I help you today?" }
   ]);
   const [newMessage, setNewMessage] = useState("");
+  const [loading, setLoading] = useState(false);
 
-  const handleSend = () => {
+  const handleSend = async () => {
     if (newMessage.trim() === "") return;
 
     const userMessage = {
       id: messages.length + 1,
       sender: "user",
-      text: newMessage,
+      text: newMessage
     };
 
-    setMessages([...messages, userMessage]);
+    setMessages((prev) => [...prev, userMessage]);
     setNewMessage("");
+    setLoading(true);
 
-    // Mock bot reply
-    setTimeout(() => {
+    try {
+      const response = await axios.post(
+        "http://localhost:5000/api/groqrouter/generate/travel",
+        {
+          prompt: newMessage
+        }
+      );
+
       const botMessage = {
         id: messages.length + 2,
         sender: "bot",
-        text: "Thanks for your message!",
+        text:
+          response.data?.response?.content ||
+          "Sorry, I couldn’t understand that."
       };
-      setMessages((prevMessages) => [...prevMessages, botMessage]);
-    }, 1000);
+
+      setMessages((prev) => [...prev, botMessage]);
+    } catch (err) {
+      console.error(err);
+      setMessages((prev) => [
+        ...prev,
+        {
+          id: messages.length + 2,
+          sender: "bot",
+          text: "There was an error connecting to the assistant."
+        }
+      ]);
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -35,17 +59,26 @@ export default function ChatBox() {
         {messages.map((msg) => (
           <div
             key={msg.id}
-            className={`mb-3 flex ${msg.sender === "user" ? "justify-end" : "justify-start"}`}
+            className={`mb-3 flex ${
+              msg.sender === "user" ? "justify-end" : "justify-start"
+            }`}
           >
             <div
               className={`p-2 rounded-lg max-w-xs ${
-                msg.sender === "user" ? "bg-blue-500 text-white" : "bg-gray-300 text-black"
+                msg.sender === "user"
+                  ? "bg-blue-500 text-white"
+                  : "bg-gray-300 text-black"
               }`}
             >
               {msg.text}
             </div>
           </div>
         ))}
+        {loading && (
+          <div className="text-white text-sm italic mt-2">
+            Assistant is typing...
+          </div>
+        )}
       </div>
 
       <div className="mt-4 flex">
@@ -59,7 +92,7 @@ export default function ChatBox() {
         />
         <button
           onClick={handleSend}
-          className="bg-blue-500 p-2 rounded-r-md hover:bg-blue-600"
+          className="bg-blue-500 p-2 rounded-r-md hover:bg-blue-600 text-white"
         >
           Send
         </button>
