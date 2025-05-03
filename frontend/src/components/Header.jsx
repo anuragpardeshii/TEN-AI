@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 import {
   Briefcase,
@@ -23,11 +23,38 @@ import {
 } from "@/components/ui/menubar";
 import { CaretDownIcon } from "@radix-ui/react-icons";
 import { useTheme } from "@/context/ThemeContext";
+import axios from "axios";
+import { toast } from "react-toastify";
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [hoveredMenu, setHoveredMenu] = useState(null);
   const { theme, setTheme } = useTheme();
+  const navigate = useNavigate();
+
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    setIsLoggedIn(!!token);
+  }, [localStorage.getItem("token")]);
+
+  const handleLogout = async () => {
+    try {
+      await axios.post(
+        "http://localhost:5000/api/user/logout",
+        {},
+        { withCredentials: true }
+      );
+      localStorage.removeItem("token");
+      setIsLoggedIn(false);
+      toast.success("Logout Successfully");
+      navigate("/");
+    } catch (err) {
+      console.error("Logout error:", err);
+      toast.error("Error while Logout");
+    }
+  };
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 50);
@@ -154,7 +181,10 @@ const Header = () => {
 
                         <div className="w-px bg-gray-300 self-stretch mx-1" />
 
-                        <Link to ='/insurance' className="flex items-start gap-2 group">
+                        <Link
+                          to="/insurance"
+                          className="flex items-start gap-2 group"
+                        >
                           <ShieldCheck size={18} className="mt-1" />
                           <span className="flex flex-col text-left text-[16px] w-38">
                             <span className="group-hover:text-blue-500 font-medium">
@@ -199,13 +229,38 @@ const Header = () => {
             ))}
 
             <MenubarMenu>
-              <MenubarTrigger><Link to='company'>About Us</Link></MenubarTrigger>
+              <MenubarTrigger>
+                <Link to="company">About Us</Link>
+              </MenubarTrigger>
             </MenubarMenu>
           </Menubar>
         </nav>
 
         {/* Theme + CTA */}
         <div className="flex gap-3 items-center">
+          {!isLoggedIn ? (
+            <>
+              <button
+                className="text-sm font-semibold px-4 py-2 rounded-full border border-blue-500 text-blue-500 hover:bg-blue-500 hover:text-white transition"
+                onClick={() => navigate("/sign-page?mode=signup")}
+              >
+                Sign Up
+              </button>
+              <button
+                className="text-sm font-semibold px-4 py-2 rounded-full border border-green-500 text-green-500 hover:bg-green-500 hover:text-white transition"
+                onClick={() => navigate("/sign-page?mode=signin")}
+              >
+                Sign In
+              </button>
+            </>
+          ) : (
+            <button
+              className="text-sm font-semibold px-4 py-2 rounded-full border border-red-500 text-red-500 hover:bg-red-500 hover:text-white transition"
+              onClick={handleLogout}
+            >
+              Logout
+            </button>
+          )}
           <button
             className="cursor-pointer z-50"
             onClick={() => setTheme(theme === "dark" ? "light" : "dark")}

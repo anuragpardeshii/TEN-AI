@@ -16,6 +16,7 @@ import AgentCard from "./components/AgentCard";
 import Company from "./pages/Company";
 import ChatBox from "./components/ChatBox";
 import Career from "./pages/Career";
+import SignPage from "./pages/SignPage";
 
 function App() {
   return (
@@ -36,6 +37,7 @@ function App() {
             <Route path="/categories" element={<Categories />} />
             <Route path="/agent-card/:category" element={<AgentCard />} />
             <Route path="/chat-box/:category" element={<ChatBox />} />
+            <Route path="/sign-page" element={<SignPage />} />
           </Route>
         </Routes>
         <ToastContainer
