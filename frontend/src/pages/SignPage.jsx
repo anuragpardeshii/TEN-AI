@@ -31,7 +31,7 @@ const SignPage = () => {
       const { data } = await axios.post(url, formData, {
         withCredentials: true
       });
-      console.log("Success:", data);
+    //   console.log("Success:", data);
 
       if (isSignUp) {
         toast.success("Sign Up successful! Please log in.");
