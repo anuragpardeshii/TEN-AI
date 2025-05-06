@@ -60,13 +60,15 @@ const Whytenai = () => {
   ];
 
   return (
-    <div className="w-full bg-white pt-45 pb-20">
+    <div className="w-full pt-45 pb-20">
       <div className="max-w-[800px] mx-auto px-4">
         <div className="text-center mb-14">
-          <div className="inline-flex items-center gap-2 px-4 py-1 rounded-full border text-[10px] text-black">
-            <div className="bg-lime-300 p-1.5 rounded-full">
-              <ArrowRight size={8} />
-            </div>
+          <div className="bg-white w-fit pr-2 pl-0.5 py-0.5 gap-2 place-self-center dark:bg-slate-800 border border-slate-300 dark:border-slate-300 font-[Manrope] text-slate-700 dark:text-slate-300 text-xs flex align-center rounded-4xl">
+            <img
+              className="bg-lime-300 rounded-4xl overflow-auto p-0.5 w-4 h-4"
+              src="https://cdn.prod.website-files.com/66796a37e9aadbf3722c4340/668f703d2aa0bf69a597c3d9_Label%20Arrow.svg"
+              alt=""
+            />
             Advantages
           </div>
           <h2 className="text-4xl md:text-5xl font-semibold mt-4">

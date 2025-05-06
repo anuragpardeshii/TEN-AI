@@ -23,7 +23,7 @@ const FeaturesSection = () => {
         <h2 className='text-3xl md:text-4xl font-bold mb-4'>
           What can custom AI Agents do?
         </h2>
-        <p className='text-gray-600 text-sm md:text-base mb-12 max-w-2xl mx-auto'>
+        <p className='text-gray-500 text-sm md:text-base mb-12 max-w-2xl mx-auto'>
           Discover the powerful capabilities of our custom AI agents, designed to streamline your business operations.
         </p>
 
@@ -78,18 +78,18 @@ const FeaturesSection = () => {
                 initial="hidden"
                 whileInView="show"
                 viewport={{ once: true, amount: 0.2 }}
-                className="bg-white w-[280px] rounded-xl shadow-xs p-6 text-left hover:shadow-md transition"
+                className="w-[280px] border rounded-xl shadow-xs p-6 text-left hover:shadow-md dark:hover:shadow-white transition"
               >
-                <h3 className="text-xl text-black font-semibold mb-2">
+                <h3 className="text-xl font-semibold mb-2">
                   {feature.title.map((line, i) => (
                     <span key={i} className="block">{line}</span>
                   ))}
                 </h3>
-                <p className="text-gray-600 text-xs mb-4">
+                <p className="text-gray-500 text-xs mb-4">
                   {feature.desc}
                 </p>
-                <p className="font-semibold text-black text-sm mb-2">Benefits</p>
-                <ul className="text-sm text-gray-700 space-y-2">
+                <p className="font-semibold text-sm mb-2">Benefits</p>
+                <ul className="text-sm text-gray-500 space-y-2">
                   {feature.benefits.map((point, i) => (
                     <li key={i} className="flex items-start gap-2">
                       <CheckCircle className="text-blue-600 w-4 h-4 mt-1" />

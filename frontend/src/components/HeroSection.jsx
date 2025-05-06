@@ -16,7 +16,7 @@ const HeroSection = () => {
             <span className="block">Empower Your</span>
             <span className="block">Enterprise with AI Agents</span>
           </h1>
-          <p className="text-gray-600 text-sm mb-4 leading-tight max-w-2xl mx-auto">
+          <p className="text-gray-500 text-sm mb-4 leading-tight max-w-2xl mx-auto">
             Automate your existing workflows to enhance <br />
             customer experiences and improve internal
             <br />

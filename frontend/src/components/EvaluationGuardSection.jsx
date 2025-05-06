@@ -89,7 +89,7 @@ const EvaluationGuardSection = () => {
   const contentInView = useInView(contentRef, { once: true, margin: '-100px' });
 
   return (
-    <div className="min-h-screen bg-white text-gray-800 font-sans">
+    <div className="min-h-screen text-gray-800 font-sans">
       {/* ✅ Hero Section */}
       <section className="py-12 px-4 md:px-12 lg:px-32">
         <motion.div
@@ -105,7 +105,7 @@ const EvaluationGuardSection = () => {
               <span className="bg-lime-400 text-black px-3 py-1 text-[10px] rounded-full">
                 Evaluation & Guardrailin
               </span>
-              <h1 className="text-4xl font-semibold leading-tight mt-4">
+              <h1 className="text-4xl text-gray-400 font-semibold leading-tight mt-4">
                 Responsible Gen AI: Rigorous
                 Evaluation and Guardrails              </h1>
               <div className="flex space-x-3 mt-4">
@@ -126,7 +126,7 @@ const EvaluationGuardSection = () => {
 
             {/* Right Side: Paragraph */}
             <div className="md:w-1/2 flex items-start">
-              <p className="text-gray-600 text-xs pt-10 max-w-lg">
+              <p className="text-gray-400 text-xs pt-10 max-w-lg">
                 At TEN,we are committed to responsible AI development. Our comprehensive framework ensures the accuracy, safety, and reliability of our generative AI solutions.
               </p>
             </div>
@@ -135,7 +135,7 @@ const EvaluationGuardSection = () => {
       </section>
 
       {/* ✅ Dynamic Tab Content Section */}
-      <section className="bg-white py-12 px-4 md:px-12 lg:px-32">
+      <section className=" py-12 px-4 md:px-12 lg:px-32">
                       <motion.div
                           ref={contentRef}
                           initial={{ opacity: 0, y: 50 }}

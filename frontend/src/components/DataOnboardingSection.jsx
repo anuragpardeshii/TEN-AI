@@ -99,7 +99,7 @@ const DataIngestionSection = () => {
                     <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-12">
                         {/* Left Side: Heading + Tabs */}
                         <div className="md:w-1/2 space-y-4 md:pl-20">
-                            <span className="bg-blue-900 text-white px-2 py-1 text-[10px] rounded-full">
+                            <span className="bg-lime-400 text-black px-2 py-1 text-[10px] rounded-full">
                                 System Integrity
                             </span>
                             <h1 className="text-3xl text-white font-semibold leading-tight mt-4">

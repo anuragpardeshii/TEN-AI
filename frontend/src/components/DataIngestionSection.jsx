@@ -82,7 +82,7 @@ const DataIngestionSection = () => {
   const contentInView = useInView(contentRef, { once: true, margin: '-100px' });
 
   return (
-    <div className="min-h-screen bg-white text-gray-800 font-sans">
+    <div className="min-h-screen text-gray-400 font-sans">
       {/* ✅ Hero Section */}
       <section className="py-12 px-4 md:px-12 lg:px-32">
         <motion.div
@@ -120,7 +120,7 @@ const DataIngestionSection = () => {
 
             {/* Right Side: Paragraph */}
             <div className="md:w-1/2 flex items-start">
-              <p className="text-gray-600 text-xs pt-10 max-w-lg">
+              <p className="text-gray-400 text-xs pt-10 max-w-lg">
                 At TEN, we prioritize data quality and integrity to deliver
                 accurate generative AI solutions. Our robust data management and
                 integration ensure our models are always grounded in truth.
@@ -131,7 +131,7 @@ const DataIngestionSection = () => {
       </section>
 
       {/* ✅ Dynamic Tab Content Section */}
-      <section className="bg-white py-12 px-4 md:px-12 lg:px-32">
+      <section className=" py-12 px-4 md:px-12 lg:px-32">
         <motion.div
           ref={contentRef}
           initial={{ opacity: 0, y: 50 }}
