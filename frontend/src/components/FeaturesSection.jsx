@@ -15,10 +15,10 @@ const FeaturesSection = () => {
 
   useEffect(() => {
     Aos.init({ duration: 800, once: true })
-  },[])
+  }, [])
 
   return (
-    <div className='w-full py-20' data-aos="fade-up">
+    <div className='py-20' data-aos="fade-up">
       <div className='max-w-7xl mx-auto px-4 text-center'>
         <h2 className='text-3xl md:text-4xl font-bold mb-4'>
           What can custom AI Agents do?
@@ -28,11 +28,11 @@ const FeaturesSection = () => {
         </p>
 
         {/* Two-column layout: features left, animation right */}
-        <div className="flex flex-col lg:flex-row justify-between items-center lg:items-start gap-10">
-          
+        <div className="flex flex-row justify-between max-md:justify-center lg:items-start max-lg:gap-0 gap-10">
+
           {/* Features - Left column */}
-<div className="flex flex-col space-y-18 items-center lg:items-start pl-18 lg:pl-34">
-            
+          <div className="flex flex-col space-y-18 items-center lg:items-start ">
+
             {/* Feature Card */}
             {[
               {
@@ -80,7 +80,7 @@ const FeaturesSection = () => {
                 viewport={{ once: true, amount: 0.2 }}
                 className="bg-white w-[280px] rounded-xl shadow-xs p-6 text-left hover:shadow-md transition"
               >
-                <h3 className="text-xl font-semibold mb-2">
+                <h3 className="text-xl text-black font-semibold mb-2">
                   {feature.title.map((line, i) => (
                     <span key={i} className="block">{line}</span>
                   ))}
@@ -88,7 +88,7 @@ const FeaturesSection = () => {
                 <p className="text-gray-600 text-xs mb-4">
                   {feature.desc}
                 </p>
-                <p className="font-semibold text-sm mb-2">Benefits</p>
+                <p className="font-semibold text-black text-sm mb-2">Benefits</p>
                 <ul className="text-sm text-gray-700 space-y-2">
                   {feature.benefits.map((point, i) => (
                     <li key={i} className="flex items-start gap-2">
@@ -102,45 +102,11 @@ const FeaturesSection = () => {
           </div>
 
           <div className='flex flex-col'>
-
-
-
-          {/* Animation - Right column */}
-          {/* <motion.div
-            animate={{ y: [0, -10, 0] }}
-            transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut' }}
-            className="mt-10 lg:mt-0 pt-10"
-            data-aos="fade-left"
-            >
-            <div className="relative bg-white w-[320px] md:w-[360px] rounded-2xl shadow-xl p-6">
-              <div className="flex items-center space-x-2 mb-4">
-                <div className="w-3 h-3 bg-gray-300 rounded-full"></div>
-                <div className="w-3 h-3 bg-gray-300 rounded-full"></div>
-                <div className="w-3 h-3 bg-gray-300 rounded-full"></div>
-              </div>
-              <div className="flex flex-col items-center text-center space-y-4">
-                <div className="text-blue-600 text-3xl">📄</div>
-                <h3 className="text-lg font-bold">Explain My Policy</h3>
-                <div className="flex items-center gap-4 mt-4">
-                  <div className="bg-blue-600 text-white font-semibold rounded-full w-10 h-10 flex items-center justify-center">
-                    X
-                  </div>
-                  <div className="w-10 border-t-2 border-dashed border-gray-400" />
-                  <div className="bg-gray-100 rounded-full w-10 h-10 flex items-center justify-center text-[10px] text-gray-700 font-medium">
-                    zendesk
-                  </div>
-                </div>
-              </div>
-            </div>
-          </motion.div> */}
-
-
-          <Lottie animationData={AIAnimation4}  className='w-sm pt-10' data-aos="fade-left"/>
-          <Lottie animationData={AIAnimation1}  className='w-[22rem] pt-20' data-aos="fade-left"/>
-          <Lottie animationData={AIAnimation2}  className='w-sm pt-15' data-aos="fade-left"/>
-          <Lottie animationData={AIAnimation3}  className='w-sm pt-25' data-aos="fade-left"/>
-
-            </div>
+            <Lottie animationData={AIAnimation4} className='w-sm max-md:w-[16rem] pt-10 max-md:pt-20' data-aos="fade-left" />
+            <Lottie animationData={AIAnimation1} className='w-[22rem] max-md:w-[14rem] pt-20 max-md:pt-40' data-aos="fade-left" />
+            <Lottie animationData={AIAnimation2} className='w-sm max-md:w-[16rem] pt-15 max-md:pt-45' data-aos="fade-left" />
+            <Lottie animationData={AIAnimation3} className='w-sm max-md:w-[16rem] pt-25 max-md:pt-45' data-aos="fade-left" />
+          </div>
         </div>
       </div>
     </div>

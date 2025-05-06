@@ -10,7 +10,7 @@ const HeroSection = () => {
   // };
   return (
     <div>
-      <section className="w-full py-20 text-center">
+      <section className="w-full pt-20 text-center">
         <div className="max-w-4xl mx-auto px-4 ">
           <h1 className="text-3xl md:text-5xl font-bold mb-6 leading-tight">
             <span className="block">Empower Your</span>
