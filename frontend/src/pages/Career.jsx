@@ -146,11 +146,11 @@ export default function Career() {
             </div>
             <div>
                 <div className="text-3xl font-bold text-center text-blue-600">Open Positions!</div>
-                <div className="grid grid-cols-5 max-lg:flex max-lg:flex-col max-lg:px-10 px-20 py-10">
-                    <div className="col-span-1 border-2 p-5 rounded-md mr-5 h-fit">
-                        <div className="flex">
+                <div className="grid grid-cols-5 max-2xl:flex max-2xl:flex-col max-2xl:px-10 px-10 py-10">
+                    <div className="col-span-1 border-2 p-5 rounded-md mr-5 h-fit mb-5">
+                        <div className="flex mb-4">
                             <div className="flex items-center border-2 rounded-sm p-1 w-full">
-                                <FaSearch className="text-gray-500 w-fit" />
+                                <FaSearch className="text-gray-500 w-6" />
                                 <input type="search" name="" placeholder="Search" className="focus:outline-none" />
                             </div>
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" className="ml-2 mt-1 cursor-pointer w-6">
@@ -160,7 +160,7 @@ export default function Career() {
 
                         <div>
                             <div className="flex flex-col">
-                                <div className="flex justify-between cursor-pointer" onClick={() => toggleFilter("department")}><span>Department</span>{filter.department ? <span>&#11161;</span> : <span>&#11163;</span>}</div>
+                                <div className="flex justify-between cursor-pointer mb-1" onClick={() => toggleFilter("department")}><span>Department</span>{filter.department ? <span>&#11161;</span> : <span>&#11163;</span>}</div>
                                 {filter.department && <div>
                                     {positions.map((position, index) => {
                                         const department = position.department;
@@ -182,7 +182,7 @@ export default function Career() {
                                     })}
                                 </div>}
 
-                                <div className="flex justify-between cursor-pointer" onClick={() => toggleFilter("location")}><span>Location</span>{filter.location ? <span>&#11161;</span> : <span>&#11163;</span>}</div>
+                                <div className="flex justify-between cursor-pointer mb-1" onClick={() => toggleFilter("location")}><span>Location</span>{filter.location ? <span>&#11161;</span> : <span>&#11163;</span>}</div>
                                 {filter.location && <div>
                                     {positions.map((position, index) => {
                                         const location = position.location;
@@ -204,7 +204,7 @@ export default function Career() {
                                     })}
                                 </div>}
 
-                                <div className="flex justify-between cursor-pointer" onClick={() => toggleFilter("type")}><span>Job Type</span>{filter.type ? <span>&#11161;</span> : <span>&#11163;</span>}</div>
+                                <div className="flex justify-between cursor-pointer mb-1" onClick={() => toggleFilter("type")}><span>Job Type</span>{filter.type ? <span>&#11161;</span> : <span>&#11163;</span>}</div>
                                 {filter.type && <div>
                                     {positions.map((position, index) => {
                                         const type = position.type;
