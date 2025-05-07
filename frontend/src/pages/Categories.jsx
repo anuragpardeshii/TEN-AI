@@ -170,12 +170,12 @@ export default function Categories() {
 
   return (
     <section>
-      <div className="bg-[url(./src/assets/images/static_bg.png)] bg-cover bg-no-repeat justify-items-center justify-center bg-position-[50%] ">
-        <div className="flex flex-col items-center relative w-full pt-20 pb-5 max-[480px]:pt-10 max-[480px]:pb-10 pl-10 pr-10 max-[480px]:pl-6 max-[480px]:pr-6">
+      <div className="dark:invert bg-[url(./src/assets/images/static_bg.png)] bg-cover bg-no-repeat justify-items-center justify-center bg-position-[50%] ">
+        <div className="dark:invert flex flex-col items-center relative w-full pt-20 pb-5 max-[480px]:pt-10 max-[480px]:pb-10 pl-10 pr-10 max-[480px]:pl-6 max-[480px]:pr-6">
           <div className="flex flex-col justify-center items-center w-full">
-            <div className=" flex flex-row px-2.5 py-0.5 mt-12 w-fit border-solid border-1 border-[#0000001a] rounded-2xl cursor-pointer items-center">
-              <div className="pr-0.5">
-                <img src="./src/assets/logos/convlogo.png" alt="convlogo" />
+            <div className=" flex flex-row px-2.5 py-0.5 mt-12 w-fit border-solid border-1 border-[#0000001a] dark:border-gray-400 rounded-2xl cursor-pointer items-center">
+              <div className="pr-0.5 ">
+                <img src="./src/assets/logos/convlogo.png" alt="convlogo" className="" />
               </div>
               <div className="text-[12px] pb-0.5">Human-like conversations</div>
             </div>
@@ -193,12 +193,12 @@ export default function Categories() {
           </div>
           <div className="flex flex-row relative z-2 justify-center items-center">
             <div className="py-5">
-              <div className="border-1 rounded-2xl p-6 pt-6 bg-white md:w-[910px]">
+              <div className="border rounded-2xl p-6 pt-6 md:w-[910px] shadow shadow-accent-foreground dark:bg-black bg-white">
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
                   {categories.map((cat, index) => (
                     <div
                       key={index}
-                      className={`border w-full rounded-lg cursor-pointer ${cat.hover} justify-self-center p-4 ${cat.color}`}
+                      className={`border w-full rounded-lg cursor-pointer ${cat.hover} shadow shadow-accent-foreground justify-self-center p-4 ${cat.color}`}
                       onClick={()=>navigate(cat.link)}
                     >
                       {cat.icon}
