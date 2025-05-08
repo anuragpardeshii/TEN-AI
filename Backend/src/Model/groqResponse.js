@@ -2,6 +2,11 @@ import mongoose from "mongoose";
 
 const responseSchema = new mongoose.Schema(
   {
+    user:{
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "UserModel",
+      required: true,
+    },
     prompt: {
       type: String,
       required: true,
