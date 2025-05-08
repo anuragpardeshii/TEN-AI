@@ -1,10 +1,10 @@
 import React, { useEffect } from 'react';
 import HeroSection from '@/components/HeroSection';
 import FeaturesSection from '../components/FeaturesSection';
-import ImageMockup from '@/components/ImageMockup';
 import ExperienceSection from '@/components/ExperienceSection';
-import LastHero from '@/components/LastHero';
 import { useLocation } from 'react-router-dom';
+import Impact from '@/components/Impact';
+import Connect from '@/components/Connect';
 
 
 const CustomAIAgents = () => {
@@ -26,9 +26,9 @@ const CustomAIAgents = () => {
     <div>
       <HeroSection/>
       <FeaturesSection/>
-      <ImageMockup/>
       <ExperienceSection/>
-      <LastHero/>
+      <Impact />
+      <Connect />
     </div>
   );
 };

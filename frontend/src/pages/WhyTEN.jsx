@@ -4,17 +4,17 @@ import React from 'react'
 import SystemIntegration from '@/components/SystemIntegration';
 import DataOnboardingSection from '@/components/DataOnboardingSection';
 import EvaluationGuardSection from '@/components/EvaluationGuardSection';
-import LastHerowhyTEN from '@/components/LastHerowhyTEN';
+import Connect from '@/components/Connect';
 
 const WhyTEN = () => {
   return (
     <div>
-    < Whytenai/>
+    <Whytenai/>
+    <div className='border-t-2 w-[80%] place-self-center'></div>
     <DataIngestionSection/>
     <DataOnboardingSection/>
     <EvaluationGuardSection/>
-    <LastHerowhyTEN/>
-
+    <Connect />
     </div>
   )
 }

@@ -10,13 +10,13 @@ const HeroSection = () => {
   // };
   return (
     <div>
-      <section className="w-full py-20 text-center">
+      <section className="w-full pt-20 text-center">
         <div className="max-w-4xl mx-auto px-4 ">
           <h1 className="text-3xl md:text-5xl font-bold mb-6 leading-tight">
             <span className="block">Empower Your</span>
             <span className="block">Enterprise with AI Agents</span>
           </h1>
-          <p className="text-gray-600 text-sm mb-4 leading-tight max-w-2xl mx-auto">
+          <p className="text-gray-500 text-sm mb-4 leading-tight max-w-2xl mx-auto">
             Automate your existing workflows to enhance <br />
             customer experiences and improve internal
             <br />

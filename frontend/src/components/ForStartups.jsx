@@ -18,7 +18,7 @@ const Reveal = ({ children, delay = 0 }) => {
 };
 
 const ForStartups = () => {
-    const rotatingScaleWords = ["Faster", "Smarter", "Better", "Seamlessly", "Confidently"];
+    const rotatingScaleWords = ["Scale Faster", "Scale Smarter", "Scale Better", "Scale Seamlessly", "Scale Confidently"];
     const [scaleIndex, setScaleIndex] = useState(0);
 
     useEffect(() => {
@@ -31,19 +31,18 @@ const ForStartups = () => {
     return (
         <>
             {/* HERO SECTION */}
-            <section className="w-full min-h-[80vh] text-white px-6 py-24 bg-[#001D4A] relative overflow-hidden">
+            <section className="w-full min-h-[60vh] text-white px-6 pt-24 bg-[#001D4A] place-content-center relative overflow-hidden">
                 <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(circle_at_1px_1px,rgba(255,255,255,0.05)_1px,transparent_0)] bg-[size:40px_40px] opacity-40" />
 
                 <div className="max-w-6xl mx-auto text-center relative z-10">
                     <Reveal>
-                        <h1 className="text-4xl md:text-5xl font-bold leading-tight pt-7 mb-4">
+                        <h1 className="text-5xl md:text-6xl mb-2 font-bold leading-tight">
                             AI Partner for Startups
                         </h1>
                     </Reveal>
 
                     <Reveal delay={0.2}>
                         <p className="text-3xl md:text-4xl font-bold text-lime-400 mb-4 h-[48px]">
-                            Scale{" "}
                             <AnimatePresence mode="wait">
                                 <motion.span
                                     key={rotatingScaleWords[scaleIndex]}
@@ -60,7 +59,7 @@ const ForStartups = () => {
                     </Reveal>
 
                     <Reveal delay={0.4}>
-                        <p className="text-lg md:text-sm text-gray-200 max-w-2xl mx-auto mb-10">
+                        <p className="text-lg max-md:text-sm text-gray-200 max-w-2xl mx-auto mb-10">
                             Your full-stack partner, co-developing Agentic AI solutions
                         </p>
                         <button className="px-4 py-2 rounded-full bg-blue-600 text-white hover:bg-white hover:text-blue-800 transition font-semibold">
@@ -71,7 +70,7 @@ const ForStartups = () => {
             </section>
 
             {/* MAIN CONTENT */}
-            <section className="relative w-full text-black px-6 py-24 overflow-hidden bg-white">
+            <section className="relative w-full px-6 py-24 overflow-hidden">
                 <div className="absolute inset-0 pointer-events-none bg-[linear-gradient(to_right,rgba(0,0,0,0.03)_1px,transparent_1px),linear-gradient(to_bottom,rgba(0,0,0,0.03)_1px,transparent_1px)] bg-[size:40px_40px] z-0 opacity-25" />
 
                 <div className="max-w-6xl mx-auto relative z-10">
@@ -98,9 +97,9 @@ const ForStartups = () => {
                             },
                         ].map((item, i) => (
                             <Reveal key={item.title} delay={0.1 * i}>
-                                <div className="p-6 rounded-xl border hover:shadow-md transition bg-white bg-opacity-80 backdrop-blur-sm">
+                                <div className="p-6 rounded-xl border hover:shadow-md transition dark:hover:shadow-white  bg-opacity-80 backdrop-blur-sm">
                                     <h3 className="text-xl font-semibold mb-2">{item.title}</h3>
-                                    <p className="text-gray-600">{item.desc}</p>
+                                    <p className="text-gray-500">{item.desc}</p>
                                 </div>
                             </Reveal>
                         ))}
@@ -111,7 +110,7 @@ const ForStartups = () => {
                             <h2 className="text-2xl md:text-3xl font-semibold mb-4">
                                 Launch your AI-powered startup with confidence.
                             </h2>
-                            <p className="text-gray-700 mb-6">
+                            <p className="text-gray-500 mb-6">
                                 Let us handle the infrastructure while you focus on your product.
                             </p>
                             <button className="px-6 py-3 rounded-full bg-lime-500 text-black hover:bg-lime-400 transition font-semibold">

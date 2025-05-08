@@ -30,14 +30,15 @@ const StartupFolder = () => {
     return (
         <>
             {/* Features Section */}
-            <section className="bg-[#f4f4f6] px-6 py-24">
+            <div className="dark:border-t-4 dark:w-[80%] dark:place-self-center"></div>
+            <section className="bg-[#f4f4f6] dark:bg-black px-6 py-24">
                 <div className="max-w-6xl mx-auto">
-                    <div className="flex flex-col md:flex-row justify-between items-start gap-10 mb-16">
+                    <div className="flex flex-col md:flex-row justify-between items-start max-md:items-center gap-10 mb-16">
                         <h2 className="text-3xl md:text-4xl font-semibold md:w-1/2">
                             Why Founders <br className="hidden md:block" />
                             Choose us?
                         </h2>
-                        <p className="text-gray-600 text-[14px] mt-[72px] md:mt-9 md:w-1/2">
+                        <p className="text-gray-500 text-[14px] md:mt-9 md:w-1/2">
                             <span className="block">
                                 We get it—building impactful Agentic AI solutions on a
                             </span>
@@ -67,9 +68,9 @@ const StartupFolder = () => {
                                     />
                                 </motion.div>
 
-                                <div className="hover:shadow-lg p-4 text-center w-full transition">
+                                <div className="hover:shadow-lg dark:hover:shadow-accent-foreground p-4 text-center w-full transition">
                                     <h3 className="text-xl font-semibold mb-2">{item.title}</h3>
-                                    <p className="text-gray-600 text-sm">{item.desc}</p>
+                                    <p className="text-gray-500 text-sm">{item.desc}</p>
                                 </div>
                             </motion.div>
                         ))}
@@ -77,8 +78,9 @@ const StartupFolder = () => {
                 </div>
             </section>
 
+            <div className="dark:border-b-4 dark:w-[80%] dark:place-self-center"></div>
             {/* Outcomes Section */}
-            <section className="bg-white py-16">
+            <section className=" py-16">
                 <div className="max-w-6xl mx-auto px-4 text-center">
                     <h2 className="text-4xl font-bold mb-2">Outcomes</h2>
                     <p className="text-gray-500 mb-12">
