@@ -2,7 +2,7 @@ import React from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { PhoneCall, MessageSquare, CheckCircle } from "lucide-react";
-import { Link, useParams } from "react-router-dom";
+import { Link, useParams} from "react-router-dom";
 
 const agentData = [
   {
@@ -12,7 +12,7 @@ const agentData = [
       "Get help with policy details and file claims easily. Try our agents here.",
     agentName: "Myra",
     tasks: ["View policy details", "File claims"],
-    avatar: "https://cdn-icons-png.flaticon.com/512/4140/4140048.png"
+    avatar: "https://cdn-icons-png.flaticon.com/512/4140/4140048.png",
   },
   {
     category: "Retail",
@@ -21,7 +21,7 @@ const agentData = [
       "Check order details or make changes with ease. Experience our agent here.",
     agentName: "Alex",
     tasks: ["Check order status", "Modify orders"],
-    avatar: "https://cdn-icons-png.flaticon.com/512/4140/4140061.png"
+    avatar: "https://cdn-icons-png.flaticon.com/512/4140/4140061.png",
   },
   {
     category: "Travel",
@@ -30,7 +30,7 @@ const agentData = [
       "Simplify flight rescheduling in just a few steps. Experience our agent here.",
     agentName: "Myra",
     tasks: ["Reschedule flight", "Answer basic FAQs"],
-    avatar: "https://cdn-icons-png.flaticon.com/512/4140/4140047.png"
+    avatar: "https://cdn-icons-png.flaticon.com/512/4140/4140047.png",
   },
   {
     category: "Hospitality",
@@ -39,7 +39,7 @@ const agentData = [
       "Book rooms quickly and get answers to hotel FAQs. Try our agent here.",
     agentName: "Emma",
     tasks: ["Book rooms", "Answer hotel FAQs"],
-    avatar: "https://cdn-icons-png.flaticon.com/512/4140/4140051.png"
+    avatar: "https://cdn-icons-png.flaticon.com/512/4140/4140051.png",
   },
   {
     category: "Banking",
@@ -48,7 +48,7 @@ const agentData = [
       "Handle account inquiries and card services seamlessly. Try our agent here.",
     agentName: "Liam",
     tasks: ["Account inquiries", "Card services"],
-    avatar: "https://cdn-icons-png.flaticon.com/512/4140/4140037.png"
+    avatar: "https://cdn-icons-png.flaticon.com/512/4140/4140037.png",
   },
   {
     category: "Real Estate",
@@ -57,12 +57,13 @@ const agentData = [
       "Find properties, schedule viewings, and get mortgage assistance. Try our agent here.",
     agentName: "Sophia",
     tasks: ["Find properties", "Schedule viewings"],
-    avatar: "https://cdn-icons-png.flaticon.com/512/4140/4140060.png"
-  }
+    avatar: "https://cdn-icons-png.flaticon.com/512/4140/4140060.png",
+  },
 ];
 
 const AgentCard = () => {
   const { category } = useParams();
+  
 
   const filteredAgents = category
     ? agentData.filter(
@@ -127,9 +128,15 @@ const AgentCard = () => {
                   </div>
                 </div>
                 <div className="flex justify-around gap-4">
-                  <Button className="w-30 flex items-center gap-2 hover:bg-blue-500 hover:text-white transition-colors duration-300">
-                    <PhoneCall size={16} /> Call
-                  </Button>
+                <Link to={`/voice-call/${agent.category.toLowerCase()}`}>
+                    <Button
+                      className="w-30 flex items-center gap-2 hover:bg-blue-500 hover:text-white transition-colors duration-300"
+                      variant="secondary"
+                    >
+                      <PhoneCall size={16} /> Call
+                    </Button>
+                    </Link>
+
                   <Link to={`/chat-box/${agent.category.toLowerCase()}`}>
                     <Button
                       className="w-30 flex items-center gap-2 hover:bg-blue-500 hover:text-white transition-colors duration-300"

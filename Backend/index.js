@@ -9,12 +9,13 @@ import groqrouter from "./src/routes/groq.Route.js";
 import errorHandler from "./src/middleware/errorHandler.js";
 import userRouter from "./src/routes/user.route.js";
 import cookieParser from "cookie-parser";
+import voiceRouter from "./src/routes/voice.routes.js";  
 
 const server = express();
 
 server.use(
   cors({
-    origin: "http://localhost:5173", // frontend URL
+    origin: "http://localhost:5173", 
     credentials: true
   })
 );
@@ -23,11 +24,12 @@ server.use(express.json());
 server.use(express.urlencoded({ extended: true }));
 server.use(cookieParser());
 
-// api routes mount
+
 server.use("/api/insights", insightsRouter);
 server.use("/api/contact", Contactrouter);
 server.use("/api/groqrouter", groqrouter);
 server.use("/api/user", userRouter);
+server.use("/api/voice", voiceRouter);  
 
 server.use(errorHandler);
 
