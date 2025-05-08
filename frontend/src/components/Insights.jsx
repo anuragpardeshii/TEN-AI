@@ -29,7 +29,7 @@ const Insights = ({ isHomePage }) => {
   };
 
   return (
-    <div className="px-78 py-12 bg-white font-sans">
+    <div className="px-78 py-12 font-sans">
       <div className="flex justify-between items-center mb-10">
         <h2 className="text-4xl font-bold text-black">Latest Insights</h2>
         {isHomePage && (
@@ -45,7 +45,7 @@ const Insights = ({ isHomePage }) => {
       {loading ? (
         <p className="text-center text-gray-600">Loading...</p>
       ) : (
-        <div className="flex flex-wrap justify-center gap-16">
+        <div className="grid grid-cols-1 lg:grid-cols-3  gap-3">
           {displayedInsights.map((item, index) => (
             <div
               key={item._id || index}
@@ -54,7 +54,7 @@ const Insights = ({ isHomePage }) => {
               <img
                 src={item.image}
                 alt={item.title}
-                className="w-full h-92 object-cover rounded-t-xl"
+                className="w-full h-56 object-cover rounded-t-xl"
               />
               <div className="px-5 py-4">
                 <div className="flex gap-4 text-sm mb-2">

@@ -28,15 +28,15 @@ const ExploreBlogs = () => {
   };
 
   return (
-    <div className="px-20 py-20 bg-white font-sans min-h-screen">
-      <h2 className="text-4xl font-bold text-black mb-10 text-center">
+    <div className="px-20 py-20 font-sans min-h-screen">
+      <h2 className="text-4xl font-bold mb-10 text-center">
         Explore All Blogs
       </h2>
 
       {loading ? (
         <p className="text-center text-gray-600">Loading...</p>
       ) : (
-        <div className="flex flex-wrap justify-center gap-16">
+        <div className="grid grid-cols-1 lg:grid-cols-3 justify-center gap-16">
           {insights.map((item, index) => (
             <div
               key={item._id || index}
