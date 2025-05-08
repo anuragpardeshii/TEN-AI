@@ -17,6 +17,7 @@ import Company from "./pages/Company";
 import ChatBox from "./components/ChatBox";
 import Career from "./pages/Career";
 import SignPage from "./pages/SignPage";
+import VoiceCall from "./components/VoiceCall";
 
 function App() {
   return (
@@ -38,6 +39,7 @@ function App() {
             <Route path="/agent-card/:category" element={<AgentCard />} />
             <Route path="/chat-box/:category" element={<ChatBox />} />
             <Route path="/sign-page" element={<SignPage />} />
+            <Route path="/voice-call/:category" element={<VoiceCall />} />
           </Route>
         </Routes>
         <ToastContainer
