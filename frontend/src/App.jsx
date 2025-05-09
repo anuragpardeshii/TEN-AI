@@ -18,6 +18,7 @@ import ChatBox from "./components/ChatBox";
 import Career from "./pages/Career";
 import SignPage from "./pages/SignPage";
 import VoiceCall from "./components/VoiceCall";
+import VoiceCallWrapper from "./components/VoiceCallWrapper";
 
 function App() {
   return (
@@ -36,10 +37,11 @@ function App() {
             <Route path="/explore-blogs" element={<ExploreBlogs />} />
             <Route path="/insurance" element={<Insurance />} />
             <Route path="/categories" element={<Categories />} />
-            <Route path="/agent-card/:category" element={<AgentCard />} />
             <Route path="/chat-box/:category" element={<ChatBox />} />
             <Route path="/sign-page" element={<SignPage />} />
             <Route path="/voice-call/:category" element={<VoiceCall />} />
+            <Route path="/voice-call/:useCase" element={<VoiceCallWrapper />} />
+            <Route path="/agent-card/:category" element={<AgentCard />} />
           </Route>
         </Routes>
         <ToastContainer
