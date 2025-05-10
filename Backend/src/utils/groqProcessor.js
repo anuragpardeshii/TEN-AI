@@ -1,37 +1,25 @@
-export const generateResponseForDomain = (domain, query) => {
-  let response = "";
-  
-  switch(domain) {
-    case "insurance":
-      response = generateInsuranceResponse(query);
-      break;
-    case "banking":
-      response = generateBankingResponse(query);
-      break;
-    case "hospitality":
-      response = generateHospitalityResponse(query);
-      break;
-    case "realEstate":
-      response = generateRealEstateResponse(query);
-      break;
-    case "retail":
-      response = generateRetailResponse(query);
-      break;
-    default:
-      response = generateGeneralResponse(query);
-      break;
-  }
+import dotenv from "dotenv";
+dotenv.config();
 
-  return response;
-};
+import Groq from "groq-sdk";
 
-// Example for insurance domain
-const generateInsuranceResponse = (query) => {
-  if (query.toLowerCase().includes("policy")) {
-    return "I can help you with your insurance policy. Could you provide the policy number?";
-  } else {
-    return "Can you tell me more about your insurance inquiry?";
+const groq = new Groq({
+  apiKey: process.env.GROQ_API_KEY,
+});
+
+export const generateResponse = async (message, systemPrompt) => {
+  try {
+    const completion = await groq.chat.completions.create({
+      messages: [
+        { role: "system", content: systemPrompt },
+        { role: "user", content: message },
+      ],
+      model: "llama3-70b-8192",  // ✅ working model
+    });
+
+    return completion.choices[0].message.content;
+  } catch (err) {
+    console.error("GROQ ERROR:", err);
+    return "Sorry, I couldn't process your request.";
   }
 };
-
-// Add similar functions for other domains...
