@@ -1,9 +1,9 @@
-import express from 'express';
-import { generateResponseForDomain } from './src/utils/groqProcessor.js';
+import express from "express";
+import { generateResponseForDomain } from "./src/utils/groqProcessor.js";
 
 const router = express.Router();
 
-router.post('/voice-input', async (req, res) => {
+router.post("/voice-input", async (req, res) => {
   const { domain, query } = req.body;
 
   try {

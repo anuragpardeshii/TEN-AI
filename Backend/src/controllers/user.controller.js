@@ -2,7 +2,10 @@ import bcrypt from "bcrypt";
 import {
   findByEmail,
   loginUser,
-  registerUser
+  registerUser,
+  resetPasswordUser,
+  sendOtpUser,
+  verifyOtpUser
 } from "../Repository/user.repo.js";
 import jwt from "jsonwebtoken";
 
@@ -91,3 +94,65 @@ export const logoutUser = (req, res) => {
     message: "Logged out successfully!"
   });
 };
+export const sendOtp = async (req, res, next) => {
+  try {
+    const { email } = req.body;
+
+    if (!email) {
+      return res.status(400).json({
+        success: false,
+        message: "Email is required"
+      });
+    }
+    const userOtp = await sendOtpUser(email);
+    if (userOtp) {
+      return res.status(200).json({
+        success: true,
+        message: "OTP sent successfully!",
+        otp: userOtp
+      });
+    } else {
+      return res.status(400).json({
+        success: false,
+        message: "Failed to send OTP."
+      });
+    }
+  } catch (error) {
+    next(error);
+  }
+};
+export const verifyOtp = async (req, res, next) => {
+  try {
+    const { otp } = req.body;
+    const id = req.user;
+    const isOtpVerified = await verifyOtpUser(id, otp);
+    if (isOtpVerified)
+      res
+        .status(200)
+        .send({ success: true, message: "Otp verified successfully!" });
+    else res.status(400).send({ success: false, message: "Otp not verified!" });
+  } catch (error) {
+    next(error);
+  }
+};
+ export const resetPassword = async(req,res,next)=>{
+  try {
+      const { newPassword } = req.body;
+      const id = req.user;
+      const hashedPassword = await bcrypt.hash(newPassword, 12);
+      const isPasswordReset = await resetPasswordUser(
+        id,
+        hashedPassword
+      );
+      if (isPasswordReset)
+        res
+          .status(200)
+          .send({ success: true, message: "Password reset successfully!" });
+      else
+        res
+          .status(400)
+          .send({ success: false, message: "Password not reset!" });
+    } catch (error) {
+      next(error);
+    }
+ }
