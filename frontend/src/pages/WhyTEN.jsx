@@ -4,7 +4,6 @@ import React from 'react'
 import SystemIntegration from '@/components/SystemIntegration';
 import DataOnboardingSection from '@/components/DataOnboardingSection';
 import EvaluationGuardSection from '@/components/EvaluationGuardSection';
-import Connect from '@/components/Connect';
 
 const WhyTEN = () => {
   return (
@@ -14,7 +13,6 @@ const WhyTEN = () => {
     <DataIngestionSection/>
     <DataOnboardingSection/>
     <EvaluationGuardSection/>
-    <Connect />
     </div>
   )
 }
