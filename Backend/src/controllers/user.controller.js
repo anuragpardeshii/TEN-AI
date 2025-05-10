@@ -124,7 +124,8 @@ export const sendOtp = async (req, res, next) => {
 export const verifyOtp = async (req, res, next) => {
   try {
     const { otp } = req.body;
-    const id = req.user;
+    const { id } = req.user;
+    // console.log(id);
     const isOtpVerified = await verifyOtpUser(id, otp);
     if (isOtpVerified)
       res
@@ -135,24 +136,25 @@ export const verifyOtp = async (req, res, next) => {
     next(error);
   }
 };
- export const resetPassword = async(req,res,next)=>{
+export const resetPassword = async (req, res, next) => {
   try {
-      const { newPassword } = req.body;
-      const id = req.user;
-      const hashedPassword = await bcrypt.hash(newPassword, 12);
-      const isPasswordReset = await resetPasswordUser(
-        id,
-        hashedPassword
-      );
-      if (isPasswordReset)
-        res
-          .status(200)
-          .send({ success: true, message: "Password reset successfully!" });
-      else
-        res
-          .status(400)
-          .send({ success: false, message: "Password not reset!" });
-    } catch (error) {
-      next(error);
+    const { newPassword } = req.body;
+
+    if (!newPassword) {
+      return res
+        .status(400)
+        .json({ success: false, message: "Password is required" });
     }
- }
+    const { id } = req.user;
+    const hashedPassword = await bcrypt.hash(newPassword, 12);
+    const isPasswordReset = await resetPasswordUser(id, hashedPassword);
+    if (isPasswordReset)
+      res
+        .status(200)
+        .send({ success: true, message: "Password reset successfully!" });
+    else
+      res.status(400).send({ success: false, message: "Password not reset!" });
+  } catch (error) {
+    next(error);
+  }
+};

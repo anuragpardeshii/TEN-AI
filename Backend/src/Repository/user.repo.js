@@ -42,7 +42,7 @@ export const loginUser = async (email, password) => {
 };
 export const sendOtpUser = async (email) => {
   try {
-    const user = await UserModel.findOne({ emailId: email });
+    const user = await UserModel.findOne({ email });
     if (!user) {
       throw new Error("User not exists in database!");
     }
@@ -66,7 +66,7 @@ export const sendOtpUser = async (email) => {
 export const verifyOtpUser = async (id, otp) => {
   try {
     const user = await UserModel.findOne({
-      id,
+      _id: id,
       otp,
       otpExpires: { $gt: Date.now() }
     }).select("-email -password");
@@ -81,7 +81,7 @@ export const verifyOtpUser = async (id, otp) => {
 };
 export const resetPasswordUser = async (id, password) => {
   try {
-    let user = await UserModel.findById({ id }).select("-email -password");
+    let user = await UserModel.findById({ _id: id }).select("-email -password");
     if (user.otpVerify == "verified") {
       user.otp = undefined;
       user.otpExpires = undefined;
@@ -93,6 +93,6 @@ export const resetPasswordUser = async (id, password) => {
     }
   } catch (error) {
     console.log(error);
-    throw new ApplicationError(error.message, error.code);
+    throw new ApplicationError(error.message, 500);
   }
 };
