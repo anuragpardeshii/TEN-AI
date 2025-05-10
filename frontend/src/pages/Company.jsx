@@ -1,4 +1,3 @@
-import Connect from "@/components/Connect";
 import Impact from "@/components/Impact";
 import { Link } from "react-router-dom";
 import Aos from "aos";
@@ -77,7 +76,6 @@ export default function Company() {
                         </div>
                     </div>
                 </section>
-                <section>{<Connect />}</section>
             </div>
         </>
     )
