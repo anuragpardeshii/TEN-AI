@@ -1,28 +1,37 @@
-import Groq from "groq-sdk";
-import dotenv from "dotenv";
+export const generateResponseForDomain = (domain, query) => {
+  let response = "";
+  
+  switch(domain) {
+    case "insurance":
+      response = generateInsuranceResponse(query);
+      break;
+    case "banking":
+      response = generateBankingResponse(query);
+      break;
+    case "hospitality":
+      response = generateHospitalityResponse(query);
+      break;
+    case "realEstate":
+      response = generateRealEstateResponse(query);
+      break;
+    case "retail":
+      response = generateRetailResponse(query);
+      break;
+    default:
+      response = generateGeneralResponse(query);
+      break;
+  }
 
-dotenv.config();
+  return response;
+};
 
-const groq = new Groq({ apiKey: process.env.GROQ_API_KEY });
-
-export const generateResponse = async (userPrompt, systemPrompt) => {
-  try {
-    const response = await groq.chat.completions.create({
-      messages: [
-        { role: "system", content: systemPrompt },
-        { role: "user", content: userPrompt }
-      ],
-      model: "llama3-70b-8192",
-      temperature: 1,
-      max_tokens: 8192,
-      top_p: 1,
-      stream: false,
-      stop: null
-    });
-
-    return response.choices[0]?.message?.content || "Sorry, no response.";
-  } catch (err) {
-    console.error("GROQ ERROR:", err.message);
-    throw new Error("Failed to generate answer from Groq.");
+// Example for insurance domain
+const generateInsuranceResponse = (query) => {
+  if (query.toLowerCase().includes("policy")) {
+    return "I can help you with your insurance policy. Could you provide the policy number?";
+  } else {
+    return "Can you tell me more about your insurance inquiry?";
   }
 };
+
+// Add similar functions for other domains...

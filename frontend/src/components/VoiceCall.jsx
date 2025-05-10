@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
+import { PhoneCall } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
 const recognition = SpeechRecognition ? new SpeechRecognition() : null;
@@ -7,7 +9,7 @@ const recognition = SpeechRecognition ? new SpeechRecognition() : null;
 const VoiceCall = ({ onEndCall, useCase }) => {
   const [seconds, setSeconds] = useState(0);
   const [listening, setListening] = useState(false);
-  const [hasSpoken, setHasSpoken] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -17,11 +19,8 @@ const VoiceCall = ({ onEndCall, useCase }) => {
   }, []);
 
   useEffect(() => {
-    if (!hasSpoken) {
-      agentSpeak("Hello, I am your AI agent. How may I assist you today?");
-      setHasSpoken(true); 
-    }
-  }, [hasSpoken]);
+    agentSpeak("Hello, I am your AI agent. How may I assist you today?");
+  }, []);
 
   const agentSpeak = (text) => {
     const utterance = new SpeechSynthesisUtterance(text);
@@ -37,11 +36,6 @@ const VoiceCall = ({ onEndCall, useCase }) => {
       alert("Speech recognition not supported in this browser.");
       return;
     }
-
-    if (recognition.state === "active") {
-      recognition.stop();
-    }
-
     recognition.lang = "en-US";
     recognition.interimResults = false;
     recognition.maxAlternatives = 1;
@@ -53,32 +47,31 @@ const VoiceCall = ({ onEndCall, useCase }) => {
       const userSpeech = event.results[0][0].transcript;
       console.log("User said:", userSpeech);
       setListening(false);
-      await getAgentResponse(userSpeech);
+      await getAgentResponse(userSpeech); // Send query along with useCase to backend
     };
 
     recognition.onerror = (event) => {
       console.error("Speech recognition error:", event.error);
-      if (event.error === "no-speech") {
-        agentSpeak("I couldn't hear anything. Please try speaking again.");
-      } else {
-        agentSpeak("There was an error with speech recognition. Please try again.");
-      }
+      agentSpeak("There was an error with speech recognition. Please try again.");
+      setListening(false);
+    };
+
+    recognition.onend = () => {
       setListening(false);
     };
   };
 
   const getAgentResponse = async (query) => {
     try {
-      console.log("Sending user query:", query);
       const res = await fetch("http://localhost:5000/api/voice/voice-input", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ domain: useCase, query }),
+        body: JSON.stringify({ domain: useCase, query }), // Pass 'useCase' (dynamic domain) with query
       });
 
       const data = await res.json();
       if (res.ok) {
-        agentSpeak(data.response);
+        agentSpeak(data.response); // Agent speaks the response from backend
       } else {
         agentSpeak("Sorry, I couldn't understand. Please try again.");
       }
@@ -96,6 +89,14 @@ const VoiceCall = ({ onEndCall, useCase }) => {
   };
 
   const currentDate = new Date().toLocaleDateString();
+
+  const handleEndCall = () => {
+    if (onEndCall) {
+      onEndCall();
+    } else {
+      navigate(`/agent-card/${useCase}`);
+    }
+  };
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-100 p-4">
@@ -147,7 +148,7 @@ const VoiceCall = ({ onEndCall, useCase }) => {
 
         <div className="flex justify-center">
           <Button
-            onClick={onEndCall} // Trigger the end call
+            onClick={handleEndCall}
             className="bg-red-500 hover:bg-red-600 text-white font-bold py-3 px-8 rounded-full"
           >
             End Call
