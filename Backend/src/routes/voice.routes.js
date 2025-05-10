@@ -1,5 +1,7 @@
-import express from 'express';
-import { generateResponseForDomain } from './src/utils/groqProcessor.js';
+// ✅ src/routes/voiceRoutes.js
+import express from "express";
+import { generateResponse } from "../utils/groqProcessor.js";
+import { travelPrompt } from "../prompts/travelPrompt.js";
 
 const router = express.Router();
 
