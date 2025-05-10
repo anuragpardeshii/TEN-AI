@@ -1,17 +1,31 @@
-import express from "express";
-import { generateResponseForDomain } from "./src/utils/groqProcessor.js";
+import express from 'express';
+import { generateResponseForDomain } from './src/utils/groqProcessor.js';
 
 const router = express.Router();
 
 router.post("/voice-input", async (req, res) => {
   const { domain, query } = req.body;
 
+  if (!domain || !query) {
+    return res.status(400).json({ error: "Missing domain or query" });
+  }
+
+  let systemPrompt;
+
+  switch (domain.toLowerCase()) {
+    case "travel":
+      systemPrompt = travelPrompt;
+      break;
+    default:
+      return res.status(400).json({ error: "Unsupported domain." });
+  }
+
   try {
-    // Check which domain the query belongs to and process it accordingly
-    const response = await generateResponseForDomain(domain, query);
-    res.json({ response });
+    const responseText = await generateResponse(query, systemPrompt);
+    return res.json({ response: responseText });
   } catch (error) {
-    res.status(500).json({ error: "Error processing the request" });
+    console.error("GROQ ERROR:", error);
+    return res.status(500).json({ error: "Agent failed to respond." });
   }
 });
 

@@ -3,7 +3,7 @@ import {
   bankingResponse,
   hospitalityResponse,
   InsuaranceResponse,
-  realEstateResponse,
+  realEstate,
   retailResponse,
   travelResponse,
   updatebankingResponse,
@@ -16,32 +16,28 @@ import {
 
 const groqrouter = express.Router();
 
-// Travel
+// Travel Routes
 groqrouter.post("/generate/travel", travelResponse);
 groqrouter.post("/update/travel", updateTravelResponse);
 
-// Retail
+// Retail Routes
 groqrouter.post("/generate/retail", retailResponse);
 groqrouter.post("/update/retail", updateRetailResponse);
 
-// insuarance
-groqrouter.post("/generate/insuarance", InsuaranceResponse);
-groqrouter.post("/update/insuarance", updateInsuaranceResponse);
+// Insurance Routes
+groqrouter.post("/generate/insurance", InsuaranceResponse);
+groqrouter.post("/update/insurance", updateInsuaranceResponse);
 
-
-// banking
+// Banking Routes
 groqrouter.post("/generate/banking", bankingResponse);
 groqrouter.post("/update/banking", updatebankingResponse);
 
-
-// hospitality
+// Hospitality Routes
 groqrouter.post("/generate/hospitality", hospitalityResponse);
 groqrouter.post("/update/hospitality", updatehospitalityResponse);
 
-
-// realEstate
-groqrouter.post("/generate/realestate", realEstateResponse);
-groqrouter.post("/update/realEstate", updaterealEstateResponse);
-
+// Real Estate Routes
+groqrouter.post("/generate/realestate", realEstate);
+groqrouter.post("/update/realestate", updaterealEstateResponse);
 
 export default groqrouter;

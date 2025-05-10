@@ -1,36 +1,18 @@
-import { travelPrompt } from "../prompts/travelPrompt.js";
-import { insurancePrompt } from "../prompts/insurancePrompt.js";
-import { retailPrompt } from "../prompts/retailPrompt.js";
-import { bankingPrompt } from "../prompts/bankingPrompt.js";
-import { realEstatePrompt } from "../prompts/realEstatePrompt.js";
-import { hospitalityPrompt } from "../prompts/hospitalityPrompt.js";
-
-
-import { generateResponse } from "../utils/groqProcessor.js";
-
-
-const domainPrompts = {
-  travel: travelPrompt,
-  insurance: insurancePrompt,
-  retail: retailPrompt,
-  banking: bankingPrompt,
-  realEstate: realEstatePrompt,
-  hospitality: hospitalityPrompt
- 
-};
+import { generateResponseForDomain } from '../utils/groqProcessor.js'; // Assuming groqProcessor has the response generation logic
+import { domainPrompts } from '../prompts'; // Assuming your prompts are properly exported
 
 export const handleVoiceInput = async (req, res) => {
   try {
     const { query, domain } = req.body;
 
-    const domainKey = domain?.toLowerCase(); 
+    const domainKey = domain?.toLowerCase();
 
     if (!query || !domainKey || !domainPrompts[domainKey]) {
       return res.status(400).json({ response: "Missing or invalid input." });
     }
 
     const systemPrompt = domainPrompts[domainKey];
-    const response = await generateResponse(query, systemPrompt);
+    const response = await generateResponseForDomain(systemPrompt, query);  // Pass systemPrompt and query properly
 
     res.json({ response });
   } catch (error) {
