@@ -62,17 +62,23 @@ const VoiceCall = ({ onEndCall, useCase }) => {
   };
 
   const getAgentResponse = async (query) => {
+    console.log("Sending query to backend:", query);
     try {
+      const domainToSend = useCase || 'travel'; // Use 'travel' if useCase is not provided
+
       const res = await fetch("http://localhost:5000/api/voice/voice-input", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ domain: useCase, query }), // Pass 'useCase' (dynamic domain) with query
+        body: JSON.stringify({ domain: domainToSend, query }),
       });
 
       const data = await res.json();
-      if (res.ok) {
-        agentSpeak(data.response); // Agent speaks the response from backend
+      console.log("Backend response:", data);
+
+      if (res.ok && data.response) {
+        agentSpeak(data.response);  // Agent speaks the refined response from backend
       } else {
+        console.error("AI response not found:", data);
         agentSpeak("Sorry, I couldn't understand. Please try again.");
       }
     } catch (error) {
@@ -129,21 +135,6 @@ const VoiceCall = ({ onEndCall, useCase }) => {
 
           <div className="text-xl font-bold text-gray-700">{formatTime(seconds)}</div>
           {listening && <div className="text-sm text-green-500">Listening...</div>}
-        </div>
-
-        <div className="bg-gray-50 p-4 rounded-xl mb-6 space-y-4 text-gray-700">
-          <div className="flex justify-between text-sm font-medium text-gray-600">
-            <span>🧑 Claimant Name</span> <span className="font-semibold">John Doe</span>
-          </div>
-          <div className="flex justify-between text-sm font-medium text-gray-600">
-            <span>📞 Phone Number</span> <span className="font-semibold">555-123-4567</span>
-          </div>
-          <div className="flex justify-between text-sm font-medium text-gray-600">
-            <span>🆔 Policy Number</span> <span className="font-semibold">NRX-1234</span>
-          </div>
-          <div className="flex justify-between text-sm font-medium text-gray-600">
-            <span>🔑 OTP</span> <span className="font-semibold">123456</span>
-          </div>
         </div>
 
         <div className="flex justify-center">
