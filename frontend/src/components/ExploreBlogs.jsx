@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import Loader from "./ui/Loader";
 
 const ExploreBlogs = () => {
   const navigate = useNavigate();
@@ -34,7 +35,8 @@ const ExploreBlogs = () => {
       </h2>
 
       {loading ? (
-        <p className="text-center text-gray-600">Loading...</p>
+        <Loader />
+        // <p className="text-center text-gray-600">Loading...</p>
       ) : (
         <div className="flex flex-wrap justify-center gap-16">
           {insights.map((item, index) => (

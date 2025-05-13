@@ -19,6 +19,7 @@ import Career from "./pages/Career";
 import SignPage from "./pages/SignPage";
 import VoiceCall from "./components/VoiceCall";
 import VoiceCallWrapper from "./components/VoiceCallWrapper";
+import CustomerStories from "./components/CustomerStories";
 
 function App() {
   return (
@@ -34,6 +35,7 @@ function App() {
             <Route path="/company" element={<Company />} />
             <Route path="/career" element={<Career />} />
             <Route path="/retail" element={<Retail />} />
+            <Route path="/customer-stories" element={<CustomerStories />} />
             <Route path="/explore-blogs" element={<ExploreBlogs />} />
             <Route path="/insurance" element={<Insurance />} />
             <Route path="/categories" element={<Categories />} />

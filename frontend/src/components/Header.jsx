@@ -70,11 +70,10 @@ const Header = () => {
       initial={{ y: -50, opacity: 0 }}
       animate={{ y: 8, opacity: 1, scaleX: isScrolled ? 0.8 : 1, originX: 0.5 }}
       transition={{ duration: 0.3 }}
-      className={`fixed max-w-screen w-full z-50 transition-all duration-300 ${
-        isScrolled
+      className={`fixed max-w-screen w-full z-50 transition-all duration-300 ${isScrolled
           ? "bg-black/60 dark:bg-gray-800 rounded-2xl text-gray-300 backdrop-blur-lg shadow-lg"
           : "bg-white dark:bg-black border-b-2"
-      }`}
+        }`}
     >
       <div className="flex justify-between items-center px-8">
         <Link to="/">
@@ -204,9 +203,11 @@ const Header = () => {
                           <Briefcase size={18} className="mt-1" />
 
                           <span className="flex flex-col text-left text-[16px] w-38">
-                            <span className="group-hover:text-blue-500 font-medium">
-                              Customer Stories
-                            </span>
+                            <Link to="customer-stories">
+                              <span className="group-hover:text-blue-500 font-medium">
+                                Customer Stories
+                              </span>
+                            </Link>
                           </span>
                         </div>
 
