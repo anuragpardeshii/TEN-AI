@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { User, Tag } from 'lucide-react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import { Link } from 'react-router-dom';
 
 const InsuranceHeroSection = () => {
   useEffect(() => {
@@ -20,8 +21,12 @@ const InsuranceHeroSection = () => {
         </div>
 
         <div className="mt-10 relative z-10 max-w-6xl mx-auto text-center" data-aos="fade-up">
-          <div className="w-16 h-16 mx-auto mb-20 bg-[#1E63ED] flex items-center justify-center">
-            <img src="/Logo.png" alt="Retail Logo" className="w-10 h-10" />
+          <div className="w-16 h-16 mx-auto mb-10 bg-[#1E63ED] flex items-center justify-center">
+            <div className='font-bold text-4xl transform duration-300 hover:scale-125'>
+              <span className="text-black">TEN</span>
+              <span className="text-white">AI</span>
+            </div>
+            {/* <img src="/Logo.png" alt="Retail Logo" className="w-10 h-10" /> */}
           </div>
 
           <p className="text-xs tracking-widest text-white/70 mb-4">INDUSTRIES</p>
@@ -48,14 +53,14 @@ const InsuranceHeroSection = () => {
             <span className="block">powered automation.</span>
           </p>
 
-          <button className="bg-lime-400 hover:bg-white text-black text-[12px] font-semibold py-2 px-4 rounded-full transition" data-aos="zoom-in" data-aos-delay="200">
+          <Link to='/custom-ai-agents#demo_details' className="inline-flex items-center justify-center gap-2 whitespace-nowrap font-medium transition-all disabled:pointer-events-none disabled:opacity-50 shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive shadow-xs h-9 has-[>svg]:px-3 z-50 cursor-pointer p-4 mt-6 text-[12px] text-black bg-lime-400 hover:bg-white rounded-full">
             Request a Demo
-          </button>
+          </Link>
         </div>
       </section>
 
       {/* What can AI Agents Do Section */}
-      <section className="bg-[#F4F4F4] text-black py-20 px-4">
+      <section className="bg-[#F4F4F4] dark:bg-accent py-20 px-4">
         <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
           <div data-aos="fade-right">
             <h2 className="text-2xl sm:text-4xl font-semibold leading-snug">
@@ -66,11 +71,11 @@ const InsuranceHeroSection = () => {
             </div>
           </div>
 
-          <div className="text-[15px] text-gray-900" data-aos="fade-left">
+          <div className="text-[15px] " data-aos="fade-left">
             <p>
               Transform how insurance businesses operate by automating lead qualification, enhancing policyholder interactions, and streamlining claim intimation process—all while ensuring a human touch where it matters most.
             </p>
-            <button className="mt-6 bg-blue-600 text-white text-xs py-2 px-4 rounded-full hover:bg-white hover:text-black transition">
+            <button className="mt-6 text-xs py-2 px-4 font-bold transition cursor-pointer text-[12px] text-white dark:hover:text-black bg-[#245ae2] hover:bg-black dark:hover:bg-white rounded-full">
               Explore Example
             </button>
           </div>
@@ -78,7 +83,7 @@ const InsuranceHeroSection = () => {
       </section>
 
       {/* Key Benefits Section */}
-      <section className="bg-white text-black py-20 px-4">
+      <section className="py-20 px-4">
         <div className="max-w-6xl mx-auto text-center mb-16" data-aos="fade-up">
           <h2 className="text-3xl sm:text-4xl font-semibold mb-4">Key Benefits</h2>
           <p className="text-xs text-gray-600">
@@ -120,7 +125,7 @@ const InsuranceHeroSection = () => {
         </div>
 
         <div className="text-center mt-12" data-aos="fade-up">
-          <button className="bg-blue-600 hover:bg-white hover:text-black text-white text-xs font-semibold py-3 px-5 rounded-full transition">
+          <button className="text-white text-xs font-semibold py-3 px-5 rounded-full transition dark:hover:text-black bg-[#245ae2] hover:bg-black dark:hover:bg-white cursor-pointer">
             Check Out Use Cases
           </button>
         </div>

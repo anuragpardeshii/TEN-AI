@@ -5,14 +5,15 @@ import RetailLatest from '@/components/RetailLatest'
 import React from 'react'
 
 const Retail = () => {
-  return (<div>
+  return (
+    <div>
+      <RetailHeroSection />
+      <div className='border-t-2 w-[80%] place-self-center'></div>
+      <RetailFooter />
+      <RetailAgentDemo />
+      <RetailLatest />
+    </div>
 
-<RetailHeroSection/>
-<RetailFooter/>
-<RetailAgentDemo/>
-<RetailLatest/>
-  </div>
-   
   )
 }
 

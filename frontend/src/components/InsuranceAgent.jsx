@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import { Mic } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const InsuranceAgent = () => {
   useEffect(() => {
@@ -9,12 +10,12 @@ const InsuranceAgent = () => {
   }, []);
 
   return (
-    <section className="bg-white py-20">
+    <section className=" py-20">
       <div className="max-w-7xl mx-auto px-4 md:px-6">
         <div className="grid md:grid-cols-3 gap-6">
           {/* Left Panel: Mic + Options */}
           <div className="bg-gray-50 p-6 rounded-2xl shadow-sm" data-aos="fade-up">
-            <h3 className="font-semibold text-sm text-center mb-4">Insurance Agent</h3>
+            <h3 className="font-semibold text-black text-sm text-center mb-4">Insurance Agent</h3>
 
             {/* Mic */}
             <div className="flex flex-col items-center mb-4">
@@ -26,28 +27,28 @@ const InsuranceAgent = () => {
               <p className="text-xs text-gray-700 font-medium mt-2">
                 Tap the Mic to speak with our Insurance Agent
               </p>
-              <div className="text-xs font-medium border px-4 py-1 rounded-full mt-2">
+              <div className="text-xs font-medium text-black border border-gray-300 px-4 py-1 rounded-full mt-2">
                 0:00
               </div>
             </div>
 
             {/* Insurance Options */}
             <div className="bg-white rounded-xl shadow-sm p-4 text-sm mb-6">
-              <h4 className="font-semibold mb-1">Insurance Options</h4>
+              <h4 className="font-semibold text-black mb-1">Insurance Options</h4>
               <p className="text-gray-500 text-xs mb-3">
                 Talk to our agent who will access customer needs and suggest the best-suited policy for your insurance needs.
               </p>
               <div className="flex gap-2 flex-wrap">
-                <button className="px-3 py-1 text-xs border rounded-full">Health Insurance</button>
-                <button className="px-3 py-1 text-xs border rounded-full">Individual/Family</button>
+                <button className="px-3 py-1 text-xs text-black border border-gray-300 rounded-full">Health Insurance</button>
+                <button className="px-3 py-1 text-xs text-black border border-gray-300 rounded-full">Individual/Family</button>
               </div>
             </div>
 
             <p className="text-xs text-gray-500 text-center">
               Trial ends in 1 minute!{' '}
-              <a href="#" className="text-blue-600 underline">
+               <Link to='/sign-page' className="text-blue-600 underline">
                 Sign up now
-              </a>{' '}
+              </Link>{' '}
               to experience our Insurance AI Agent.
             </p>
           </div>
@@ -74,7 +75,7 @@ const InsuranceAgent = () => {
                 <button className="w-10 h-10 rounded-full bg-blue-600 text-white flex items-center justify-center shadow">
                   <Mic size={20} />
                 </button>
-                <button className="w-8 h-8 flex items-center justify-center rounded-full border text-gray-400 text-lg">
+                <button className="w-8 h-8 flex items-center justify-center rounded-full border border-gray-300 text-gray-400 text-lg">
                   ×
                 </button>
               </div>
@@ -89,10 +90,10 @@ const InsuranceAgent = () => {
           >
             <div className="flex justify-between items-center mb-4">
               <div>
-                <h4 className="font-semibold text-sm">Live Action</h4>
+                <h4 className="font-semibold text-black text-sm">Live Action</h4>
                 <p className="text-xs text-gray-400">Logs of decisions made by agent</p>
               </div>
-              <button className="w-7 h-7 flex items-center justify-center border rounded-full text-gray-500 text-xs hover:bg-gray-100">
+              <button className="w-7 h-7 flex items-center justify-center border border-gray-300 rounded-full text-gray-500 text-xs hover:bg-gray-100">
                 →
               </button>
             </div>

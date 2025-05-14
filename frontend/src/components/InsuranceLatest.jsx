@@ -33,17 +33,17 @@ const InsuranceLatest = () => {
 
   return (
     <>
-      <section className="bg-gray-50 py-20">
+      <section className="bg-gray-50 dark:bg-accent py-20">
         <div className="max-w-4xl mx-auto px-7">
           {/* Heading */}
           <div className="mb-12 flex flex-col md:flex-row items-center justify-between gap-4">
             <div>
-              <span className="inline-block text-[10px] leading-none text-black border border-gray-300 rounded-full px-2 py-[3px]">
+              <span className="inline-block text-[10px] leading-none border border-gray-300 rounded-full px-2 py-[3px]">
                 Latest News
               </span>
-              <h2 className="text-3xl font-semibold text-gray-900 mt-4">Latest Insights</h2>
+              <h2 className="text-3xl font-semibold mt-4">Latest Insights</h2>
             </div>
-            <button className="text-white bg-blue-600 hover:bg-blue-700 px-5 py-2 text-sm rounded-full">
+           <button className="text-white transition px-5 py-2 text-sm rounded-full dark:hover:text-black bg-[#245ae2] hover:bg-black dark:hover:bg-white cursor-pointer">
               Explore All →
             </button>
           </div>
