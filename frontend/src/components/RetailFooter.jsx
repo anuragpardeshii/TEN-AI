@@ -10,7 +10,7 @@ const RetailFooter = () => {
   }, []);
 
   return (
-    <section className="bg-white py-16">
+    <section className="py-16">
       <div className="max-w-6xl mx-auto px-4 text-center">
         <h2 className="text-4xl font-bold mb-2" data-aos="fade-up">Outcomes</h2>
         <p className="text-gray-500 mb-12" data-aos="fade-up" data-aos-delay="100">

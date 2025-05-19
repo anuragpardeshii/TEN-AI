@@ -5,7 +5,7 @@ const responseSchema = new mongoose.Schema(
     user:{
       type: mongoose.Schema.Types.ObjectId,
       ref: "UserModel",
-      required: true,
+      required: false,
     },
     prompt: {
       type: String,

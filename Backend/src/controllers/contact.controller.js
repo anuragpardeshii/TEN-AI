@@ -1,5 +1,5 @@
 import { contactInfo } from "../Repository/contact.repo.js";
-import { sendContactConfirmation } from "../Service/mailer.js";
+import { sendContactConfirmation } from "../Service/contact.mailer.js";
 import ApplicationError from "../utils/ApplicationError.js";
 
 export const submitContactForm = async (req, res, next) => {

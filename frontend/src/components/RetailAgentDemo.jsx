@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import { Mic } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const RetailAgentDemo = () => {
   useEffect(() => {
@@ -9,15 +10,15 @@ const RetailAgentDemo = () => {
   }, []);
 
   return (
-    <section className="bg-white py-20">
+    <section className="py-20">
       <div className="max-w-6xl mx-auto px-6">
         {/* Heading */}
         <div className="text-center mb-16" data-aos="fade-up">
-          <h2 className="text-4xl font-semibold text-gray-900">Experience Our Agents</h2>
+          <h2 className="text-4xl font-semibold">Experience Our Agents</h2>
           <p className="text-gray-500 mt-3">
             Leverage our AI expertise to build your end-to-end products
           </p>
-          <button className="mt-6 px-5 py-2 text-sm border rounded-full hover:bg-gray-100 transition">
+          <button className="mt-6 px-5 py-2 text-sm border rounded-full dark:bg-accent dark:hover:bg-gray-700 hover:bg-gray-100 transition">
             Video Demo
           </button>
         </div>
@@ -30,7 +31,7 @@ const RetailAgentDemo = () => {
             data-aos="fade-up"
             data-aos-delay="100"
           >
-            <h3 className="font-semibold mb-6 text-sm">Retail Agent</h3>
+            <h3 className="font-semibold mb-6 text-sm text-black">Retail Agent</h3>
 
             {/* Mic */}
             <div className="relative mb-3">
@@ -45,13 +46,13 @@ const RetailAgentDemo = () => {
               Tap the Mic to speak with our Retail Agent
             </p>
 
-            <div className="text-xs font-medium border px-4 py-1 rounded-full mb-6">
+            <div className="text-xs text-black font-medium border border-gray-400 px-4 py-1 rounded-full mb-6">
               0:00
             </div>
 
             {/* Order Details */}
             <div className="bg-white w-full p-4 rounded-xl shadow-sm mb-4">
-              <h4 className="font-semibold text-sm mb-3">Order details</h4>
+              <h4 className="font-semibold text-sm mb-3 text-black">Order details</h4>
               <div className="space-y-3 text-sm text-gray-700">
                 <div className="flex justify-between items-center">
                   <span>🔊 Bluetooth speaker</span>
@@ -66,9 +67,9 @@ const RetailAgentDemo = () => {
 
             <p className="text-xs text-gray-500 text-center">
               Trial ends in 1 minute!{' '}
-              <a href="#" className="text-blue-600 underline">
+              <Link to='/sign-page' className="text-blue-600 underline">
                 Sign up now
-              </a>{' '}
+              </Link>{' '}
               to experience our Retail AI Agent.
             </p>
           </div>
@@ -93,7 +94,7 @@ const RetailAgentDemo = () => {
                 <button className="w-10 h-10 rounded-full bg-blue-600 text-white flex items-center justify-center shadow">
                   <Mic size={20} />
                 </button>
-                <button className="w-8 h-8 flex items-center justify-center rounded-full border text-gray-400 text-lg">
+                <button className="w-8 h-8 flex items-center justify-center rounded-full border border-gray-300 text-gray-400 text-lg">
                   ×
                 </button>
               </div>
@@ -108,10 +109,10 @@ const RetailAgentDemo = () => {
           >
             <div className="flex justify-between items-center mb-4">
               <div>
-                <h4 className="font-semibold text-sm">Live Action</h4>
+                <h4 className="font-semibold text-sm text-black">Live Action</h4>
                 <p className="text-xs text-gray-400">Logs of decisions made by agent</p>
               </div>
-              <button className="w-7 h-7 flex items-center justify-center border rounded-full text-gray-500 text-xs hover:bg-gray-100">
+              <button className="w-7 h-7 flex items-center justify-center border border-gray-300 rounded-full text-gray-500 text-xs hover:bg-gray-100">
                 →
               </button>
             </div>

@@ -8,6 +8,7 @@ const Insurance = () => {
   return (
     <div>
         <InsuranceHeroSection/>
+        <div className='border-t-2 w-[80%] place-self-center'></div>
         <InsuranceFooter/>
         <InsuranceAgent/>
         <InsuranceLatest/>
