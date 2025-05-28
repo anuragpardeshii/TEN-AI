@@ -3,7 +3,7 @@ import axios from "axios";
 import { useParams } from "react-router-dom";
 
 const agentEndpoints = {
-  insurance: "http://localhost:5000/api/groqrouter/generate/travel",
+  insurance: "http://localhost:5000/api/groqrouter/generate/insurance",
   travel: "http://localhost:5000/api/groqrouter/generate/travel",
   retail: "http://localhost:5000/api/groqrouter/generate/retail"
 };

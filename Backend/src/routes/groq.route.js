@@ -2,42 +2,43 @@ import express from "express";
 import {
   bankingResponse,
   hospitalityResponse,
-  InsuaranceResponse,
-  realEstate,
+  insuranceResponse,
+  realEstateResponse,
   retailResponse,
   travelResponse,
-  updatebankingResponse,
-  updatehospitalityResponse,
-  updateInsuaranceResponse,
-  updaterealEstateResponse,
+  updateBankingResponse,
+  updateHospitalityResponse,
+  updateInsuranceResponse,
+  updateRealEstateResponse,
   updateRetailResponse,
   updateTravelResponse
 } from "../controllers/groqController.js";
+import isAuthenticated from "../middleware/jwt.js";
 
 const groqrouter = express.Router();
 
 // Travel Routes
-groqrouter.post("/generate/travel", travelResponse);
-groqrouter.post("/update/travel", updateTravelResponse);
+groqrouter.post("/generate/travel",isAuthenticated, travelResponse);
+groqrouter.post("/update/travel",isAuthenticated, updateTravelResponse);
 
 // Retail Routes
-groqrouter.post("/generate/retail", retailResponse);
-groqrouter.post("/update/retail", updateRetailResponse);
+groqrouter.post("/generate/retail",isAuthenticated, retailResponse);
+groqrouter.post("/update/retail",isAuthenticated, updateRetailResponse);
 
 // Insurance Routes
-groqrouter.post("/generate/insurance", InsuaranceResponse);
-groqrouter.post("/update/insurance", updateInsuaranceResponse);
+groqrouter.post("/generate/insurance",isAuthenticated, insuranceResponse);
+groqrouter.post("/update/insurance",isAuthenticated, updateInsuranceResponse);
 
 // Banking Routes
-groqrouter.post("/generate/banking", bankingResponse);
-groqrouter.post("/update/banking", updatebankingResponse);
+groqrouter.post("/generate/banking",isAuthenticated, bankingResponse);
+groqrouter.post("/update/banking",isAuthenticated, updateBankingResponse);
 
 // Hospitality Routes
-groqrouter.post("/generate/hospitality", hospitalityResponse);
-groqrouter.post("/update/hospitality", updatehospitalityResponse);
+groqrouter.post("/generate/hospitality",isAuthenticated, hospitalityResponse);
+groqrouter.post("/update/hospitality",isAuthenticated, updateHospitalityResponse);
 
 // Real Estate Routes
-groqrouter.post("/generate/realestate", realEstate);
-groqrouter.post("/update/realestate", updaterealEstateResponse);
+groqrouter.post("/generate/realestate",isAuthenticated, realEstateResponse);
+groqrouter.post("/update/realestate",isAuthenticated, updateRealEstateResponse);
 
 export default groqrouter;

@@ -4,8 +4,8 @@ const responseSchema = new mongoose.Schema(
   {
     user:{
       type: mongoose.Schema.Types.ObjectId,
-      ref: "UserModel",
-      required: false,
+      ref: "User",
+      required: true,
     },
     prompt: {
       type: String,
