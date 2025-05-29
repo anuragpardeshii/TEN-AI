@@ -20,6 +20,9 @@ import SignPage from "./pages/SignPage";
 import VoiceCall from "./components/VoiceCall";
 import VoiceCallWrapper from "./components/VoiceCallWrapper";
 import CustomerStories from "./components/CustomerStories";
+import ForgotPassword from "./components/ForgotPassword";
+import VerifyOtp from "./components/VerifyOtp";
+import ResetPassword from "./components/ResetPassword";
 
 function App() {
   return (
@@ -41,6 +44,9 @@ function App() {
             <Route path="/categories" element={<Categories />} />
             <Route path="/chat-box/:category" element={<ChatBox />} />
             <Route path="/sign-page" element={<SignPage />} />
+            <Route path="/forgot-password" element={<ForgotPassword />} />
+            <Route path="/verify-otp" element={<VerifyOtp />} />
+            <Route path="/reset-password" element={<ResetPassword />} />
             <Route path="/voice-call/:category" element={<VoiceCall />} />
             <Route path="/voice-call/:useCase" element={<VoiceCallWrapper />} />
             <Route path="/agent-card/:category" element={<AgentCard />} />

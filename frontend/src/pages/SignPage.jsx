@@ -1,6 +1,6 @@
 import { useState } from "react";
 import axios from "axios";
-import { useLocation, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 
@@ -114,6 +114,7 @@ const SignPage = () => {
         >
           {isSignUp ? "Create Account" : "Login"}
         </button>
+        {!isSignUp && <Link to='/forgot-password' className="flex justify-self-center mt-3 text-blue-600">Forgot password?</Link>}
       </form>
     </div>
   );
