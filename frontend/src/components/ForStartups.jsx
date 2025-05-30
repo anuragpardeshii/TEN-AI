@@ -1,5 +1,6 @@
 import React, { useEffect, useState, useRef } from "react";
 import { AnimatePresence, motion, useInView } from "framer-motion";
+import { Link } from "react-router-dom";
 
 const Reveal = ({ children, delay = 0 }) => {
     const ref = useRef(null);
@@ -62,9 +63,9 @@ const ForStartups = () => {
                         <p className="text-lg max-md:text-sm text-gray-200 max-w-2xl mx-auto mb-10">
                             Your full-stack partner, co-developing Agentic AI solutions
                         </p>
-                        <button className="px-4 py-2 rounded-full bg-blue-600 text-white hover:bg-white hover:text-blue-800 transition font-semibold">
+                        <Link to="/sign-page" className="px-4 py-2 rounded-full bg-blue-600 text-white hover:bg-white hover:text-blue-800 transition font-medium">
                             Get Started
-                        </button>
+                        </Link>
                     </Reveal>
                 </div>
             </section>
@@ -113,9 +114,9 @@ const ForStartups = () => {
                             <p className="text-gray-500 mb-6">
                                 Let us handle the infrastructure while you focus on your product.
                             </p>
-                            <button className="px-6 py-3 rounded-full bg-lime-500 text-black hover:bg-lime-400 transition font-semibold">
-                                Schedule a Demo
-                            </button>
+                            <Link to='/contact-us' className="px-6 py-3 rounded-full bg-lime-500 text-black hover:bg-lime-400 transition font-semibold">
+                                Connect with Us
+                            </Link>
                         </div>
                     </Reveal>
                 </div>

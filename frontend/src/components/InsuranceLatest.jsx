@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import { Link } from 'react-router-dom';
 
 const insights = [
   {
@@ -84,9 +85,9 @@ const InsuranceLatest = () => {
             Ready to Build Something <br className="hidden md:block" />
             Extraordinary?
           </h2>
-          <button className="bg-lime-300 hover:bg-lime-400 text-black text-sm  px-4 py-2 rounded-full transition">
+          <Link to='/sign-page' className="bg-lime-300 hover:bg-lime-400 text-black text-sm  px-4 py-2 rounded-full transition">
             Get Started
-          </button>
+          </Link>
         </div>
       </section>
     </>

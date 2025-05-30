@@ -1,7 +1,10 @@
-import React from "react";
+
 import { ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const Whytenai = () => {
+
+
   const advantages = [
     {
       id: "01",
@@ -20,6 +23,7 @@ const Whytenai = () => {
           <path d="M4 15l8 4 8-4" />
         </svg>
       ),
+      link: "/whyten#data-integrity",
     },
     {
       id: "02",
@@ -39,6 +43,7 @@ const Whytenai = () => {
           <path d="M8 12h8M18 8v8" />
         </svg>
       ),
+      link: "/whyten#system-integration",
     },
     {
       id: "03",
@@ -56,6 +61,7 @@ const Whytenai = () => {
           <path d="M9 12l2 2 4-4" />
         </svg>
       ),
+      link: "/whyten#evaluation",
     },
   ];
 
@@ -80,17 +86,18 @@ const Whytenai = () => {
           {advantages.map((advantage) => (
             <div
               key={advantage.id}
-              className="bg-[#00154D] text-white rounded-sm p-8 flex flex-col items-center text-center shadow-md transition-transform hover:scale-[1.015]"
+              id={advantage.classId}
+              className="bg-[#00154D] text-white rounded-sm py-8 px-8 flex flex-col items-center text-center shadow-md transition-transform hover:scale-[1.015]"
             >
               <div className="text-sm bg-lime-300 text-black px-2 py-1 rounded-full mb-3">
                 {advantage.id}
               </div>
-              <h3 className="text-xl font-semibold mb-6">{advantage.title}</h3>
+              <h3 className="text-lg text-nowrap font-semibold mb-6">{advantage.title}</h3>
               {advantage.icon}
               <p className="mb-6">{advantage.description}</p>
-              <button className="bg-blue-700 hover:bg-black text-white px-6 py-2 rounded-full text-sm flex items-center gap-2">
+              <Link to={advantage.link} className="bg-blue-700 hover:bg-black text-white px-6 py-2 rounded-full text-sm flex items-center gap-2">
                 Explore More <ArrowRight size={16} />
-              </button>
+              </Link>
             </div>
           ))}
         </div>

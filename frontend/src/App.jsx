@@ -23,15 +23,17 @@ import CustomerStories from "./components/CustomerStories";
 import ForgotPassword from "./components/ForgotPassword";
 import VerifyOtp from "./components/VerifyOtp";
 import ResetPassword from "./components/ResetPassword";
+import ScrollToTop from "./components/ScrollToTop";
 
 function App() {
   return (
     <BrowserRouter>
+    <ScrollToTop />
       <ThemeProvider>
         <Routes>
           <Route element={<Layout />}>
             <Route path="/" element={<Home />} />
-            <Route path="/custom-ai-agents" element={<CustomAIAgents />} />
+            <Route path="/ai-agents" element={<CustomAIAgents />} />
             <Route path="/aiservices" element={<AiServices />} />
             <Route path="/whyten" element={<WhyTEN />} />
             <Route path="/contact-us" element={<Contact />} />

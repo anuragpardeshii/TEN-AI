@@ -2,7 +2,7 @@ import React from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { PhoneCall, MessageSquare, CheckCircle } from "lucide-react";
-import { Link, useParams} from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
 const agentData = [
   {
@@ -10,7 +10,7 @@ const agentData = [
     title: "Insurance Agent",
     description:
       "Get help with policy details and file claims easily. Try our agents here.",
-    agentName: "Myra",
+    agentName: "Jack",
     tasks: ["View policy details", "File claims"],
     avatar: "https://cdn-icons-png.flaticon.com/512/4140/4140048.png",
   },
@@ -63,21 +63,21 @@ const agentData = [
 
 const AgentCard = () => {
   const { category } = useParams();
-  
+
 
   const filteredAgents = category
     ? agentData.filter(
-        (agent) => agent.category.toLowerCase() === category.toLowerCase()
-      )
+      (agent) => agent.category.toLowerCase() === category.toLowerCase()
+    )
     : agentData;
 
   const formatCategory = category
     ? category
-        .split(" ")
-        .map(
-          (word) => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()
-        )
-        .join(" ")
+      .split(" ")
+      .map(
+        (word) => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()
+      )
+      .join(" ")
     : "AI";
 
   return (
@@ -127,15 +127,15 @@ const AgentCard = () => {
                     ))}
                   </div>
                 </div>
-                <div className="flex justify-around gap-4">
-                <Link to={`/voice-call/${agent.category.toLowerCase()}`}>
+                <div className="flex justify-around gap-4 pb-6">
+                  <Link to={`/voice-call/${agent.category.toLowerCase()}`}>
                     <Button
                       className="w-30 flex items-center gap-2 hover:bg-blue-500 hover:text-white transition-colors duration-300"
                       variant="secondary"
                     >
                       <PhoneCall size={16} /> Call
                     </Button>
-                    </Link>
+                  </Link>
 
                   <Link to={`/chat-box/${agent.category.toLowerCase()}`}>
                     <Button

@@ -53,8 +53,8 @@ const InsuranceHeroSection = () => {
             <span className="block">powered automation.</span>
           </p>
 
-          <Link to='/custom-ai-agents#demo_details' className="inline-flex items-center justify-center gap-2 whitespace-nowrap font-medium transition-all disabled:pointer-events-none disabled:opacity-50 shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive shadow-xs h-9 has-[>svg]:px-3 z-50 cursor-pointer p-4 mt-6 text-[12px] text-black bg-lime-400 hover:bg-white rounded-full">
-            Request a Demo
+          <Link to='/agent-card/insurance' className="inline-flex items-center justify-center gap-2 whitespace-nowrap font-medium transition-all disabled:pointer-events-none disabled:opacity-50 shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive shadow-xs h-9 has-[>svg]:px-3 z-50 cursor-pointer p-4 mt-6 text-[12px] text-black bg-lime-400 hover:bg-white rounded-full">
+            Try Our Insurance Agent
           </Link>
         </div>
       </section>
@@ -71,19 +71,19 @@ const InsuranceHeroSection = () => {
             </div>
           </div>
 
-          <div className="text-[15px] " data-aos="fade-left">
+          <div className="text-[15px] space-y-8" data-aos="fade-left">
             <p>
               Transform how insurance businesses operate by automating lead qualification, enhancing policyholder interactions, and streamlining claim intimation process—all while ensuring a human touch where it matters most.
             </p>
-            <button className="mt-6 text-xs py-2 px-4 font-bold transition cursor-pointer text-[12px] text-white dark:hover:text-black bg-[#245ae2] hover:bg-black dark:hover:bg-white rounded-full">
-              Explore Example
-            </button>
+            <Link to="/insurance#benefits" className="text-xs py-2 px-6 font-bold transition cursor-pointer text-[12px] text-white dark:hover:text-black bg-[#245ae2] hover:bg-black dark:hover:bg-white rounded-full">
+              Explore
+            </Link>
           </div>
         </div>
       </section>
 
       {/* Key Benefits Section */}
-      <section className="py-20 px-4">
+      <section id='benefits' className="py-20 px-4">
         <div className="max-w-6xl mx-auto text-center mb-16" data-aos="fade-up">
           <h2 className="text-3xl sm:text-4xl font-semibold mb-4">Key Benefits</h2>
           <p className="text-xs text-gray-600">
@@ -125,9 +125,9 @@ const InsuranceHeroSection = () => {
         </div>
 
         <div className="text-center mt-12" data-aos="fade-up">
-          <button className="text-white text-xs font-semibold py-3 px-5 rounded-full transition dark:hover:text-black bg-[#245ae2] hover:bg-black dark:hover:bg-white cursor-pointer">
+          <Link to="/categories" className="text-white text-xs font-semibold py-3 px-5 rounded-full transition dark:hover:text-black bg-[#245ae2] hover:bg-black dark:hover:bg-white cursor-pointer">
             Check Out Use Cases
-          </button>
+          </Link>
         </div>
       </section>
     </>

@@ -8,6 +8,7 @@ import {
     FaLock,
     FaAward,
   } from "react-icons/fa";
+import { Link } from "react-router-dom";
   
   const Footer = () => {
     return (
@@ -68,20 +69,20 @@ import {
               <div>
                 <h3 className="text-lg font-semibold">Quick Links</h3>
                 <ul className="mt-2 space-y-2">
-                  <li><a href="#" className="text-gray-400 hover:text-white">Home</a></li>
-                  <li><a href="#" className="text-gray-400 hover:text-white">About Us</a></li>
-                  <li><a href="#" className="text-gray-400 hover:text-white">Services</a></li>
-                  <li><a href="#" className="text-gray-400 hover:text-white">Contact</a></li>
+                  <li><Link to="/" className="text-gray-400 hover:text-white">Home</Link></li>
+                  <li><Link to="/company" className="text-gray-400 hover:text-white">About Us</Link></li>
+                  <li><Link to="/aiservices" className="text-gray-400 hover:text-white">Services</Link></li>
+                  <li><Link to="/contact-us" className="text-gray-400 hover:text-white">Contact</Link></li>
                 </ul>
               </div>
   
               <div>
                 <h3 className="text-lg font-semibold">Solutions</h3>
                 <ul className="mt-2 space-y-2">
-                  <li className="text-gray-400 cursor-default">Custom AI Agents</li>
-                  <li className="text-gray-400 cursor-default">AI Services for Startups</li>
-                  <li className="text-gray-400 cursor-default">Why AI?</li>
-                  <li className="text-gray-400 cursor-default">AI Models</li>
+                  <li><Link to="/ai-agents" className="text-gray-400 hover:text-white">AI Agents</Link></li>
+                  <li><Link to="/aiservices" className="text-gray-400 hover:text-white">AI Services for Startups</Link></li>
+                  <li><Link to="/whyten" className="text-gray-400 hover:text-white">Why AI?</Link></li>
+                  <li><Link to="/categories" className="text-gray-400 hover:text-white">Try Our AI Agents</Link></li>
                 </ul>
               </div>
   

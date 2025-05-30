@@ -72,7 +72,7 @@ export default function ChatBox() {
 
   return (
     <div className="flex flex-col pt-20 h-[85vh] w-[70%] mx-auto p-4 border mb-5">
-      <div className="flex-1 overflow-y-auto p-4 bg-cyan-950 rounded-md shadow-md">
+      <div className="flex-1 overflow-y-auto p-4 bg-white rounded-md shadow-md">
         {messages.map((msg) => (
           <div
             key={msg.id}
@@ -84,7 +84,7 @@ export default function ChatBox() {
               className={`p-2 rounded-lg max-w-xs ${
                 msg.sender === "user"
                   ? "bg-blue-500 text-white"
-                  : "bg-gray-300 text-black"
+                  : "bg-gray-100 text-black"
               }`}
             >
               {msg.text}

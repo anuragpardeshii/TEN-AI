@@ -82,7 +82,7 @@ const DataIngestionSection = () => {
   const contentInView = useInView(contentRef, { once: true, margin: '-100px' });
 
   return (
-    <div className="min-h-screen text-gray-400 font-sans">
+    <div id='data-integrity' className="min-h-screen text-gray-400 font-sans">
       {/* ✅ Hero Section */}
       <section className="py-12 px-4 md:px-12 lg:px-32">
         <motion.div

@@ -104,13 +104,13 @@ const Header = () => {
                         <div className="flex flex-col pr-4">
                           <MenubarItem className="group">
                             <Link
-                              to="/custom-ai-agents"
+                              to="/ai-agents"
                               className="gap-2 flex items-start"
                             >
                               <Headset size={18} className="mt-1" />
                               <span className="flex flex-col text-left text-[16px] w-38">
                                 <span className="group-hover:text-blue-500 font-medium">
-                                  Custom AI Agents
+                                  AI Agents
                                 </span>
                                 <p className="text-[12px] text-gray-500">
                                   Automate end-to-end workflows with tailored
@@ -229,6 +229,11 @@ const Header = () => {
               </MenubarMenu>
             ))}
 
+            <MenubarMenu>
+              <MenubarTrigger>
+                <Link to="/categories">Our AI Agents</Link>
+              </MenubarTrigger>
+            </MenubarMenu>
             <MenubarMenu>
               <MenubarTrigger>
                 <Link to="company">About Us</Link>

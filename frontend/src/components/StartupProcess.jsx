@@ -1,4 +1,5 @@
 import { FaVideo, FaProjectDiagram, FaRocket } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 
 const steps = [
   {
@@ -64,9 +65,9 @@ const StartupProcess = () => {
           <p className="text-white text-lg">
   Your Startup’s AI Partner is just a click away
 </p>
-<button className="bg-lime-300 hover:bg-lime-400 text-black font-semibold px-6 py-2 rounded-full min-w-[140px]">
+<Link to='/sign-page' className="bg-lime-300 hover:bg-lime-400 text-center text-black font-semibold px-6 py-2 rounded-full min-w-[140px]">
   Get Started
-</button>
+</Link>
 
           </div>
         </div>
